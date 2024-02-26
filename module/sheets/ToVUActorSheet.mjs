@@ -14,7 +14,7 @@ export default class ToVUActorSheet extends ActorSheet{
         const data = super.getData();
         data.config = CONFIG.tovu;
         //data.weapons = data.items.filter(item => { return item.type == "weapon" });
-        console.log(data);
+        //console.log(data);
 
         return data;
     }
@@ -24,8 +24,9 @@ export default class ToVUActorSheet extends ActorSheet{
         //html.find(cssSelector).event(this._someCallBack.bind(this));
         html.find("button.skillProficiency").click(this._cycleSkillProficiency.bind(this));
         html.find("button.statProficiency").click(this._cycleStatProficiency.bind(this));
+        html.find("button.deathSave").click(this._cycleDeathSave.bind(this));
         html.find(".inline-edit").change(this._onSkillEdit.bind(this));
-        console.log(this.actor);
+        //console.log(this.actor);
 
         // possibly use this later
         // html.find(".item-create").click(this._onItemCreate.bind(this));
@@ -41,14 +42,14 @@ export default class ToVUActorSheet extends ActorSheet{
 
         if (icon.hasClass('fa-regular fa-circle')) {
             icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
-            console.log(icon);
+            //console.log(icon);
             return this.actor.update({ [`system.abilities.${stat}.proficient`]: 1 });
         } else if (icon.hasClass('fa-solid fa-circle')) {
             icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
-            console.log(icon);
+            //console.log(icon);
             return this.actor.update({ [`system.abilities.${stat}.proficient`]: 0 });
         } else {
-            console.log(icon);
+            //console.log(icon);
             console.log("Invalid icon class");
         }
 
@@ -82,6 +83,13 @@ export default class ToVUActorSheet extends ActorSheet{
                 console.log("Invalid icon class");
                 break;
         }
+        console.log(this.actor.system.deathSaves);
+    }
+
+    _cycleDeathSave(event){
+        event.preventDefault();
+        console.log("Save/Fail Clicked");
+
     }
 
 

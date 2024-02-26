@@ -51,17 +51,39 @@
     </div>
     <div class="deathSaves">
         <button data-roll="1d20">Death Save</button>
-        <div>
-            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
-            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
-            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
-            <label>Successes</label>
-        </div>
-        <div>
-            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
-            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
-            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
-            <label>Failures</label>
-        </div>
+        {{#each actor.system.deathSaves.save as |save index| }}
+            <button
+            id="proficiencyButton"
+            data-field="ability.proficient"
+            stats="{{key}}"
+            type="stats"
+            name="system.deathSaves.save[{{index}}]"
+            value="{{save}}"
+            class="proficiencyButton deathSave inline-edit">
+            {{#if (eq save false)}}
+            <i class="fa-regular fa-circle"></i>
+            {{else if (eq save true)}}
+            <i class="fa-solid fa-circle"></i>
+            {{/if}}
+        </button>
+        {{/each}}
+        <label>Successes</label>
+        {{#each actor.system.deathSaves.fail as |fail index| }}
+            <button
+            id="proficiencyButton"
+            data-field="ability.proficient"
+            stats="{{key}}"
+            type="stats"
+            name="system.deathSaves.save[{{index}}]"
+            value="{{fail}}"
+            class="proficiencyButton deathSave inline-edit">
+            {{#if (eq fail false)}}
+            <i class="fa-regular fa-circle"></i>
+            {{else if (eq fail true)}}
+            <i class="fa-solid fa-circle"></i>
+            {{/if}}
+        </button>
+        {{/each}}
+        <label>Failures</label>
     </div>
 </section>
