@@ -1,0 +1,83 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <header class="sheet-header">
+        <img src="{{item.img}}" data-edit="img" title="{{item.name}}" height="64" width="64"/>
+        <h1><input name="name" type="text" value="{{item.name}}" placeholder="{{ localize 'Name' }}"/></h1>
+    </header>
+    <div class="sheet-content">
+		<h1>{{item.type}}</h1>
+        <table>
+            <tr>
+                <th>{{localize "tovu.weapon.attackWith"}} {{item.system.attackWith}}</th>
+                <th>{{localize "tovu.weapon.damage"}} {{item.system.damage}}</th>
+                <th>{{localize "tovu.weapon.damageType"}}</th>
+                <th>{{localize "tovu.weapon.cost"}} {{item.system.cost}}</th>
+                <th>{{localize "tovu.weapon.weight"}}</th>
+                <th>{{localize "tovu.weapon.properties"}}</th>
+                <th>{{localize "tovu.weapon.option"}}</th>
+                <th>{{localize "tovu.weapon.hands"}}</th>
+                <th>{{localize "tovu.weapon.attunement"}}</th>
+                <th>{{localize "tovu.weapon.style"}}</th>
+                <th>{{localize "tovu.weapon.type"}}</th>
+            </tr>
+            <tr>
+                <td>
+                    <select name="item.system.attackWith">
+                        {{#select item.system.attackWith}}
+                        {{#each config.attackWith as |key name|}}
+                        <option value="{{name}}">{{name}}</option>
+                        {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>
+                    <input name="item.system.damage" type="text" value="{{item.system.damage}}" data-dtype="Number" />
+                </td>
+                <td>
+                    <select name="item.system.damageType">
+                        {{#select item.system.damageType}}
+                            {{#each config.damageType as |key name|}}
+                                <option value="{{name}}">{{name}}</option>
+                            {{/each}}
+                        {{/select}}
+                    </select>
+                </td>
+                <td>
+                    <input name="item.system.cost" type="text" value="{{item.system.cost}}" data-dtype="Number" />
+                </td>
+                <td>
+                    <input name="item.system.weight" type="text" value="{{item.system.weight}}" data-dtype="Number" />
+                </td>
+                <td>
+                    <input name="item.system.properties" type="checkbox" value="{{item.system.damage}}" data-dtype="Checkbox" />
+                </td>
+                <td>
+                    <input name="item.system.option" type="text" value="{{item.system.option}}" data-dtype="Number" />
+                </td>
+                <td>
+                    <select name="item.system.hands">
+						<option value="{{item.system.hands}}">1</option>
+						<option value="{{item.system.hands}}">2</option>
+					</select>
+                </td>
+                <td>
+                    <input name="item.system.attunement" type="checkbox" {{checked item.system.attunement}} />
+                </td>
+                <td>
+                    <select name="item.system.style">
+						<option value="{{item.system.style}}">Melee</option>
+						<option value="{{item.system.style}}">Ranged</option>
+					</select>
+                </td>
+                <td>
+                    <select name="item.system.type">
+						<option value="{{item.system.type}}">Simple</option>
+						<option value="{{item.system.type}}">Martial</option>
+					</select>
+                </td>
+            </tr>
+        </table>
+		<h2>Description</h2>
+		{{item.system.description.value}}
+		{{editor target="item.system.description.value" button=true editable=editable}}
+    </div>
+</form>

@@ -1,0 +1,57 @@
+{
+  "tovu": {
+    "abilityShortHand": {
+      "Str": "Strength",
+      "Dex": "Dexterity",
+      "Con": "Constitution",
+      "Int": "Intelligence",
+      "Wis": "Wisdom",
+      "Cha": "Charisma"
+    },
+    "abilityRegular": {
+      "Strength": "Strength",
+      "Dexterity": "Dexterity",
+      "Constitution": "Constitution",
+      "Intelligence": "Intelligence",
+      "Wisdom": "Wisdom",
+      "Charisma": "Charisma"
+    },
+    "weapon": {
+      "attackWith": "Attack with:",
+      "damage": "Damage",
+      "damageType": "Damage type:",
+      "cost": "Cost",
+      "weight": "Weight",
+      "properties": "Properties",
+      "option": "Option",
+      "hands": "Hands",
+      "attunement": "Attunement",
+      "style": "Style",
+      "type": "Type"
+    },
+    "damageType": {
+      "bludgeoning": "Bludgeoning",
+      "slashing": "Slashing",
+      "piercing": "Piercing",
+      "cold": "Cold",
+      "fire": "Fire",
+      "force": "Force",
+      "lightning": "Lightning",
+      "necrotic": "Necrotic",
+      "poison": "Poison",
+      "psychic": "Psychic",
+      "radiant": "Radiant",
+      "thunder": "Thunder"
+    },
+    "armor": {
+      "type": "Type",
+      "cost": "Cost",
+      "weight": "Weight",
+      "properties": "Properties",
+      "acBonus": "AC Bonus"
+    },
+    "hp": {
+      "hitPoints": "Hit Points"
+    }
+  }
+}

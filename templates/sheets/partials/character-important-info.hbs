@@ -1,0 +1,67 @@
+<section class="">
+    <label class="hitpointContainer">
+        <span>Hit Points: {{actor.system.hp.core}}</span>
+    </label>
+    <div class="grid grid-3col">
+        <div class="hpValues">
+            <label>Current: </label>
+            <input class="inline-edit" data-field="actor.system.hp.min" name="system.hp.min" type="text" value="{{actor.system.hp.min}}" data-dtype="Number" />
+        </div>
+        <div class="hpValues">
+            <label>Max: </label>
+            <input class="inline-edit" data-field="actor.system.hp.max" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" data-dtype="Number" />
+        </div>
+        <div class="hpValues">
+            <label>Temp: </label>
+            <input class="inline-edit" data-field="actor.system.hp.temp" name="system.hp.temp" type="text" value="{{actor.system.hp.temp}}" data-dtype="Number" />
+        </div>
+    </div>
+    <div class="armorClass grid grid-2col">
+        <label>AC: {{actor.system.ac.value}}</label>
+        <label>Speed: {{actor.system.speed.value}}</label>
+    </div>
+    <div class="luckPointsContainer">
+        <h3 class="grid-span-2">Luck Points</h3>
+        <div class="grid grid-2col">
+            <div class="luckPoints">
+                <label>Current: </label>
+                <input class="inline-edit" data-field="actor.system.luck.value" name="system.luck.value" type="text" value="{{actor.system.luck.value}}" data-dtype="Number" />
+            </div>
+            <div class="luckPoints">
+                <label>Max: {{actor.system.luck.max}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="passives">
+        <h3>Passives:</h3>
+        <div class="grid grid-3col">
+            <div>
+                <div>Insight:</div>
+                <div>{{actor.system.skills.ins.passive}}</div>
+            </div>
+            <div>
+                <div>Investigation:</div>
+                <div>{{actor.system.skills.inv.passive}}</div>
+            </div>
+            <div>
+                <div>Perception:</div>
+                <div>{{actor.system.skills.per.passive}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="deathSaves">
+        <button data-roll="1d20">Death Save</button>
+        <div>
+            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
+            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
+            <input class="inline-edit" data-field="actor.system.deathSaves.save" name="system.deathSaves.save" type="checkbox" {{checked actor.system.deathSaves.save}} />
+            <label>Successes</label>
+        </div>
+        <div>
+            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
+            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
+            <input class="inline-edit" data-field="actor.system.deathSaves.fail" name="system.deathSaves.fail" type="checkbox" {{checked actor.system.deathSaves.fail}} />
+            <label>Failures</label>
+        </div>
+    </div>
+</section>

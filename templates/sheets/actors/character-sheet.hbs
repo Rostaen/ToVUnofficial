@@ -1,0 +1,62 @@
+<form class="{{cssClass}} grid grid-5col" autocomplete="off">
+    <div class="sidebar">
+        {{#if (eq actor.type "character")}}
+        <h1 class="class">
+            <div data-edit="actor.system.keyability.value" contenteditable>
+                {{actor.name}}
+            </div>
+        </h1>
+        {{/if}}
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="actor-main-info">
+            {{> "systems/tovu/templates/sheets/partials/character-important-info.hbs"}}
+        </div>
+    </div>
+    <div class="main-content grid-span-4">
+        <nav class="sheet-tabs tabs" data-group="primary">
+            <a class="item" data-tab="stats">Stats</a>
+            <a class="item" data-tab="items">Items</a>
+            <a class="item" data-tab="features">Features</a>
+            <a class="item" data-tab="spells">Spells</a>
+            <a class="item" data-tab="description">Description</a>
+            <a class="item" data-tab="effects">Effects</a>
+        </nav>
+        {{!-- Sheet Body --}}
+        <section class="sheet-body">
+            {{!-- Owned Features Tab --}}
+            <div class="tab stats" data-group="primary" data-tab="stats">
+            {{!-- This is a Handlebars partial. They're stored in the `/parts`
+            folder next to this sheet, and defined in module/helpers/templates.mjs --}}
+            {{> "systems/tovu/templates/sheets/partials/character-stats.hbs"}}
+            </div>
+
+            {{!-- Owned Items Tab --}}
+            <div class="tab items" data-group="primary" data-tab="items">
+            {{> "systems/tovu/templates/sheets/partials/character-items.hbs"}}
+            </div>
+
+            {{!-- Features Tab --}}
+            <div class="tab features" data-group="primary" data-tab="features">
+            {{> "systems/tovu/templates/sheets/partials/character-features.hbs"}}
+            </div>
+
+            {{!-- Owned Spells Tab --}}
+            <div class="tab spells" data-group="primary" data-tab="spells">
+            {{> "systems/tovu/templates/sheets/partials/character-spells.hbs"}}
+            </div>
+
+            {{!-- Biography Tab --}}
+            <div class="tab biography" data-group="primary" data-tab="description">
+            {{!-- If you want TinyMCE editors to output inline rolls when rendered,
+            you need to pass the actor's roll data to the rollData property. --}}
+            {{editor system.details.biography target="system.biography" rollData=rollData
+            button=true owner=owner editable=editable}}
+            </div>
+
+            {{!-- Active Effects Tab --}}
+            <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+            {{> "systems/tovu/templates/sheets/partials/character-effects.hbs"}}
+            </div>
+        </section>
+    </div>
+</form>

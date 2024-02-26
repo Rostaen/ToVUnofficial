@@ -1,0 +1,47 @@
+{
+  "id": "tovu",
+  "title": "Tales of the Valiant: Unofficial",
+  "description": "The Tales of the Valiant (Unofficial) and Black Flag game system for FoundryVTT!",
+  "authors": [
+    {
+      "name": "Andrew",
+      "discord": "zerrian_"
+    }
+  ],
+  "url": "",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "Replace this with a link to file issues or tickets",
+  "changelog": "CHANGELOG.md",
+  "media": [
+    {
+      "type": "setup",
+      "url": "systems/tovu/assets/ToV_bg.png",
+      "thumbnail": "systems/tovu/assets/ToV_bg.png"
+    }
+  ],
+  "version": "0.0.1",
+  "compatibility": {
+    "minimum": 11,
+    "verified": "11.315"
+  },
+  "esmodules": ["tovu.mjs"],
+  "styles": ["css/tovu.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [],
+  "packFolders": [],
+  "socket": false,
+  "manifest": "",
+  "download": "",
+  "background": "systems/tovu/assets/ToV_bg.png",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "power"
+}

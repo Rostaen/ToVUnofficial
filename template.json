@@ -1,0 +1,214 @@
+{
+  "Actor": {
+    "types": ["character", "npc", "pet"],
+    "templates": {
+      "common": {
+        "abilities": {
+          "str": {
+            "value": 0,
+            "proficient": 0
+          },
+          "dex": {
+            "value": 0,
+            "proficient": 0
+          },
+          "con": {
+            "value": 0,
+            "proficient": 0
+          },
+          "int": {
+            "value": 0,
+            "proficient": 0
+          },
+          "wis": {
+            "value": 0,
+            "proficient": 0
+          },
+          "cha": {
+            "value": 0,
+            "proficient": 0
+          }
+        },
+        "ac": {
+          "value": 0,
+          "modifiers": []
+        },
+        "hp": {
+          "min": 0,
+          "max": 10,
+          "core": 0,
+          "temp": 0
+        },
+        "speed": {
+          "value": 30,
+          "others": []
+        },
+        "proficiency": {
+          "base": 2,
+          "proficiencyLevels": {
+            "value": [5, 9, 13, 17, 21, 25, 29]
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["common"],
+      "skills": {
+        "acr": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "ani": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "arc": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "ath": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "dec": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "his": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "ins": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "int": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "inv": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "med": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "nat": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "per": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "prf": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "prs": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "rel": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "soh": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "ste": {
+          "value": 0,
+          "proficiency": 0
+        },
+        "sur": {
+          "value": 0,
+          "proficiency": 0
+        }
+      },
+      "details": {
+        "biography": {
+          "appearance": "",
+          "backstory": "",
+          "birthPlace": "",
+          "attitude": "",
+          "beliefs": "",
+          "likes": "",
+          "dislikes": "",
+          "campaignNotes": "",
+          "allies": "",
+          "enemies": "",
+          "organizations": "",
+          "visibility": {
+            "appearance": true,
+            "backstory": false,
+            "personality": false,
+            "campaign": false
+          }
+        },
+        "age": {
+          "value": ""
+        },
+        "height": {
+          "value": ""
+        },
+        "weight": {
+          "value": ""
+        },
+        "gender": {
+          "value": ""
+        }
+      },
+      "keyability": {
+        "value": "str"
+      },
+      "luck": {
+        "value": 0,
+        "max": 5,
+        "modifiers": []
+      },
+      "xp": {
+        "value": 0,
+        "min": 0,
+        "max": 300
+      },
+      "deathSaves": {
+        "save": 0,
+        "fail": 0,
+        "max": 3
+      }
+    }
+  },
+  "Item": {
+    "types": ["weapon", "armor", "potion"],
+    "templates": {
+      "common": {
+        "type": "",
+        "cost": 0,
+        "weight": 0,
+        "properties": [],
+        "description": {
+          "value": ""
+        }
+      }
+    },
+    "weapon": {
+      "templates": ["common"],
+      "style": "",
+      "damage": 0,
+      "damageType": "",
+      "option": [],
+      "hands": 1,
+      "attunement": false,
+      "attackWith": ""
+    },
+    "armor": {
+      "templates": ["common"],
+      "acBonus": ""
+    },
+    "potion": {
+      "templates": ["common"]
+    }
+  }
+}

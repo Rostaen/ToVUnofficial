@@ -1,0 +1,92 @@
+<section class="stats grid grid-6col">
+    {{#each actor.system.abilities as |ability key|}}
+    <div class="ability flexcol flex-group-center">
+        <label
+        for="system.abilities.{{key}}.value"
+        class="resource-label rollable flexlarge align-left"
+        data-roll="d20+@abilities.{{key}}.mod"
+        data-label="{{ability.label}}"
+        >
+            {{ability.label}}
+        </label>
+        <input
+            type="text"
+            name="system.abilities.{{key}}.value"
+            value="{{ability.value}}"
+            data-dtype="Number"
+        />
+        <section class="profSwitch grid grid-3col">
+            <span
+                class="ability-mod rollable"
+                data-roll="d20+@abilities.{{key}}.mod"
+                data-label="{{ability.label}}"
+                >
+                {{numberFormat ability.mod decimals=0 sign=true}}
+            </span>
+            <button
+              id="proficiencyButton"
+              data-field="ability.proficient"
+              stats="{{key}}"
+              type="stats"
+              name="stats.proficiency"
+              value="{{ability.proficient}}"
+              class="proficiencyButton statProficiency inline-edit">
+              {{#if (eq ability.proficient 0)}}
+              <i class="fa-regular fa-circle"></i>
+              {{else if (eq ability.proficient 1)}}
+              <i class="fa-solid fa-circle"></i>
+              {{/if}}
+            </button>
+            <span
+                class="save-mod rollable"
+                data-roll="d20+@abilities.{{key}}.save"
+                data-label="{{key}}"
+                >
+                {{numberFormat ability.save decimals=0 sign=true}}
+            </span>
+        </section>
+    </div>
+    {{/each}}
+</section>
+<section class="skillsContainer grid grid-3col">
+    <aside class="sidebar">
+      <div class="skills flexcol">
+        <h2 class="skills">Skills</h2>
+        {{#each actor.system.skills as |skills key|}}
+          <div class="skills flexrow flex-group-center">
+            <button
+              id="proficiencyButton"
+              data-field="skills.proficiency"
+              skill="{{key}}"
+              type="skill"
+              name="skills.proficiency"
+              value="{{skills.proficiency}}"
+              class="proficiencyButton skillProficiency inline-edit">
+              {{#if (eq skills.proficiency 0)}}
+              <i class="fa-regular fa-circle"></i>
+              {{else if (eq skills.proficiency 1)}}
+              <i class="fa-solid fa-circle"></i>
+              {{else if (eq skills.proficiency 2)}}
+              <i class="fa-solid fa-circle-check"></i>
+              {{else if (eq skills.proficiency 0.5)}}
+              <i class="fa-solid fa-circle-half-stroke"></i>
+              {{/if}}
+            </button>
+            <label
+              for="actor.system.skills.{{key}}.value"
+              class="resource-label rollable flexlarge align-left"
+              data-roll="d20+@abilities.{{skills.core}}.mod"
+              data-label="{{key}}"
+            >{{skills.label}}</label>
+            <span class="skills-mod" name="key" value="skills.mod">{{numberFormat skills.value decimals=0 sign=true}}</span>
+            <span class="skills-passive">({{skills.passive}})</span>
+          </div>
+        {{/each}}
+      </div>
+    </aside>
+
+    <!-- {{!-- For the main features list, span the right two columns --}}
+    <section class="main grid-span-2">
+
+    </section> -->
+  </section>
