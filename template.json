@@ -174,8 +174,8 @@
         "max": 300
       },
       "deathSaves": {
-        "save": [false, false, false],
-        "fail": [false, false, false],
+        "save": [0, 0, 0],
+        "fail": [0, 0, 0],
         "max": 3
       }
     }

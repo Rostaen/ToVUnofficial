@@ -45,3 +45,10 @@ Hooks.once("init", () => {
 //   return array[index];
 //   //return array[index] ? 'checked' : '';
 // });
+
+Handlebars.registerHelper('times', (n, actor, block) => {
+  let accum = '';
+  for (let i = 0; i < n; ++i)
+    accum += block.fn({ index: i, actor: actor });
+  return accum;
+});

@@ -51,39 +51,36 @@
     </div>
     <div class="deathSaves">
         <button data-roll="1d20">Death Save</button>
-        {{#each actor.system.deathSaves.save as |save index| }}
+        {{#times 3 actor }}
+            <p>{{index}}: {{actor.system.deathSaves.save.[index]}}</p>
             <button
-            id="proficiencyButton"
-            data-field="ability.proficient"
-            stats="{{key}}"
-            type="stats"
-            name="system.deathSaves.save[{{index}}]"
-            value="{{save}}"
+            numId="{{index}}"
+            type="save"
+            name="system.deathSaves.save.{{index}}"
+            value="{{actor.system.deathSaves.save.[index]}}"
             class="proficiencyButton deathSave inline-edit">
-            {{#if (eq save false)}}
+            {{#if (eq (lookup actor.system.deathSaves.save index) 0)}}
             <i class="fa-regular fa-circle"></i>
-            {{else if (eq save true)}}
+            {{else}}
             <i class="fa-solid fa-circle"></i>
             {{/if}}
-        </button>
-        {{/each}}
+            </button>
+        {{/times}}
         <label>Successes</label>
-        {{#each actor.system.deathSaves.fail as |fail index| }}
+        {{#times 3 actor }}
             <button
-            id="proficiencyButton"
-            data-field="ability.proficient"
-            stats="{{key}}"
-            type="stats"
-            name="system.deathSaves.save[{{index}}]"
-            value="{{fail}}"
+            numId="{{index}}"
+            type="fail"
+            name="system.deathSaves.fail.{{index}}"
+            value="{{actor.system.deathSaves.fail.[index]}}"
             class="proficiencyButton deathSave inline-edit">
-            {{#if (eq fail false)}}
+            {{#if (eq (lookup actor.system.deathSaves.fail index) 0)}}
             <i class="fa-regular fa-circle"></i>
-            {{else if (eq fail true)}}
+            {{else}}
             <i class="fa-solid fa-circle"></i>
             {{/if}}
-        </button>
-        {{/each}}
+            </button>
+        {{/times}}
         <label>Failures</label>
     </div>
 </section>
