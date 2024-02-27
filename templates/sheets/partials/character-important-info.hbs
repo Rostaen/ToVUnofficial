@@ -1,27 +1,32 @@
-<section class="">
-    <label class="hitpointContainer">
-        <span>Hit Points: {{actor.system.hp.core}}</span>
-    </label>
-    <div class="grid grid-3col">
-        <div class="hpValues">
-            <label>Current: </label>
-            <input class="inline-edit" data-field="actor.system.hp.min" name="system.hp.min" type="text" value="{{actor.system.hp.min}}" data-dtype="Number" />
-        </div>
-        <div class="hpValues">
-            <label>Max: </label>
-            <input class="inline-edit" data-field="actor.system.hp.max" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" data-dtype="Number" />
-        </div>
-        <div class="hpValues">
-            <label>Temp: </label>
-            <input class="inline-edit" data-field="actor.system.hp.temp" name="system.hp.temp" type="text" value="{{actor.system.hp.temp}}" data-dtype="Number" />
+<section class="characterSidebar">
+    <div class="hitpointContainer">
+        <label>
+            <span>Hit Points: {{actor.system.hp.core}}</span>
+        </label>
+        <div class="grid grid-3col">
+            <div class="hpValues">
+                <label>Current: </label>
+                <input class="inline-edit" data-field="actor.system.hp.min" name="system.hp.min" type="text" value="{{actor.system.hp.min}}" data-dtype="Number" />
+            </div>
+            <div class="hpValues">
+                <label>Max: </label>
+                <input class="inline-edit" data-field="actor.system.hp.max" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" data-dtype="Number" />
+            </div>
+            <div class="hpValues">
+                <label>Temp: </label>
+                <input class="inline-edit" data-field="actor.system.hp.temp" name="system.hp.temp" type="text" value="{{actor.system.hp.temp}}" data-dtype="Number" />
+            </div>
         </div>
     </div>
-    <div class="armorClass grid grid-2col">
-        <label>AC: {{actor.system.ac.value}}</label>
-        <label>Speed: {{actor.system.speed.value}}</label>
+    <div class="armorClass">
+        <h4>Armor Class:</h4>
+        <div class="grid-2col">
+            <label>AC: {{actor.system.ac.value}}</label>
+            <label>Speed: {{actor.system.speed.value}}</label>
+        </div>
     </div>
     <div class="luckPointsContainer">
-        <h3 class="grid-span-2">Luck Points</h3>
+        <h4 class="grid-span-2">Luck Points</h4>
         <div class="grid grid-2col">
             <div class="luckPoints">
                 <label>Current: </label>
@@ -33,54 +38,58 @@
         </div>
     </div>
     <div class="passives">
-        <h3>Passives:</h3>
-        <div class="grid grid-3col">
-            <div>
-                <div>Insight:</div>
-                <div>{{actor.system.skills.ins.passive}}</div>
-            </div>
-            <div>
-                <div>Investigation:</div>
-                <div>{{actor.system.skills.inv.passive}}</div>
-            </div>
-            <div>
-                <div>Perception:</div>
-                <div>{{actor.system.skills.per.passive}}</div>
-            </div>
+        <h4>Passives:</h4>
+        <div>
+            Insight: {{actor.system.skills.ins.passive}}
+        </div>
+        <div>
+            Investigation: {{actor.system.skills.inv.passive}}
+        </div>
+        <div>
+            Perception: {{actor.system.skills.per.passive}}
         </div>
     </div>
     <div class="deathSaves">
-        <button data-roll="1d20">Death Save</button>
-        {{#times 3 actor }}
-            <p>{{index}}: {{actor.system.deathSaves.save.[index]}}</p>
-            <button
-            numId="{{index}}"
-            type="save"
-            name="system.deathSaves.save.{{index}}"
-            value="{{actor.system.deathSaves.save.[index]}}"
-            class="proficiencyButton deathSave inline-edit">
-            {{#if (eq (lookup actor.system.deathSaves.save index) 0)}}
-            <i class="fa-regular fa-circle"></i>
-            {{else}}
-            <i class="fa-solid fa-circle"></i>
-            {{/if}}
-            </button>
-        {{/times}}
-        <label>Successes</label>
-        {{#times 3 actor }}
-            <button
-            numId="{{index}}"
-            type="fail"
-            name="system.deathSaves.fail.{{index}}"
-            value="{{actor.system.deathSaves.fail.[index]}}"
-            class="proficiencyButton deathSave inline-edit">
-            {{#if (eq (lookup actor.system.deathSaves.fail index) 0)}}
-            <i class="fa-regular fa-circle"></i>
-            {{else}}
-            <i class="fa-solid fa-circle"></i>
-            {{/if}}
-            </button>
-        {{/times}}
-        <label>Failures</label>
+        <button data-roll="d20" class="deathSavesRoller">
+            <i class="fa-solid fa-skull"></i> Death Save
+        </button>
+        <div class="savesContainer grid grid-2col">
+            <div class="savesButtons">
+                {{#times 3 actor }}
+                <button
+                numId="{{index}}"
+                type="save"
+                name="system.deathSaves.save.{{index}}"
+                value="{{actor.system.deathSaves.save.[index]}}"
+                class="proficiencyButton deathSave inline-edit">
+                {{#if (eq (lookup actor.system.deathSaves.save index) 0)}}
+                    <i class="fa-regular fa-circle"></i>
+                {{else}}
+                    <i class="fa-solid fa-circle"></i>
+                {{/if}}
+                </button>
+                {{/times}}
+            </div>
+            <div class="savesLabel">Successes</div>
+        </div>
+        <div class="savesContainer grid grid-2col">
+            <div class="savesButtons">
+                {{#times 3 actor }}
+                <button
+                numId="{{index}}"
+                type="fail"
+                name="system.deathSaves.fail.{{index}}"
+                value="{{actor.system.deathSaves.fail.[index]}}"
+                class="proficiencyButton deathSave inline-edit">
+                {{#if (eq (lookup actor.system.deathSaves.fail index) 0)}}
+                    <i class="fa-regular fa-circle"></i>
+                {{else}}
+                    <i class="fa-solid fa-circle"></i>
+                {{/if}}
+                </button>
+                {{/times}}
+            </div>
+            <div class="savesLabel">Failures</div>
+        </div>
     </div>
 </section>

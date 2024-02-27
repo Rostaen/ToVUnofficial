@@ -193,21 +193,79 @@
 .tovu.sheet.item .sheet-content .editor {
   height: 100%;
 }
+.character p,
+.character div,
+.character span {
+  font-size: 12px;
+}
+.ability {
+  background-color: #dcdde2;
+  border: 1px solid #105b95;
+  padding: 5px;
+  border-radius: 5px;
+}
+.ability input {
+  font-size: 16px;
+  padding: 5px;
+}
+.ability .profSwitch .ability-mod,
+.ability .profSwitch .save-mod {
+  font-size: 16px;
+}
 .ability .profSwitch .proficiencyButton {
   border-radius: 16px;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   padding: 0px;
+  position: relative;
 }
 .ability .profSwitch .proficiencyButton i {
   margin: 0px;
+  position: absolute;
+  top: -1px;
+  left: -2px;
+}
+.skillsContainer .skills {
+  margin: 0px 0px 5px;
 }
 .skillsContainer .skills .proficiencyButton {
   border-radius: 16px;
-  height: 20px;
-  width: 20px;
+  height: 15px;
+  width: 15px;
   padding: 0px;
+  float: left;
+  position: relative;
 }
 .skillsContainer .skills .proficiencyButton i {
   margin: 0px;
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+.characterSidebar .hitpointContainer,
+.characterSidebar .armorClass,
+.characterSidebar .luckPointsContainer,
+.characterSidebar .passives,
+.characterSidebar .deathSaves {
+  background-color: #dcdde2;
+  border: 1px solid #105b95;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.characterSidebar .deathSaves .savesContainer .savesLabel {
+  margin-top: 5px;
+}
+.characterSidebar .deathSaves .savesContainer button.deathSave {
+  padding: 0;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+.characterSidebar .deathSaves .savesContainer button.deathSave i {
+  position: absolute;
+  top: -2px;
+  left: -2px;
 }
