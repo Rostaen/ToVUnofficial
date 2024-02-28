@@ -1,28 +1,75 @@
 <section class="characterSidebar">
     <div class="hitpointContainer">
-        <label>
-            <span>Hit Points: {{actor.system.hp.core}}</span>
-        </label>
-        <div class="grid grid-3col">
-            <div class="hpValues">
-                <label>Current: </label>
-                <input class="inline-edit" data-field="actor.system.hp.min" name="system.hp.min" type="text" value="{{actor.system.hp.min}}" data-dtype="Number" />
+        <div>
+            <label>
+                <span>Hit Points: {{actor.system.hp.core}}</span>
+            </label>
+            <div class="grid grid-3col">
+                <div class="hpValues">
+                    <label>Current: </label>
+                    <input class="inline-edit" data-field="actor.system.hp.min" name="system.hp.min" type="text" value="{{actor.system.hp.min}}" data-dtype="Number" />
+                </div>
+                <div class="hpValues">
+                    <label>Max: </label>
+                    <input class="inline-edit" data-field="actor.system.hp.max" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" data-dtype="Number" />
+                </div>
+                <div class="hpValues">
+                    <label>Temp: </label>
+                    <input class="inline-edit" data-field="actor.system.hp.temp" name="system.hp.temp" type="text" value="{{actor.system.hp.temp}}" data-dtype="Number" />
+                </div>
             </div>
-            <div class="hpValues">
-                <label>Max: </label>
-                <input class="inline-edit" data-field="actor.system.hp.max" name="system.hp.max" type="text" value="{{actor.system.hp.max}}" data-dtype="Number" />
+        </div>
+        <div>
+            <label>
+                Hit Dice:
+            </label>
+            <div class="grid grid-4col">
+                <span>
+                    <input type="text" name="system.hitDice.min" value="{{actor.system.hitDice.min}}" />
+                </span>
+                <span>
+                    /
+                </span>
+                <span>
+                    {{actor.system.hitDice.max}}
+                </span>
+                <span>
+                    <button data-roll="d{{actor.system.hitDice.value}}+@abilities.con.mod" >
+                        <i class="fa-solid fa-dice"></i>
+                    </button>
+                </span>
             </div>
-            <div class="hpValues">
-                <label>Temp: </label>
-                <input class="inline-edit" data-field="actor.system.hp.temp" name="system.hp.temp" type="text" value="{{actor.system.hp.temp}}" data-dtype="Number" />
+        </div>
+        <div>
+            <label>
+                Exhaustion
+            </label>
+            <div class="grid grid-6col">
+            {{#times 6 actor }}
+            <button id="{{index}}" class="exhaustionMarker" marked="{{this}}">
+                {{#if this}}
+                    <i class="fa-regular fa-circle"></i>
+                {{else}}
+                    <i class="fa-solid fa-circle"></i>
+                {{/if}}
+            </button>
+            {{/times}}
             </div>
         </div>
     </div>
     <div class="armorClass">
-        <h4>Armor Class:</h4>
-        <div class="grid-2col">
-            <label>AC: {{actor.system.ac.value}}</label>
-            <label>Speed: {{actor.system.speed.value}}</label>
+        <div>
+            <h4>Armor Class:</h4>
+            <div class="grid-2col">
+                <label>AC: {{actor.system.ac.value}}</label>
+                <label>Speed: {{actor.system.speed.value}}</label>
+            </div>
+        </div>
+        <div>
+            Initiative: <button data-roll="d20+@abilities.dex.mod" >{{numberFormat actor.system.abilities.dex.mod decimals=0 sign=true}}</button>
+        </div>
+        <div>
+            Proficieny: {{numberFormat actor.system.proficiency.base decimals=0 sign=true}}
         </div>
     </div>
     <div class="luckPointsContainer">

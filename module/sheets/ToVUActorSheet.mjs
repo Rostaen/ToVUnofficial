@@ -25,6 +25,7 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find("button.skillProficiency").click(this._cycleSkillProficiency.bind(this));
         html.find("button.statProficiency").click(this._cycleStatProficiency.bind(this));
         html.find("button.deathSave").click(this._cycleDeathSave.bind(this));
+        html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
         html.find(".inline-edit").change(this._onSkillEdit.bind(this));
         //console.log(this.actor);
 
@@ -110,6 +111,27 @@ export default class ToVUActorSheet extends ActorSheet{
 
         actor.update({ [`system.deathSaves.${type}`]: deathSavesArray });
         console.log(" -- Actor Data Bottom Call: ", systemData.deathSaves);
+    }
+
+    _cycleExhaustion(event){
+        event.preventDefault();
+        const target = $(event.currentTarget);
+        const actor = this.actor;
+        const systemData = actor.system;
+        const icon = target.find('i');
+        let exhaustion = systemData.exhaustion.level;
+
+        if (icon.hasClass('fa-regular fa-circle')) {
+            icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
+            exhaustion += 1;
+        } else if (icon.hasClass('fa-solid fa-circle')) {
+            icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
+            exhaustion -= 1;
+        } else {
+            console.log("Invalid icon class");
+        }
+        actor.update({ 'system.exhaustion.level': exhaustion });
+        console.log (systemData.exhaustion);
     }
 
 

@@ -20,6 +20,7 @@ export class ToVUActor extends Actor {
     _prepareCharacterData(actorData) {
         const systemData = actorData.system;
 
+        //Labeling Stats from shorthand
         const statMap = {
             'str': { label: "Strength" },
             'dex': { label: "Dexterity" },
@@ -36,6 +37,11 @@ export class ToVUActor extends Actor {
             Object.assign(ability, mappedStat);
         }
 
+        //Setting base AC
+        systemData.ac.value = 10 + systemData.abilities.dex.mod;
+        systemData.ac.modifiers.forEach(element => {
+            systemData.ac.value += element;
+        });
 
         if(actorData.type !== 'character') return;
 
