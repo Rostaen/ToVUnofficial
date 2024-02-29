@@ -1,8 +1,10 @@
-.ability{
+.ability, .skillsContainer, .toolsContainer{
     background-color: rgb(220, 221, 226);
     border: 1px solid rgb(16, 91, 149);
     padding: 5px;
     border-radius: 5px;
+}
+.ability{
     input{
         font-size: 16px;
         padding: 5px;
@@ -28,8 +30,7 @@
     }
 }
 .skillsContainer{
-    .skills{
-        margin: 0px 0px 5px;
+    div.skills{
         .proficiencyButton{
             border-radius: 16px;
             height: 15px;
@@ -42,6 +43,33 @@
                 position: absolute;
                 top: -2px;
                 left: -2px;
+            }
+        }
+        .skillLabel{
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr;
+        }
+    }
+    div.skills+div.skills{
+        border-top: 1px solid rgb(16, 91, 149);
+        margin-top: 4px;
+        padding-top: 4px;
+    }
+}
+.toolsContainer{
+    margin-top: 10px;
+    .header{
+        button{
+            float: right;
+            padding: 0;
+            margin: 0;
+            width: 14px;
+            height: 14px;
+            position: relative;
+            i{
+                position: absolute;
+                top: -2px;
+                left: -1px;
             }
         }
     }

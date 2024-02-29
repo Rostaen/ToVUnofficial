@@ -198,7 +198,9 @@
 .character span {
   font-size: 12px;
 }
-.ability {
+.ability,
+.skillsContainer,
+.toolsContainer {
   background-color: #dcdde2;
   border: 1px solid #105b95;
   padding: 5px;
@@ -225,10 +227,7 @@
   top: -1px;
   left: -2px;
 }
-.skillsContainer .skills {
-  margin: 0px 0px 5px;
-}
-.skillsContainer .skills .proficiencyButton {
+.skillsContainer div.skills .proficiencyButton {
   border-radius: 16px;
   height: 15px;
   width: 15px;
@@ -236,11 +235,39 @@
   float: left;
   position: relative;
 }
-.skillsContainer .skills .proficiencyButton i {
+.skillsContainer div.skills .proficiencyButton i {
   margin: 0px;
   position: absolute;
   top: -2px;
   left: -2px;
+}
+.skillsContainer div.skills .skillLabel {
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+.skillsContainer div.skills + div.skills {
+  border-top: 1px solid #105b95;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+.toolsContainer {
+  margin-top: 10px;
+}
+.toolsContainer .header button {
+  float: right;
+  padding: 0;
+  margin: 0;
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+.toolsContainer .header button i {
+  position: absolute;
+  top: -2px;
+  left: -1px;
+}
+.characterSidebar input {
+  text-align: center;
 }
 .characterSidebar .hitpointContainer,
 .characterSidebar .armorClass,
@@ -253,8 +280,55 @@
   padding: 5px;
   margin-bottom: 10px;
 }
+.characterSidebar .hitpointContainer .hitDiceContainer .hitDiceLoc {
+  justify-items: center;
+  align-items: center;
+  gap: 0px;
+  grid-template-columns: 2fr 0fr 1fr 1fr;
+}
+.characterSidebar .hitpointContainer .hitDiceContainer .hitDiceLoc input {
+  font-size: 12px;
+}
+.characterSidebar .hitpointContainer .hitDiceContainer .hitDiceLoc span {
+  font-size: 16px;
+}
+.characterSidebar .hitpointContainer .hitDiceContainer button {
+  margin: 0px;
+  padding: 1px 5px;
+}
+.characterSidebar .hitpointContainer .exhaustionContainer button.exhaustionMarker {
+  padding: 0;
+  margin: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+.characterSidebar .hitpointContainer .exhaustionContainer button.exhaustionMarker i {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+.characterSidebar .armorClass .grid .profBonus div {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8px auto;
+}
+.characterSidebar .luckPointsContainer .grid .luckPoints div {
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 4px auto;
+}
+.characterSidebar .passives div {
+  padding-bottom: 5px;
+  font-size: 16px;
+}
 .characterSidebar .deathSaves .savesContainer .savesLabel {
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .characterSidebar .deathSaves .savesContainer button.deathSave {
   padding: 0;

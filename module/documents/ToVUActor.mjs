@@ -22,12 +22,12 @@ export class ToVUActor extends Actor {
 
         //Labeling Stats from shorthand
         const statMap = {
-            'str': { label: "Strength" },
-            'dex': { label: "Dexterity" },
-            'con': { label: "Constitution" },
-            'int': { label: "Intelligence" },
-            'wis': { label: "Wisdom" },
-            'cha': { label: "Charisma" }
+            'str': { label: game.i18n.localize("tovu.abilityShortHand.str") },
+            'dex': { label: game.i18n.localize("tovu.abilityShortHand.dex") },
+            'con': { label: game.i18n.localize("tovu.abilityShortHand.con") },
+            'int': { label: game.i18n.localize("tovu.abilityShortHand.int") },
+            'wis': { label: game.i18n.localize("tovu.abilityShortHand.wis") },
+            'cha': { label: game.i18n.localize("tovu.abilityShortHand.cha") }
         };
         // Calculate ability modifiers and save mods
         for (let [key, ability] of Object.entries(systemData.abilities)) {
@@ -37,7 +37,7 @@ export class ToVUActor extends Actor {
             Object.assign(ability, mappedStat);
         }
 
-        //Setting base AC
+        // Setting base AC
         systemData.ac.value = 10 + systemData.abilities.dex.mod;
         systemData.ac.modifiers.forEach(element => {
             systemData.ac.value += element;
@@ -47,24 +47,24 @@ export class ToVUActor extends Actor {
 
         // Map skill keys to labels and core attributes
         const skillMap = {
-            'acr': { label: "Acrobatics", core: "dex" },
-            'ani': { label: "Animal Handling", core: "wis" },
-            'arc': { label: "Arcana", core: "int" },
-            'ath': { label: "Athletics", core: "str" },
-            'dec': { label: "Deception", core: "cha" },
-            'his': { label: "History", core: "int" },
-            'ins': { label: "Insight", core: "wis" },
-            'int': { label: "Intimidation", core: "cha" },
-            'inv': { label: "Investigation", core: "int" },
-            'med': { label: "Medicine", core: "wis" },
-            'nat': { label: "Nature", core: "int" },
-            'per': { label: "Perception", core: "wis" },
-            'prf': { label: "Performance", core: "cha" },
-            'prs': { label: "Persuasion", core: "cha" },
-            'rel': { label: "Religion", core: "int" },
-            'soh': { label: "Slight of Hands", core: "dex" },
-            'ste': { label: "Stealth", core: "dex" },
-            'sur': { label: "Survival", core: "wis" }
+            'acr': { label: game.i18n.localize("tovu.skills.acr"), core: "dex" },
+            'ani': { label: game.i18n.localize("tovu.skills.ani"), core: "wis" },
+            'arc': { label: game.i18n.localize("tovu.skills.arc"), core: "int" },
+            'ath': { label: game.i18n.localize("tovu.skills.ath"), core: "str" },
+            'dec': { label: game.i18n.localize("tovu.skills.dec"), core: "cha" },
+            'his': { label: game.i18n.localize("tovu.skills.his"), core: "int" },
+            'ins': { label: game.i18n.localize("tovu.skills.ins"), core: "wis" },
+            'int': { label: game.i18n.localize("tovu.skills.int"), core: "cha" },
+            'inv': { label: game.i18n.localize("tovu.skills.inv"), core: "int" },
+            'med': { label: game.i18n.localize("tovu.skills.med"), core: "wis" },
+            'nat': { label: game.i18n.localize("tovu.skills.nat"), core: "int" },
+            'per': { label: game.i18n.localize("tovu.skills.per"), core: "wis" },
+            'prf': { label: game.i18n.localize("tovu.skills.prf"), core: "cha" },
+            'prs': { label: game.i18n.localize("tovu.skills.prs"), core: "cha" },
+            'rel': { label: game.i18n.localize("tovu.skills.rel"), core: "int" },
+            'soh': { label: game.i18n.localize("tovu.skills.soh"), core: "dex" },
+            'ste': { label: game.i18n.localize("tovu.skills.ste"), core: "dex" },
+            'sur': { label: game.i18n.localize("tovu.skills.sur"), core: "wis" }
         };
 
         for (let [key, skill] of Object.entries(systemData.skills)) {

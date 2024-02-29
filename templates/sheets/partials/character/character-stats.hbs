@@ -7,7 +7,7 @@
         data-roll="d20+@abilities.{{key}}.mod"
         data-label="{{ability.label}}"
         >
-            {{ability.label}}
+			{{ability.value}}
         </label>
         <input
             type="text"
@@ -46,10 +46,10 @@
     </div>
     {{/each}}
 </section>
-<section class="skillsContainer grid grid-3col">
-    <aside class="sidebar">
-      <div class="skills flexcol">
-        <h2 class="skills">Skills</h2>
+<section class="grid grid-3col">
+    <section class="sidebar">
+      <div class="skillsContainer flexcol">
+        <h2 class="skills">{{localize 'tovu.skills.skills'}}</h2>
         {{#each actor.system.skills as |skills key|}}
         <div class="skills">
             <button
@@ -70,7 +70,7 @@
 				<i class="fa-solid fa-circle-half-stroke"></i>
 			{{/if}}
             </button>
-			<div class="flexrow flex-group-center">
+			<div class="skillLabel">
 				<label
 				for="actor.system.skills.{{key}}.value"
 				class="resource-label rollable flexlarge align-left"
@@ -84,7 +84,15 @@
         </div>
         {{/each}}
       </div>
-    </aside>
+	  <div class="toolsContainer">
+		<h2 class="header">{{localize 'tovu.tools.tools'}} <button class="updateTools" ><i class="fa-regular fa-square-plus"></i></button></h2>
+		<div class="tools">
+			{{#each actor.system.tools as |tool key|}}
+			{{!-- items to be added here. --}}
+			{{/each}}
+		</div>
+	  </div>
+    </section>
 
     <!-- {{!-- For the main features list, span the right two columns --}}
     <section class="main grid-span-2">

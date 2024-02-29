@@ -27,6 +27,7 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find("button.deathSave").click(this._cycleDeathSave.bind(this));
         html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
         html.find(".inline-edit").change(this._onSkillEdit.bind(this));
+        html.find("button.updateTools").click(this._updateToolsList.bind(this));
         //console.log(this.actor);
 
         // possibly use this later
@@ -123,15 +124,38 @@ export default class ToVUActorSheet extends ActorSheet{
 
         if (icon.hasClass('fa-regular fa-circle')) {
             icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
-            exhaustion += 1;
+            if(exhaustion <= 6)
+                exhaustion += 1;
         } else if (icon.hasClass('fa-solid fa-circle')) {
             icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
-            exhaustion -= 1;
+            if(exhaustion >= 0)
+                exhaustion -= 1;
         } else {
             console.log("Invalid icon class");
         }
         actor.update({ 'system.exhaustion.level': exhaustion });
-        console.log (systemData.exhaustion);
+    }
+
+    async _updateToolsList(event){
+        event.preventDefault();
+        const actor = this.actor;
+        return new Promise((resolve, reject) => {
+            const window = new this.actor(actor, {
+                title: `${actor.name}`,
+                buttons: {
+                    label: "Test",
+                    callback: () => {
+                        resolve(true);
+                    }
+                },
+                cancel: {
+                    label: "Exit",
+                    callback: reject
+                },
+                close: reject
+            });
+            window.render(true);
+        });
     }
 
 

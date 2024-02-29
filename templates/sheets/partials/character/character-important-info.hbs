@@ -19,11 +19,11 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="hitDiceContainer">
             <label>
                 Hit Dice:
             </label>
-            <div class="grid grid-4col">
+            <div class="grid grid-4col hitDiceLoc">
                 <span>
                     <input type="text" name="system.hitDice.min" value="{{actor.system.hitDice.min}}" />
                 </span>
@@ -40,17 +40,17 @@
                 </span>
             </div>
         </div>
-        <div>
+        <div class="exhaustionContainer">
             <label>
                 Exhaustion
             </label>
             <div class="grid grid-6col">
             {{#times 6 actor }}
-            <button id="{{index}}" class="exhaustionMarker" marked="{{this}}">
-                {{#if this}}
-                    <i class="fa-regular fa-circle"></i>
-                {{else}}
+            <button id="{{index}}" class="exhaustionMarker">
+                {{#if (gt actor.system.exhaustion.level index)}}
                     <i class="fa-solid fa-circle"></i>
+                {{else}}
+                    <i class="fa-regular fa-circle"></i>
                 {{/if}}
             </button>
             {{/times}}
@@ -59,46 +59,51 @@
     </div>
     <div class="armorClass">
         <div>
-            <h4>Armor Class:</h4>
+            <h4>{{localize 'tovu.characterLabels.armorClass'}}:</h4>
             <div class="grid-2col">
-                <label>AC: {{actor.system.ac.value}}</label>
-                <label>Speed: {{actor.system.speed.value}}</label>
+                <label>{{localize 'tovu.characterLabels.ac'}}: {{actor.system.ac.value}}</label>
+                <label>{{localize 'tovu.characterLabels.speed'}}: {{actor.system.speed.value}}</label>
             </div>
         </div>
-        <div>
-            Initiative: <button data-roll="d20+@abilities.dex.mod" >{{numberFormat actor.system.abilities.dex.mod decimals=0 sign=true}}</button>
-        </div>
-        <div>
-            Proficieny: {{numberFormat actor.system.proficiency.base decimals=0 sign=true}}
+        <div class="grid grid-2col">
+            <div class="initiative">
+                <label>{{localize 'tovu.characterLabels.init'}}:</label>
+                <button data-roll="d20+@abilities.dex.mod" >{{numberFormat actor.system.abilities.dex.mod decimals=0 sign=true}}</button>
+            </div>
+            <div class="profBonus">
+                <label>{{localize 'tovu.characterLabels.profBonus'}}:</label>
+                <div>{{numberFormat actor.system.proficiency.base decimals=0 sign=true}}</div>
+            </div>
         </div>
     </div>
     <div class="luckPointsContainer">
-        <h4 class="grid-span-2">Luck Points</h4>
+        <h4 class="grid-span-2">{{localize 'tovu.characterLabels.luckPoints'}}</h4>
         <div class="grid grid-2col">
             <div class="luckPoints">
-                <label>Current: </label>
+                <label>{{localize 'tovu.characterLabels.current'}}: </label>
                 <input class="inline-edit" data-field="actor.system.luck.value" name="system.luck.value" type="text" value="{{actor.system.luck.value}}" data-dtype="Number" />
             </div>
             <div class="luckPoints">
-                <label>Max: {{actor.system.luck.max}}</label>
+                <label>{{localize 'tovu.characterLabels.max'}}:</label>
+                <div>{{actor.system.luck.max}}</div>
             </div>
         </div>
     </div>
     <div class="passives">
-        <h4>Passives:</h4>
+        <h4>{{localize 'tovu.characterLabels.passives'}}:</h4>
         <div>
-            Insight: {{actor.system.skills.ins.passive}}
+            {{localize 'tovu.skills.ins'}}: {{actor.system.skills.ins.passive}}
         </div>
         <div>
-            Investigation: {{actor.system.skills.inv.passive}}
+            {{localize 'tovu.skills.inv'}}: {{actor.system.skills.inv.passive}}
         </div>
         <div>
-            Perception: {{actor.system.skills.per.passive}}
+            {{localize 'tovu.skills.per'}}: {{actor.system.skills.per.passive}}
         </div>
     </div>
     <div class="deathSaves">
         <button data-roll="d20" class="deathSavesRoller">
-            <i class="fa-solid fa-skull"></i> Death Save
+            <i class="fa-solid fa-skull"></i> {{localize 'tovu.characterLabels.deathSave'}}
         </button>
         <div class="savesContainer grid grid-2col">
             <div class="savesButtons">
@@ -117,7 +122,7 @@
                 </button>
                 {{/times}}
             </div>
-            <div class="savesLabel">Successes</div>
+            <div class="savesLabel">{{localize 'tovu.characterLabels.success'}}</div>
         </div>
         <div class="savesContainer grid grid-2col">
             <div class="savesButtons">
@@ -136,7 +141,7 @@
                 </button>
                 {{/times}}
             </div>
-            <div class="savesLabel">Failures</div>
+            <div class="savesLabel">{{localize 'tovu.characterLabels.failure'}}</div>
         </div>
     </div>
 </section>

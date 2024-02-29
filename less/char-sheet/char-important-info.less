@@ -1,4 +1,7 @@
 .characterSidebar{
+    input{
+        text-align: center;
+    }
     .hitpointContainer,
     .armorClass,
     .luckPointsContainer,
@@ -11,16 +14,71 @@
         margin-bottom: 10px;
     }
     .hitpointContainer{
-
+        .hitDiceContainer{
+            .hitDiceLoc{
+                justify-items: center;
+                align-items: center;
+                gap: 0px;
+                grid-template-columns: 2fr 0fr 1fr 1fr;
+                input{
+                    font-size: 12px;;
+                }
+                span{
+                    font-size: 16px;
+                }
+            }
+            button{
+                margin: 0px;
+                padding: 1px 5px;
+            }
+        }
+        .exhaustionContainer{
+            button.exhaustionMarker{
+                padding: 0;
+                margin: 0;
+                width: 15px;
+                height: 15px;
+                border-radius: 10px;
+                position: relative;
+                i{
+                    position: absolute;
+                    top: -2px;
+                    left: -2px;
+                }
+            }
+        }
     }
     .armorClass{
-
+        .grid{
+            .profBonus{
+                div{
+                    font-size: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 8px auto;
+                }
+            }
+        }
     }
     .luckPointsContainer{
-
+        .grid{
+            .luckPoints{
+                div{
+                    font-size: 16px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin: 4px auto;
+                }
+            }
+        }
     }
     .passives{
-
+        div{
+            padding-bottom: 5px;
+            font-size: 16px;
+        }
     }
     .deathSaves{
         .deathSavesRoller{

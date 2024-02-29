@@ -1,12 +1,32 @@
 {
   "tovu": {
+    "characterLabels": {
+      "stats": "Stats",
+      "items": "Items",
+      "features": "Features",
+      "spells": "Spells",
+      "description": "Description",
+      "effects": "Effects",
+      "armorClass": "Armor Class",
+      "ac": "AC",
+      "speed": "Speed",
+      "init": "Initiative",
+      "profBonus": "Proficiency",
+      "luckPoints": "Luck Points",
+      "current": "Current",
+      "max": "Max",
+      "passives": "Passives",
+      "deathSave": "Death Save",
+      "success": "Success",
+      "failure": "Failure"
+    },
     "abilityShortHand": {
-      "Str": "Strength",
-      "Dex": "Dexterity",
-      "Con": "Constitution",
-      "Int": "Intelligence",
-      "Wis": "Wisdom",
-      "Cha": "Charisma"
+      "str": "Strength",
+      "dex": "Dexterity",
+      "con": "Constitution",
+      "int": "Intelligence",
+      "wis": "Wisdom",
+      "cha": "Charisma"
     },
     "abilityRegular": {
       "Strength": "Strength",
@@ -15,6 +35,27 @@
       "Intelligence": "Intelligence",
       "Wisdom": "Wisdom",
       "Charisma": "Charisma"
+    },
+    "skills": {
+      "skills": "Skills",
+      "acr": "Acrobatics",
+      "ani": "Animal Handling",
+      "arc": "Arcana",
+      "ath": "Athletics",
+      "dec": "Deception",
+      "his": "History",
+      "ins": "Insight",
+      "int": "Intimidation",
+      "inv": "Investigation",
+      "med": "Medicine",
+      "nat": "Nature",
+      "per": "Perception",
+      "prf": "Performance",
+      "prs": "Persuasion",
+      "rel": "Religion",
+      "soh": "Slight of Hand",
+      "ste": "Stealth",
+      "sur": "Survival"
     },
     "weapon": {
       "attackWith": "Attack with:",
@@ -52,6 +93,60 @@
     },
     "hp": {
       "hitPoints": "Hit Points"
+    },
+    "tools": {
+      "tools": "Tools",
+      "artisan": {
+        "artisanTools": "Artisan's Tools",
+        "alchemist": "Alchemist's supplies",
+        "brewer": "Brewer's supplies",
+        "calligrapher": "Calligrapher's tools",
+        "carpenter": "Carpenter's tools",
+        "cartographer": "Cartographer's tools",
+        "cobbler": "Cobbler's tools",
+        "cook": "Cook's utensils",
+        "glassblower": "Glassblower's tools",
+        "jeweler": "Jeweler's tools",
+        "leatherworker": "Leatherworker's tools",
+        "mason": "Mason's tools",
+        "painter": "Painter's supplies",
+        "potter": "Potter's tools",
+        "smith": "Smith's tools",
+        "tinker": "Tinker's tools",
+        "weaver": "Weaver's tools",
+        "woodcarver": "Woodcarver's tools"
+      },
+      "disguise": "Disguise Kit",
+      "forgery": "Forgery Kit",
+      "gaming": {
+        "gamingSet": "Gaming sets",
+        "dice": "Dice set",
+        "dragonchess": "Dragonchess set",
+        "playingCards": "Playing card set",
+        "3dragonAnte": "Three-Dragon ante set"
+      },
+      "herbalism": "Herbalism Kit",
+      "instruments": {
+        "instruments": "Musical instruments",
+        "bagpipes": "Bagpipes",
+        "drum": "Drums",
+        "dulcimer": "Dulcimer",
+        "flute": "Flute",
+        "lute": "Lute",
+        "lyre": "Lyre",
+        "horn": "Horn",
+        "panFlute": "Pan Flute",
+        "shawm": "Shawm",
+        "viol": "Viol"
+      },
+      "navigator": "Navigator's tools",
+      "poisoner": "Poisoner's kit",
+      "thieves": "Thieves' tools",
+      "vehicle": {
+        "vehicles": "Vehicles",
+        "land": "Land vehicles",
+        "water": "Water vehicles"
+      }
     }
   }
 }

@@ -52,7 +52,13 @@
           "proficiencyLevels": {
             "value": [5, 9, 13, 17, 21, 25, 29]
           }
-        }
+        },
+        "tools": {},
+        "senses": {},
+        "vulnerable": [],
+        "resistance": [],
+        "immune": [],
+        "languages": []
       }
     },
     "character": {
@@ -185,6 +191,10 @@
       "exhaustion": {
         "level": 0,
         "max": 6
+      },
+      "gear": {
+        "weapons": [],
+        "armor": []
       }
     }
   },
