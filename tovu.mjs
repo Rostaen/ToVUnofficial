@@ -39,6 +39,8 @@ Hooks.once("init", () => {
   // });
 });
 
+// Define Handlebars here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 // Define Handlebars helper function
 // Handlebars.registerHelper('isChecked', function(array, index) {
 //   console.log(this.actor.system);
@@ -52,3 +54,5 @@ Handlebars.registerHelper('times', (n, actor, block) => {
     accum += block.fn({ index: i, actor: actor });
   return accum;
 });
+
+// Define Extra Classes here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

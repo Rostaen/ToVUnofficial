@@ -138,24 +138,9 @@ export default class ToVUActorSheet extends ActorSheet{
 
     async _updateToolsList(event){
         event.preventDefault();
-        const actor = this.actor;
-        return new Promise((resolve, reject) => {
-            const window = new this.actor(actor, {
-                title: `${actor.name}`,
-                buttons: {
-                    label: "Test",
-                    callback: () => {
-                        resolve(true);
-                    }
-                },
-                cancel: {
-                    label: "Exit",
-                    callback: reject
-                },
-                close: reject
-            });
-            window.render(true);
-        });
+        console.log("Tool Update button clicked");
+        const sheet = new ToolSkillsSheet();
+        sheet.render(true);
     }
 
 
@@ -175,5 +160,41 @@ export default class ToVUActorSheet extends ActorSheet{
         };
 
         return this.actor.createOwnedItem(itemData);
+    }
+}
+
+class ToolSkillsSheet extends FormApplication {
+    static get defaultOptions(){
+        return mergeObject(super.defaultOptions, {
+            id: "tool-skills-sheet",
+            template: "systems/tovu/templates/sheets/partials/character/character-tools.hbs",
+            width: 400,
+            height: "auto",
+            resizable: true,
+            minimizable: true,
+            title: "Tool Skills Sheet",
+            closeOnSubmit: false
+        });
+    }
+
+    getData(){
+        const actor = game.user.character;
+        console.log(actor);
+        // return {
+        //     tools: actor.system.tools // update this as needed
+        // }
+    }
+
+    activateListeners(html){
+        super.activateListeners(html);
+        html.find("input[type='checkbox'").change(this._onChangeCheckbox.bind(this));
+    }
+
+    async _onChangeCheckbox(event){
+        event.preventDefault();
+        const actor = game.user.character;
+        const toolName = event.target.dataset.toolName;
+        const isChecked = event.target.checked;
+        await actor.update({ [`data.tools.${toolName}`]: isChecked });
     }
 }

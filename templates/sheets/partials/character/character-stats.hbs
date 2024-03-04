@@ -7,7 +7,7 @@
         data-roll="d20+@abilities.{{key}}.mod"
         data-label="{{ability.label}}"
         >
-			{{ability.value}}
+			{{ability.label}}
         </label>
         <input
             type="text"
@@ -85,7 +85,7 @@
         {{/each}}
       </div>
 	  <div class="toolsContainer">
-		<h2 class="header">{{localize 'tovu.tools.tools'}} <button class="updateTools" ><i class="fa-regular fa-square-plus"></i></button></h2>
+		<h2 class="header">{{localize 'tovu.tools.tools'}} <button class="updateTools" data-trait="tools"><i class="fa-regular fa-square-plus"></i></button></h2>
 		<div class="tools">
 			{{#each actor.system.tools as |tool key|}}
 			{{!-- items to be added here. --}}

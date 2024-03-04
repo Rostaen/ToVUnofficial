@@ -1,10 +1,12 @@
-<section class="toolsContainer">
-    <div>
-        <h2>Artisan's tools</h2>
-        <ul>
-            {{#each actor.system.tools as |tool key| }}
-            <li>{{localize "tovu.tools.artisan"}} <input type="checkbox" name="tool.label" ></li>
-            {{/each}}
-        </ul>
-    </div>
-</section>
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <section class="toolsContainer">
+        <div>
+            <h2>Artisan's tools</h2>
+            {{!-- <ul>
+                {{#each actor.system.tools as |tool key| }}
+                <li>{{localize "tovu.tools.artisan"}} <input type="checkbox" name="tool.label" ></li>
+                {{/each}}
+            </ul> --}}
+        </div>
+    </section>
+</form>
