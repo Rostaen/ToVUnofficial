@@ -139,7 +139,7 @@ export default class ToVUActorSheet extends ActorSheet{
     async _updateToolsList(event){
         event.preventDefault();
         console.log("Tool Update button clicked");
-        const sheet = new ToolSkillsSheet();
+        const sheet = new ToolSkillsSheet(this.actor);
         sheet.render(true);
     }
 
@@ -164,6 +164,11 @@ export default class ToVUActorSheet extends ActorSheet{
 }
 
 class ToolSkillsSheet extends FormApplication {
+    constructor(actor, options={}){
+        super(options);
+        this.actor = actor;
+    }
+
     static get defaultOptions(){
         return mergeObject(super.defaultOptions, {
             id: "tool-skills-sheet",
@@ -178,11 +183,11 @@ class ToolSkillsSheet extends FormApplication {
     }
 
     getData(){
-        const actor = game.user.character;
-        console.log(actor);
-        // return {
-        //     tools: actor.system.tools // update this as needed
-        // }
+        //const actor = game.user.character;
+        console.log(this.actor);
+        return {
+            tools: this.actor.system.gear.tools // update this as needed
+        }
     }
 
     activateListeners(html){

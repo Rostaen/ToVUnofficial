@@ -194,7 +194,56 @@
       },
       "gear": {
         "weapons": [],
-        "armor": []
+        "armor": [],
+        "tools": {
+          "artisan": {
+            "alchemist": false,
+            "brewer": false,
+            "calligrapher": false,
+            "carpenter": false,
+            "cartographer": false,
+            "cobbler": false,
+            "cook": false,
+            "glassblower": false,
+            "jeweler": false,
+            "leatherworker": false,
+            "mason": false,
+            "painter": false,
+            "potter": false,
+            "smith": false,
+            "tinker": false,
+            "weaver": false,
+            "woodcarver": false
+          },
+          "disguise": false,
+          "forgery": false,
+          "gaming": {
+            "dice": false,
+            "dragonchess": false,
+            "playingCards": false,
+            "3dragonAnte": false
+          },
+          "herbalism": false,
+          "instruments": {
+            "bagpipes": false,
+            "drum": false,
+            "dulcimer": false,
+            "flute": false,
+            "lute": false,
+            "lyre": false,
+            "horn": false,
+            "panFlute": false,
+            "shawm": false,
+            "viol": false
+          },
+          "navigator": false,
+          "poisoner": false,
+          "thieves": false,
+          "vehicle": {
+            "land": false,
+            "water": false
+          }
+        }
       }
     }
   },
