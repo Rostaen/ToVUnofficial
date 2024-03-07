@@ -138,7 +138,6 @@ export default class ToVUActorSheet extends ActorSheet{
 
     async _updateToolsList(event){
         event.preventDefault();
-        console.log("Tool Update button clicked");
         const sheet = new ToolSkillsSheet(this.actor);
         sheet.render(true);
     }
@@ -200,9 +199,24 @@ class ToolSkillsSheet extends FormApplication {
 
     async _onChangeCheckbox(event){
         event.preventDefault();
-        const actor = game.user.character;
-        const toolName = event.target.dataset.toolName;
+        const toolCategory = event.target.dataset.category;
+        const toolName = event.target.dataset.key;
         const isChecked = event.target.checked;
-        await actor.update({ [`data.gear.tools.${toolName}`]: isChecked });
+
+        // Prepare the data to update
+        let updateData = {};
+
+        // Determine the correct path to the tool based on its category
+        let toolPath = toolCategory === 'unique' ? `system.gear.tools.${toolName}` : `system.gear.tools.${toolCategory}.${toolName}`;
+
+        // Set the value of the tool
+        updateData[`${toolPath}.value`] = isChecked;
+
+        // Update the actor's data
+        await this.actor.update(updateData);
+
+        console.log("Updated actor data:", this.actor.system);
+
+        console.log("actor: ", this.actor, " / Cat: ", toolCategory, " / key: ", toolName, ' / checked: ', isChecked);
     }
 }

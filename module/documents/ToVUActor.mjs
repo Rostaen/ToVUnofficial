@@ -30,12 +30,6 @@ export class ToVUActor extends Actor {
         const mapItems = (type, mappedObjects, jsonLocation) => {
             for (let [key, item] of Object.entries(jsonLocation)){
                 const mappedItem = mappedObjects[key];
-                // if(!mappedItem){
-                //     console.log("key: ", key, " | item: ", item);
-                //     console.error("ToVUActor.mjs ||| Error in Map Functoin");
-                //     console.log("type: ", type, " | object: ", mappedObjects, " | Location: ", jsonLocation, mappedItem);
-                //     continue;
-                // }
                 if(type === 'skill'){
                     const statMod = systemData.abilities[mappedItem.core].mod;
                     const profBase = systemData.proficiency.base;
@@ -100,53 +94,53 @@ export class ToVUActor extends Actor {
 
         // Setting up tools section
         const artisanToolMap = {
-            "alch": {label: game.i18n.localize("tovu.tools.artisan.alch"), value: false},
-            "brew": {label: game.i18n.localize("tovu.tools.artisan.brew"), value: false},
-            "call": {label: game.i18n.localize("tovu.tools.artisan.call"), value: false},
-            "carp": {label: game.i18n.localize("tovu.tools.artisan.carp"), value: false},
-            "cart": {label: game.i18n.localize("tovu.tools.artisan.cart"), value: false},
-            "cobb": {label: game.i18n.localize("tovu.tools.artisan.cobb"), value: false},
-            "cook": {label: game.i18n.localize("tovu.tools.artisan.cook"), value: false},
-            "glas": {label: game.i18n.localize("tovu.tools.artisan.glas"), value: false},
-            "jewe": {label: game.i18n.localize("tovu.tools.artisan.jewe"), value: false},
-            "leat": {label: game.i18n.localize("tovu.tools.artisan.leat"), value: false},
-            "maso": {label: game.i18n.localize("tovu.tools.artisan.maso"), value: false},
-            "pain": {label: game.i18n.localize("tovu.tools.artisan.pain"), value: false},
-            "pott": {label: game.i18n.localize("tovu.tools.artisan.pott"), value: false},
-            "smit": {label: game.i18n.localize("tovu.tools.artisan.smit"), value: false},
-            "tink": {label: game.i18n.localize("tovu.tools.artisan.tink"), value: false},
-            "weav": {label: game.i18n.localize("tovu.tools.artisan.weav"), value: false},
-            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood"), value: false}
+            "alch": {label: game.i18n.localize("tovu.tools.artisan.alch")},
+            "brew": {label: game.i18n.localize("tovu.tools.artisan.brew")},
+            "call": {label: game.i18n.localize("tovu.tools.artisan.call")},
+            "carp": {label: game.i18n.localize("tovu.tools.artisan.carp")},
+            "cart": {label: game.i18n.localize("tovu.tools.artisan.cart")},
+            "cobb": {label: game.i18n.localize("tovu.tools.artisan.cobb")},
+            "cook": {label: game.i18n.localize("tovu.tools.artisan.cook")},
+            "glas": {label: game.i18n.localize("tovu.tools.artisan.glas")},
+            "jewe": {label: game.i18n.localize("tovu.tools.artisan.jewe")},
+            "leat": {label: game.i18n.localize("tovu.tools.artisan.leat")},
+            "maso": {label: game.i18n.localize("tovu.tools.artisan.maso")},
+            "pain": {label: game.i18n.localize("tovu.tools.artisan.pain")},
+            "pott": {label: game.i18n.localize("tovu.tools.artisan.pott")},
+            "smit": {label: game.i18n.localize("tovu.tools.artisan.smit")},
+            "tink": {label: game.i18n.localize("tovu.tools.artisan.tink")},
+            "weav": {label: game.i18n.localize("tovu.tools.artisan.weav")},
+            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood")}
         }
         const uniqueToolMap = {
-            "disg": {label: game.i18n.localize("tovu.tools.disg"), value: false},
-            "forg": {label: game.i18n.localize("tovu.tools.forg"), value: false},
-            "herb": {label: game.i18n.localize("tovu.tools.herb"), value: false},
-            "navi": {label: game.i18n.localize("tovu.tools.navi"), value: false},
-            "pois": {label: game.i18n.localize("tovu.tools.pois"), value: false},
-            "thie": {label: game.i18n.localize("tovu.tools.thie"), value: false}
+            "disg": {label: game.i18n.localize("tovu.tools.disg")},
+            "forg": {label: game.i18n.localize("tovu.tools.forg")},
+            "herb": {label: game.i18n.localize("tovu.tools.herb")},
+            "navi": {label: game.i18n.localize("tovu.tools.navi")},
+            "pois": {label: game.i18n.localize("tovu.tools.pois")},
+            "thie": {label: game.i18n.localize("tovu.tools.thie")}
         }
         const gamingMap = {
-            "dice": {label: game.i18n.localize("tovu.tools.gaming.dice"), value: false},
-            "drag": {label: game.i18n.localize("tovu.tools.gaming.drag"), value: false},
-            "play": {label: game.i18n.localize("tovu.tools.gaming.play"), value: false},
-            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra"), value: false}
+            "dice": {label: game.i18n.localize("tovu.tools.gaming.dice")},
+            "drag": {label: game.i18n.localize("tovu.tools.gaming.drag")},
+            "play": {label: game.i18n.localize("tovu.tools.gaming.play")},
+            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra")}
         }
         const instrumentMap = {
-            "bagp": {label: game.i18n.localize("tovu.tools.instruments.bagp"), value: false},
-            "drum": {label: game.i18n.localize("tovu.tools.instruments.drum"), value: false},
-            "dulc": {label: game.i18n.localize("tovu.tools.instruments.dulc"), value: false},
-            "flut": {label: game.i18n.localize("tovu.tools.instruments.flut"), value: false},
-            "lute": {label: game.i18n.localize("tovu.tools.instruments.lute"), value: false},
-            "lyre": {label: game.i18n.localize("tovu.tools.instruments.lyre"), value: false},
-            "horn": {label: game.i18n.localize("tovu.tools.instruments.horn"), value: false},
-            "panF": {label: game.i18n.localize("tovu.tools.instruments.panF"), value: false},
-            "shaw": {label: game.i18n.localize("tovu.tools.instruments.shaw"), value: false},
-            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol"), value: false}
+            "bagp": {label: game.i18n.localize("tovu.tools.instruments.bagp")},
+            "drum": {label: game.i18n.localize("tovu.tools.instruments.drum")},
+            "dulc": {label: game.i18n.localize("tovu.tools.instruments.dulc")},
+            "flut": {label: game.i18n.localize("tovu.tools.instruments.flut")},
+            "lute": {label: game.i18n.localize("tovu.tools.instruments.lute")},
+            "lyre": {label: game.i18n.localize("tovu.tools.instruments.lyre")},
+            "horn": {label: game.i18n.localize("tovu.tools.instruments.horn")},
+            "panF": {label: game.i18n.localize("tovu.tools.instruments.panF")},
+            "shaw": {label: game.i18n.localize("tovu.tools.instruments.shaw")},
+            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol")}
         }
         const vehicleMap = {
-            "land": {label: game.i18n.localize("tovu.tools.vehicle.land"), value: false},
-            "wate": {label: game.i18n.localize("tovu.tools.vehicle.wate"), value: false}
+            "land": {label: game.i18n.localize("tovu.tools.vehicle.land")},
+            "wate": {label: game.i18n.localize("tovu.tools.vehicle.wate")}
         }
         mapItems('tools', artisanToolMap, systemData.gear.tools.artisan);
         mapItems('tools', uniqueToolMap, systemData.gear.tools);
