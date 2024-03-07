@@ -30,11 +30,12 @@ export class ToVUActor extends Actor {
         const mapItems = (type, mappedObjects, jsonLocation) => {
             for (let [key, item] of Object.entries(jsonLocation)){
                 const mappedItem = mappedObjects[key];
-                if(!mappedItem){
-                    console.error("ToVUActor.mjs ||| Error in Map Functoin");
-                    //console.log("type: ", type, " object: ", mappedObjects, " Location: ", jsonLocation, mappedItem);
-                    continue;
-                }
+                // if(!mappedItem){
+                //     console.log("key: ", key, " | item: ", item);
+                //     console.error("ToVUActor.mjs ||| Error in Map Functoin");
+                //     console.log("type: ", type, " | object: ", mappedObjects, " | Location: ", jsonLocation, mappedItem);
+                //     continue;
+                // }
                 if(type === 'skill'){
                     const statMod = systemData.abilities[mappedItem.core].mod;
                     const profBase = systemData.proficiency.base;
