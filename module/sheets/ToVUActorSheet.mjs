@@ -83,7 +83,7 @@ export default class ToVUActorSheet extends ActorSheet{
                 console.log("Invalid icon class");
                 break;
         }
-        console.log(actor.system.deathSaves);
+        //console.log(actor.system.deathSaves);
     }
 
     _cycleDeathSave(event){

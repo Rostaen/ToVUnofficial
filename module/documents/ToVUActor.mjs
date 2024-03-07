@@ -20,6 +20,46 @@ export class ToVUActor extends Actor {
     _prepareCharacterData(actorData) {
         const systemData = actorData.system;
 
+        // Setting base AC
+        systemData.ac.value = 10 + systemData.abilities.dex.mod;
+        systemData.ac.modifiers.forEach(element => {
+            systemData.ac.value += element;
+        });
+
+        // Function for mapping items into the database
+        const mapItems = (type, mappedObjects, jsonLocation) => {
+            for (let [key, item] of Object.entries(jsonLocation)){
+                const mappedItem = mappedObjects[key];
+                if(!mappedItem){
+                    console.error("ToVUActor.mjs ||| Error in Map Functoin");
+                    continue;
+                }
+                if(type === 'skill'){
+                    const statMod = systemData.abilities[mappedItem.core].mod;
+                    const profBase = systemData.proficiency.base;
+                    switch (item.proficiency) {
+                        case 0:
+                            item.value = statMod;
+                            break;
+                        case 1:
+                            item.value = statMod + profBase;
+                            break;
+                        case 2:
+                            item.value = statMod + (profBase * 2);
+                            break;
+                        case 0.5:
+                            item.value = statMod + Math.floor(profBase / 2);
+                            break;
+                    }
+                    item.passive = item.value + 10;
+                }else if(type === 'ability'){
+                    item.mod = Math.floor((item.value - 10) / 2);
+                    item.save = item.mod + (item.proficient === 1 ? systemData.proficiency.base : 0);
+                }
+                Object.assign(item, mappedItem);
+            }
+        }
+
         //Labeling Stats from shorthand
         const statMap = {
             'str': { label: game.i18n.localize("tovu.abilityShortHand.str") },
@@ -29,19 +69,7 @@ export class ToVUActor extends Actor {
             'wis': { label: game.i18n.localize("tovu.abilityShortHand.wis") },
             'cha': { label: game.i18n.localize("tovu.abilityShortHand.cha") }
         };
-        // Calculate ability modifiers and save mods
-        for (let [key, ability] of Object.entries(systemData.abilities)) {
-            const mappedStat = statMap[key];
-            ability.mod = Math.floor((ability.value - 10) / 2);
-            ability.save = ability.mod + (ability.proficient === 1 ? systemData.proficiency.base : 0);
-            Object.assign(ability, mappedStat);
-        }
-
-        // Setting base AC
-        systemData.ac.value = 10 + systemData.abilities.dex.mod;
-        systemData.ac.modifiers.forEach(element => {
-            systemData.ac.value += element;
-        });
+        mapItems('ability', statMap, systemData.abilities);
 
         if(actorData.type !== 'character') return;
 
@@ -66,32 +94,51 @@ export class ToVUActor extends Actor {
             'ste': { label: game.i18n.localize("tovu.skills.ste"), core: "dex" },
             'sur': { label: game.i18n.localize("tovu.skills.sur"), core: "wis" }
         };
+        mapItems('skill', skillMap, systemData.skills);
 
-        for (let [key, skill] of Object.entries(systemData.skills)) {
-            const mappedSkill = skillMap[key];
-            if (!mappedSkill) {
-                console.error("ToVUActor.mjs ||| Error in Skills Map Statement");
-                continue;
-            }
-            const statMod = systemData.abilities[mappedSkill.core].mod;
-            const profBase = systemData.proficiency.base;
-            switch (skill.proficiency) {
-                case 0:
-                    skill.value = statMod;
-                    break;
-                case 1:
-                    skill.value = statMod + profBase;
-                    break;
-                case 2:
-                    skill.value = statMod + (profBase * 2);
-                    break;
-                case 0.5:
-                    skill.value = statMod + Math.floor(profBase / 2);
-                    break;
-            }
-            skill.passive = skill.value + 10;
-            Object.assign(skill, mappedSkill);
+        // Setting up tools section
+        const toolMap = {
+            "alch": {label: game.i18n.localize("tovu.tools.artisan.alch"), value: false},
+            "brew": {label: game.i18n.localize("tovu.tools.artisan.brew"), value: false},
+            "call": {label: game.i18n.localize("tovu.tools.artisan.call"), value: false},
+            "carp": {label: game.i18n.localize("tovu.tools.artisan.carp"), value: false},
+            "cart": {label: game.i18n.localize("tovu.tools.artisan.cart"), value: false},
+            "cobb": {label: game.i18n.localize("tovu.tools.artisan.cobb"), value: false},
+            "cook": {label: game.i18n.localize("tovu.tools.artisan.cook"), value: false},
+            "glas": {label: game.i18n.localize("tovu.tools.artisan.glas"), value: false},
+            "jewe": {label: game.i18n.localize("tovu.tools.artisan.jewe"), value: false},
+            "leat": {label: game.i18n.localize("tovu.tools.artisan.leat"), value: false},
+            "maso": {label: game.i18n.localize("tovu.tools.artisan.maso"), value: false},
+            "pain": {label: game.i18n.localize("tovu.tools.artisan.pain"), value: false},
+            "pott": {label: game.i18n.localize("tovu.tools.artisan.pott"), value: false},
+            "smit": {label: game.i18n.localize("tovu.tools.artisan.smit"), value: false},
+            "tink": {label: game.i18n.localize("tovu.tools.artisan.tink"), value: false},
+            "weav": {label: game.i18n.localize("tovu.tools.artisan.weav"), value: false},
+            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood"), value: false},
+            "disg": {label: game.i18n.localize("tovu.tools.disg"), value: false},
+            "forg": {label: game.i18n.localize("tovu.tools.forg"), value: false},
+            "dice": {label: game.i18n.localize("tovu.tools.gaming.dice"), value: false},
+            "drag": {label: game.i18n.localize("tovu.tools.gaming.drag"), value: false},
+            "play": {label: game.i18n.localize("tovu.tools.gaming.play"), value: false},
+            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra"), value: false},
+            "herb": {label: game.i18n.localize("tovu.tools.herb"), value: false},
+            "bagp": {label: game.i18n.localize("tovu.tools.instruments.bagp"), value: false},
+            "drum": {label: game.i18n.localize("tovu.tools.instruments.drum"), value: false},
+            "dulc": {label: game.i18n.localize("tovu.tools.instruments.dulc"), value: false},
+            "flut": {label: game.i18n.localize("tovu.tools.instruments.flut"), value: false},
+            "lute": {label: game.i18n.localize("tovu.tools.instruments.lute"), value: false},
+            "lyre": {label: game.i18n.localize("tovu.tools.instruments.lyre"), value: false},
+            "horn": {label: game.i18n.localize("tovu.tools.instruments.horn"), value: false},
+            "panF": {label: game.i18n.localize("tovu.tools.instruments.panF"), value: false},
+            "shaw": {label: game.i18n.localize("tovu.tools.instruments.shaw"), value: false},
+            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol"), value: false},
+            "navi": {label: game.i18n.localize("tovu.tools.navi"), value: false},
+            "pois": {label: game.i18n.localize("tovu.tools.pois"), value: false},
+            "thie": {label: game.i18n.localize("tovu.tools.thie"), value: false},
+            "land": {label: game.i18n.localize("tovu.tools.vehicle.land"), value: false},
+            "wate": {label: game.i18n.localize("tovu.tools.vehicle.wate"), value: false}
         }
+        mapItems('tools', toolMap, systemData.gear.tools);
+        console.log(systemData);
     }
-
 }
