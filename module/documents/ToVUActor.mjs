@@ -32,6 +32,7 @@ export class ToVUActor extends Actor {
                 const mappedItem = mappedObjects[key];
                 if(!mappedItem){
                     console.error("ToVUActor.mjs ||| Error in Map Functoin");
+                    //console.log("type: ", type, " object: ", mappedObjects, " Location: ", jsonLocation, mappedItem);
                     continue;
                 }
                 if(type === 'skill'){
@@ -97,7 +98,7 @@ export class ToVUActor extends Actor {
         mapItems('skill', skillMap, systemData.skills);
 
         // Setting up tools section
-        const toolMap = {
+        const artisanToolMap = {
             "alch": {label: game.i18n.localize("tovu.tools.artisan.alch"), value: false},
             "brew": {label: game.i18n.localize("tovu.tools.artisan.brew"), value: false},
             "call": {label: game.i18n.localize("tovu.tools.artisan.call"), value: false},
@@ -114,14 +115,23 @@ export class ToVUActor extends Actor {
             "smit": {label: game.i18n.localize("tovu.tools.artisan.smit"), value: false},
             "tink": {label: game.i18n.localize("tovu.tools.artisan.tink"), value: false},
             "weav": {label: game.i18n.localize("tovu.tools.artisan.weav"), value: false},
-            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood"), value: false},
+            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood"), value: false}
+        }
+        const uniqueToolMap = {
             "disg": {label: game.i18n.localize("tovu.tools.disg"), value: false},
             "forg": {label: game.i18n.localize("tovu.tools.forg"), value: false},
+            "herb": {label: game.i18n.localize("tovu.tools.herb"), value: false},
+            "navi": {label: game.i18n.localize("tovu.tools.navi"), value: false},
+            "pois": {label: game.i18n.localize("tovu.tools.pois"), value: false},
+            "thie": {label: game.i18n.localize("tovu.tools.thie"), value: false}
+        }
+        const gamingMap = {
             "dice": {label: game.i18n.localize("tovu.tools.gaming.dice"), value: false},
             "drag": {label: game.i18n.localize("tovu.tools.gaming.drag"), value: false},
             "play": {label: game.i18n.localize("tovu.tools.gaming.play"), value: false},
-            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra"), value: false},
-            "herb": {label: game.i18n.localize("tovu.tools.herb"), value: false},
+            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra"), value: false}
+        }
+        const instrumentMap = {
             "bagp": {label: game.i18n.localize("tovu.tools.instruments.bagp"), value: false},
             "drum": {label: game.i18n.localize("tovu.tools.instruments.drum"), value: false},
             "dulc": {label: game.i18n.localize("tovu.tools.instruments.dulc"), value: false},
@@ -131,14 +141,17 @@ export class ToVUActor extends Actor {
             "horn": {label: game.i18n.localize("tovu.tools.instruments.horn"), value: false},
             "panF": {label: game.i18n.localize("tovu.tools.instruments.panF"), value: false},
             "shaw": {label: game.i18n.localize("tovu.tools.instruments.shaw"), value: false},
-            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol"), value: false},
-            "navi": {label: game.i18n.localize("tovu.tools.navi"), value: false},
-            "pois": {label: game.i18n.localize("tovu.tools.pois"), value: false},
-            "thie": {label: game.i18n.localize("tovu.tools.thie"), value: false},
+            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol"), value: false}
+        }
+        const vehicleMap = {
             "land": {label: game.i18n.localize("tovu.tools.vehicle.land"), value: false},
             "wate": {label: game.i18n.localize("tovu.tools.vehicle.wate"), value: false}
         }
-        mapItems('tools', toolMap, systemData.gear.tools);
-        console.log(systemData);
+        mapItems('tools', artisanToolMap, systemData.gear.tools.artisan);
+        mapItems('tools', uniqueToolMap, systemData.gear.tools);
+        mapItems('tools', gamingMap, systemData.gear.tools.gaming);
+        mapItems('tools', instrumentMap, systemData.gear.tools.instruments);
+        mapItems('tools', vehicleMap, systemData.gear.tools.vehicles);
+        // console.log(systemData);
     }
 }

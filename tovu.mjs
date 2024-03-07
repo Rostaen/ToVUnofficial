@@ -41,13 +41,6 @@ Hooks.once("init", () => {
 
 // Define Handlebars here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Define Handlebars helper function
-// Handlebars.registerHelper('isChecked', function(array, index) {
-//   console.log(this.actor.system);
-//   return array[index];
-//   //return array[index] ? 'checked' : '';
-// });
-
 Handlebars.registerHelper('times', (n, actor, block) => {
   let accum = '';
   for (let i = 0; i < n; ++i)

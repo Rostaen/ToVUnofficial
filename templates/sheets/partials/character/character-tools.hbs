@@ -1,17 +1,50 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <section class="toolsContainer">
         <div>
-            <h2>{{localize "tovu.tools.artisan"}}</h2>
+            <h2>{{localize "tovu.tools.artisan.arti"}}</h2>
             <ul>
-                {{#each actor.system.tools.artican as |tool key| }}
-                <li>{{localize "tovu.tools.artisan"}} <input type="checkbox" name="tool.label" ></li>
+                <ul>
+                {{#each artisanTools as |tool key| }}
+                <li><input type="checkbox" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
                 {{/each}}
+                </ul>
             </ul>
             <ul>
-                <li>{{localize "tovu.tools.disguise"}} <input type="checkbox" name="tool.label" ></li>
-                <li>{{localize "tovu.tools.forgery"}} <input type="checkbox" name="tool.label" ></li>
+                <li><input type="checkbox" data-key="disg" name="system.gear.tools.disg.label" {{#if uniqueTools.disg.value}} checked {{/if}} > {{uniqueTools.disg.label}} </li>
+                <li><input type="checkbox" data-key="forg" name="system.gear.tools.forg.label" {{#if uniqueTools.forg.value}} checked {{/if}} > {{uniqueTools.forg.label}} </li>
             </ul>
-
+            <h2>{{localize "tovu.tools.gaming.gami"}}</h2>
+            <ul>
+                <ul>
+                {{#each gamingTools as |tool key| }}
+                <li><input type="checkbox" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                {{/each}}
+                </ul>
+            </ul>
+            <ul>
+                <li><input type="checkbox" data-key="herb" name="system.gear.tools.herb.label" {{#if uniqueTools.herb.value}} checked {{/if}} > {{uniqueTools.herb.label}} </li>
+            </ul>
+            <h2>{{localize "tovu.tools.instruments.inst"}}</h2>
+            <ul>
+                <ul>
+                {{#each instruments as |tool key| }}
+                <li><input type="checkbox" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                {{/each}}
+                </ul>
+            </ul>
+            <ul>
+                <li><input type="checkbox" data-key="navi" name="system.gear.tools.navi.label" {{#if uniqueTools.navi.value}} checked {{/if}} > {{uniqueTools.navi.label}} </li>
+                <li><input type="checkbox" data-key="pois" name="system.gear.tools.pois.label" {{#if uniqueTools.pois.value}} checked {{/if}} > {{uniqueTools.pois.label}} </li>
+                <li><input type="checkbox" data-key="thie" name="system.gear.tools.thie.label" {{#if uniqueTools.thie.value}} checked {{/if}} > {{uniqueTools.thie.label}} </li>
+            </ul>
+            <h2>{{localize "tovu.tools.vehicle.vehi"}}</h2>
+            <ul>
+                <ul>
+                {{#each vehicles as |tool key| }}
+                <li><input type="checkbox" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                {{/each}}
+                </ul>
+            </ul>
         </div>
     </section>
 </form>

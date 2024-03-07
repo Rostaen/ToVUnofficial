@@ -183,10 +183,13 @@ class ToolSkillsSheet extends FormApplication {
     }
 
     getData(){
-        //const actor = game.user.character;
-        console.log(this.actor);
+        console.log("GetData call: ", this.actor);
         return {
-            tools: this.actor.system.gear.tools // update this as needed
+            artisanTools: this.actor.system.gear.tools.artisan,
+            uniqueTools: this.actor.system.gear.tools,
+            gamingTools: this.actor.system.gear.tools.gaming,
+            instruments: this.actor.system.gear.tools.instruments,
+            vehicles: this.actor.system.gear.tools.vehicles
         }
     }
 
@@ -200,6 +203,6 @@ class ToolSkillsSheet extends FormApplication {
         const actor = game.user.character;
         const toolName = event.target.dataset.toolName;
         const isChecked = event.target.checked;
-        await actor.update({ [`data.tools.${toolName}`]: isChecked });
+        await actor.update({ [`data.gear.tools.${toolName}`]: isChecked });
     }
 }
