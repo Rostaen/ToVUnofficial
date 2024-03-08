@@ -67,6 +67,21 @@ export class ToVUActor extends Actor {
         };
         mapItems('ability', statMap, systemData.abilities);
 
+        if(!systemData.size){
+            systemData.size = {
+                'label': game.i18n.localize("tovu.size.label"),
+                "choice": '',
+                "value": {
+                    'tiny': game.i18n.localize("tovu.size.values.tiny"),
+                    'smal': game.i18n.localize("tovu.size.values.smal"),
+                    'medi': game.i18n.localize("tovu.size.values.medi"),
+                    'larg': game.i18n.localize("tovu.size.values.larg"),
+                    'huge': game.i18n.localize("tovu.size.values.huge"),
+                    'garg': game.i18n.localize("tovu.size.values.garg")
+                }
+            }
+        }
+
         if(actorData.type !== 'character') return;
 
         // Map skill keys to labels and core attributes

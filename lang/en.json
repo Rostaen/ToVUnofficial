@@ -147,6 +147,17 @@
         "land": "Land vehicles",
         "wate": "Water vehicles"
       }
+    },
+    "size": {
+      "label": "Size",
+      "values": {
+        "tiny": "Tiny",
+        "smal": "Small",
+        "medi": "Medium",
+        "larg": "Large",
+        "huge": "Huge",
+        "garg": "Gargantuan"
+      }
     }
   }
 }

@@ -182,7 +182,7 @@ class ToolSkillsSheet extends FormApplication {
     }
 
     getData(){
-        console.log("GetData call: ", this.actor);
+        console.log("GetData call: ", this.actor.system);
         return {
             artisanTools: this.actor.system.gear.tools.artisan,
             uniqueTools: this.actor.system.gear.tools,
@@ -214,9 +214,5 @@ class ToolSkillsSheet extends FormApplication {
 
         // Update the actor's data
         await this.actor.update(updateData);
-
-        console.log("Updated actor data:", this.actor.system);
-
-        console.log("actor: ", this.actor, " / Cat: ", toolCategory, " / key: ", toolName, ' / checked: ', isChecked);
     }
 }

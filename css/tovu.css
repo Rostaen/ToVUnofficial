@@ -266,6 +266,15 @@
   top: -2px;
   left: -1px;
 }
+.toolsContainer .tools .toolItem {
+  font-size: 10px;
+  border: 1px solid #105b95;
+  background-color: #c8c8c8;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 0px 2px 2px 0px;
+  display: inline-flex;
+}
 .toolsContainer h2 {
   font-size: 16px;
   border-bottom: 0;

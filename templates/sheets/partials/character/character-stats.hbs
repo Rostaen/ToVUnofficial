@@ -87,15 +87,46 @@
 	  <div class="toolsContainer">
 		<h2 class="header">{{localize 'tovu.tools.tools'}} <button class="updateTools" data-trait="tools"><i class="fa-regular fa-square-plus"></i></button></h2>
 		<div class="tools">
-			{{#each actor.system.tools as |tool key|}}
-			{{!-- items to be added here. --}}
+			{{#each actor.system.gear.tools.artisan as |tool key|}}
+				{{#if tool.value }}
+				<span class="toolItem artisan">{{tool.label}}</span>
+				{{/if}}
+			{{/each}}
+			{{#each actor.system.gear.tools.gaming as |tool key|}}
+				{{#if tool.value }}
+				<span class="toolItem gaming">{{tool.label}}</span>
+				{{/if}}
+			{{/each}}
+			{{#each actor.system.gear.tools.instruments as |tool key|}}
+				{{#if tool.value }}
+				<span class="toolItem instrument">{{tool.label}}</span>
+				{{/if}}
+			{{/each}}
+			{{#each actor.system.gear.tools as |tool key|}}
+				{{#if tool.value }}
+				<span class="toolItem tools">{{tool.label}}</span>
+				{{/if}}
+			{{/each}}
+			{{#each actor.system.gear.tools.vehicles as |tool key|}}
+				{{#if tool.value }}
+				<span class="toolItem vehicles">{{tool.label}}</span>
+				{{/if}}
 			{{/each}}
 		</div>
 	  </div>
     </section>
 
-    <!-- {{!-- For the main features list, span the right two columns --}}
     <section class="main grid-span-2">
+		<div class="sizeContainer">
+			{{actor.system.size.label}}:
+			<select class="sizeSelect">
+				{{#each actor.system.size.value as |value key|}}
+					<option value="{{key}}">{{value}}</option>
+				{{/each}}
+			</select>
+		</div>
+		<div class="sensesContainer">
 
-    </section> -->
+		</div>
+    </section>
   </section>
