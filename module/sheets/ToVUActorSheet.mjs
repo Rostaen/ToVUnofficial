@@ -28,6 +28,7 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
         html.find(".inline-edit").change(this._onSkillEdit.bind(this));
         html.find("button.updateTools").click(this._updateToolsList.bind(this));
+        html.find(".sizeSelect").change(this._onSizeEdit.bind(this));
         //console.log(this.actor);
 
         // possibly use this later
@@ -111,7 +112,7 @@ export default class ToVUActorSheet extends ActorSheet{
         deathSavesArray[index] = value;
 
         actor.update({ [`system.deathSaves.${type}`]: deathSavesArray });
-        console.log(" -- Actor Data Bottom Call: ", systemData.deathSaves);
+        //console.log(" -- Actor Data Bottom Call: ", systemData.deathSaves);
     }
 
     _cycleExhaustion(event){
@@ -134,6 +135,16 @@ export default class ToVUActorSheet extends ActorSheet{
             console.log("Invalid icon class");
         }
         actor.update({ 'system.exhaustion.level': exhaustion });
+    }
+
+    async _onSizeEdit(event){
+        event.preventDefault();
+        const selectedValue = $(event.target).val();
+        let updateData = {};
+        updateData['system.size.choice'] = selectedValue
+        await this.actor.update(updateData);
+        console.log(`Selected size updated to ${selectedValue}`, this.actor.system.size);
+        // Database seems to be overwritting over vice versa
     }
 
     async _updateToolsList(event){

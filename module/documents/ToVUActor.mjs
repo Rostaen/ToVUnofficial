@@ -70,7 +70,7 @@ export class ToVUActor extends Actor {
         if(!systemData.size){
             systemData.size = {
                 'label': game.i18n.localize("tovu.size.label"),
-                "choice": '',
+                "choice": "",
                 "value": {
                     'tiny': game.i18n.localize("tovu.size.values.tiny"),
                     'smal': game.i18n.localize("tovu.size.values.smal"),
