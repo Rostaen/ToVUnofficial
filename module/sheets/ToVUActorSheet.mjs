@@ -142,20 +142,25 @@ export default class ToVUActorSheet extends ActorSheet{
     async _onSizeEdit(event){
         event.preventDefault();
         const selectedValue = $(event.target).val();
-        let updateData = {};
-        updateData['system.size.choice'] = selectedValue
-        await this.actor.update(updateData);
-        console.log(`Selected size updated to ${selectedValue}`, this.actor.system.size);
-        // Database seems to be overwritting over vice versa
+        const sizeData = this.actor.system.details.size;
+        for(const key in sizeData.value)
+            if(sizeData.value[key].selected)
+                sizeData.value[key].selected = false;
+        sizeData.value[selectedValue].selected = true;
+        await this.actor.update(sizeData);
+        console.log(`Selected size updated to ${selectedValue}`, this.actor.system.details.size);
     }
 
     async _updateToolsList(event){
         event.preventDefault();
-        const trait = event.target.dataset.trait;
-        const toolSheet = new ToolSkillsSheet(this.actor, trait);
-        toolSheet.render(true);
+        const trait = event.currentTarget.dataset.trait;
+        if(trait === 'tools'){
+            const toolSheet = new ToolSkillsSheet(this.actor, trait);
+            toolSheet.render(true);
+        }
+        else if(trait === 'senses')
+            toolSheet = null;
     }
-
 
     _onSkillEdit(event){
         event.preventDefault();

@@ -158,6 +158,16 @@
         "huge": "Huge",
         "garg": "Gargantuan"
       }
+    },
+    "senses":{
+      "label": "Senses",
+      "values":{
+        "blin": "Blindsight",
+        "dark": "Darkvision",
+        "supe": "Superior Darkvision",
+        "trem": "Tremorsense",
+        "true": "Truesight"
+      }
     }
   }
 }

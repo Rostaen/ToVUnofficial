@@ -1,0 +1,12 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <section class="sensesContainer grid grid-2col">
+        <div>
+            <h2>{{localize "tovu.senses.label"}}</h2>
+            <ul>
+                {{#each artisanTools as |tool key| }}
+                <li><input type="checkbox" data-category="artisan" data-key="{{key}}" name="system.gear.tools.artisan.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+</form>

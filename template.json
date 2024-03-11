@@ -167,6 +167,11 @@
         },
         "gender": {
           "value": ""
+        },
+        "size": {
+          "label": "",
+          "choice": "",
+          "value": {}
         }
       },
       "keyability": {

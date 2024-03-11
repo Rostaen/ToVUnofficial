@@ -1,26 +1,20 @@
 export default class ToolSkillsSheet extends FormApplication {
-    constructor(actor, trait, options={}){
+    constructor(actor, options={}){
         super(options);
         this.actor = actor;
-        this.trait = trait;
     }
 
     static get defaultOptions(){
-        const defaultOptions = {
+        return mergeObject(super.defaultOptions, {
+            id: "tool-skills-sheet",
+            template: "systems/tovu/templates/sheets/partials/character/character-tools.hbs",
             width: 400,
             height: "auto",
             resizable: true,
             minimizable: true,
+            title: "Tool Skills Sheet",
             closeOnSubmit: false
-        }
-
-        if(this.trait = "tools"){
-            defaultOptions.id = "tool-skills-sheet";
-            defaultOptions.template = "systems/tovu/templates/sheets/partials/character/character-tools.hbs";
-            defaultOptions.title = "Tool Skills Sheet";
-        }
-
-        return mergeObject(super.defaultOptions, defaultOptions);
+        });
     }
 
     getData(){
@@ -36,7 +30,7 @@ export default class ToolSkillsSheet extends FormApplication {
 
     activateListeners(html){
         super.activateListeners(html);
-        html.find("input[type='checkbox']").change(this._onChangeCheckbox.bind(this));
+        html.find("input[type='checkbox'").change(this._onChangeCheckbox.bind(this));
     }
 
     async _onChangeCheckbox(event){

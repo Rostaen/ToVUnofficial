@@ -118,15 +118,15 @@
 
     <section class="main grid-span-2">
 		<div class="sizeContainer">
-			{{actor.system.size.label}}:
+			{{localize "tovu.size.label"}}:
 			<select class="sizeSelect">
-				{{#each actor.system.size.value as |value key|}}
-					<option value="{{key}}">{{value}}</option>
+				{{#each actor.system.details.size.value as |value key|}}
+					<option value="{{key}}" {{#if value.selected}} selected {{/if}}>{{value.label}}</option>
 				{{/each}}
 			</select>
 		</div>
 		<div class="sensesContainer">
-			{{!-- TODO: Add senses page off Tools Class --}}
+			<span class="header">{{localize 'tovu.senses.label'}} <button class="updateTools" data-trait="senses"><i class="fa-regular fa-square-plus"></i></button></span>
 		</div>
     </section>
   </section>
