@@ -1,11 +1,11 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
     <section class="sensesContainer grid grid-2col">
         <div>
-            <h2>{{localize "tovu.senses.label"}}</h2>
+            <span>{{localize "tovu.senses.label"}}: </span>
             <ul>
                 {{!-- TODO: Add input field for sense value range: EG Truesight 500 --}}
-                {{#each artisanTools as |tool key| }}
-                <li><input type="checkbox" data-category="artisan" data-key="{{key}}" name="system.gear.tools.artisan.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                {{#each senseList as |sense key| }}
+                <li>{{sense.label}} <input type="text" class="" data-key="{{key}}" value="{{sense.value}}" name="system.gear.tools.artisan.{{key}}.label" /></li>
                 {{/each}}
             </ul>
         </div>

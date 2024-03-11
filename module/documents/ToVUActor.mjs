@@ -67,7 +67,7 @@ export class ToVUActor extends Actor {
         };
         mapItems('ability', statMap, systemData.abilities);
 
-        //Labeling Sizes
+        //Mapping Sizes
         const sizeMap = {
             'label': game.i18n.localize("tovu.size.label"),
             "value": {
@@ -81,15 +81,14 @@ export class ToVUActor extends Actor {
         };
         mapItems('size', sizeMap, systemData.details.size);
 
-        //Labeling Senses
-        const senseMap = {
+        //Mapping Senses
+        systemData.senses = {
             "blin": {label: game.i18n.localize("tovu.senses.values.blin")},
             "dark": {label: game.i18n.localize("tovu.senses.values.dark")},
             "supe": {label: game.i18n.localize("tovu.senses.values.supe")},
             "trem": {label: game.i18n.localize("tovu.senses.values.trem")},
             "true": {label: game.i18n.localize("tovu.senses.values.true")}
         }
-        mapItems('senses', senseMap, systemData.senses);
 
         if(actorData.type !== 'character') return;
 

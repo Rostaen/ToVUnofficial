@@ -1,4 +1,5 @@
 import ToolSkillsSheet from "./ToVUToolSheet.mjs";
+import SensesSheet from "./ToVUSensesSheet.mjs";
 
 export default class ToVUActorSheet extends ActorSheet{
 
@@ -158,7 +159,8 @@ export default class ToVUActorSheet extends ActorSheet{
             const toolSheet = new ToolSkillsSheet(this.actor);
             toolSheet.render(true);
         } else if(trait === 'senses'){
-            toolSheet = new SensesSheet(this.actor);
+            const toolSheet = new SensesSheet(this.actor);
+            toolSheet.render(true);
         }
     }
 

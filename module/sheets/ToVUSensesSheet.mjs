@@ -1,4 +1,4 @@
-export default class ToolSkillsSheet extends FormApplication {
+export default class SensesSheet extends FormApplication {
     constructor(actor, options={}){
         super(options);
         this.actor = actor;
@@ -18,27 +18,23 @@ export default class ToolSkillsSheet extends FormApplication {
     }
 
     getData(){
-        console.log("Senses Sheet GetData: ", this.actor.system.senses);
         return {
-            senses: this.actor.system.senses
+            senseList: this.actor.system.senses
         }
     }
 
     activateListeners(html){
         super.activateListeners(html);
-        html.find("input[type='checkbox'").change(this._onChangeCheckbox.bind(this));
+        html.find("input[type='text']").change(this._onChangeInput.bind(this));
     }
 
-    async _onChangeCheckbox(event){
+    async _onChangeInput(event){
         event.preventDefault();
-        const toolCategory = event.target.dataset.category;
-        const toolName = event.target.dataset.key;
-        const isChecked = event.target.checked;
-
-        /// TODO: Update data for sense and values of senses being implemented, eg: Darkvision 120
-        let updateData = {};
-        let toolPath = `system.gear.tools.${toolName}`
-        updateData[`${toolPath}.value`] = isChecked;
-        await this.actor.update(updateData);
+        const senseName = event.target.dataset.key;
+        const senseValue = event.target.value;
+        const senseData = this.actor.system.senses;
+        senseData[senseName].value = senseValue;
+        await this.actor.update(senseData);
+        console.log(this.actor.system.senses);
     }
 }

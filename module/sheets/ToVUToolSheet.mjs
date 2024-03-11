@@ -30,7 +30,7 @@ export default class ToolSkillsSheet extends FormApplication {
 
     activateListeners(html){
         super.activateListeners(html);
-        html.find("input[type='checkbox'").change(this._onChangeCheckbox.bind(this));
+        html.find("input[type='checkbox']").change(this._onChangeCheckbox.bind(this));
     }
 
     async _onChangeCheckbox(event){
@@ -38,18 +38,10 @@ export default class ToolSkillsSheet extends FormApplication {
         const toolCategory = event.target.dataset.category;
         const toolName = event.target.dataset.key;
         const isChecked = event.target.checked;
-        console.log(toolCategory, toolName, isChecked);
 
-        // Prepare the data to update
         let updateData = {};
-
-        // Determine the correct path to the tool based on its category
         let toolPath = toolCategory === 'unique' ? `system.gear.tools.${toolName}` : `system.gear.tools.${toolCategory}.${toolName}`;
-
-        // Set the value of the tool
         updateData[`${toolPath}.value`] = isChecked;
-
-        // Update the actor's data
         await this.actor.update(updateData);
     }
 }
