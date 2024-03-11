@@ -155,11 +155,11 @@ export default class ToVUActorSheet extends ActorSheet{
         event.preventDefault();
         const trait = event.currentTarget.dataset.trait;
         if(trait === 'tools'){
-            const toolSheet = new ToolSkillsSheet(this.actor, trait);
+            const toolSheet = new ToolSkillsSheet(this.actor);
             toolSheet.render(true);
+        } else if(trait === 'senses'){
+            toolSheet = new SensesSheet(this.actor);
         }
-        else if(trait === 'senses')
-            toolSheet = null;
     }
 
     _onSkillEdit(event){

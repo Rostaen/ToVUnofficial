@@ -6,25 +6,21 @@ export default class ToolSkillsSheet extends FormApplication {
 
     static get defaultOptions(){
         return mergeObject(super.defaultOptions, {
-            id: "tool-skills-sheet",
-            template: "systems/tovu/templates/sheets/partials/character/character-tools.hbs",
+            id: "senses-sheet",
+            template: "systems/tovu/templates/sheets/partials/character/character-senses.hbs",
             width: 400,
             height: "auto",
             resizable: true,
             minimizable: true,
-            title: "Tool Skills Sheet",
+            title: "Senses Sheet",
             closeOnSubmit: false
         });
     }
 
     getData(){
-        console.log("GetData call: ", this.actor.system);
+        console.log("Senses Sheet GetData: ", this.actor.system.senses);
         return {
-            artisanTools: this.actor.system.gear.tools.artisan,
-            uniqueTools: this.actor.system.gear.tools,
-            gamingTools: this.actor.system.gear.tools.gaming,
-            instruments: this.actor.system.gear.tools.instruments,
-            vehicles: this.actor.system.gear.tools.vehicles
+            senses: this.actor.system.senses
         }
     }
 
@@ -38,18 +34,11 @@ export default class ToolSkillsSheet extends FormApplication {
         const toolCategory = event.target.dataset.category;
         const toolName = event.target.dataset.key;
         const isChecked = event.target.checked;
-        console.log(toolCategory, toolName, isChecked);
 
-        // Prepare the data to update
+        /// TODO: Update data for sense and values of senses being implemented, eg: Darkvision 120
         let updateData = {};
-
-        // Determine the correct path to the tool based on its category
-        let toolPath = toolCategory === 'unique' ? `system.gear.tools.${toolName}` : `system.gear.tools.${toolCategory}.${toolName}`;
-
-        // Set the value of the tool
+        let toolPath = `system.gear.tools.${toolName}`
         updateData[`${toolPath}.value`] = isChecked;
-
-        // Update the actor's data
         await this.actor.update(updateData);
     }
 }
