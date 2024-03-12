@@ -19,7 +19,7 @@ export default class SensesSheet extends FormApplication {
 
     getData(){
         return {
-            senseList: this.actor.system.senses
+            senseList: this.actor.system.senses.values
         }
     }
 
@@ -32,7 +32,7 @@ export default class SensesSheet extends FormApplication {
         event.preventDefault();
         const senseName = event.target.dataset.key;
         const senseValue = event.target.value;
-        const senseData = this.actor.system.senses;
+        const senseData = this.actor.system.senses.values;
         senseData[senseName].value = senseValue;
         await this.actor.update(senseData);
         console.log(this.actor.system.senses);

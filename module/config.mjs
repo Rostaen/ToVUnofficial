@@ -38,3 +38,29 @@ tovu.damageType = {
 tovu.hp = {
     hitPoints: "tovu.hp,hitPoints"
 }
+tovu.size = {
+    tiny: {
+        label: "tovu.size.values.tiny",
+        key: 'tiny'
+    },
+    smal: {
+        label: "tovu.size.values.smal",
+        key: 'smal'
+    },
+    medi: {
+        label: "tovu.size.values.medi",
+        key: 'medi'
+    },
+    larg: {
+        label: "tovu.size.values.larg",
+        key: 'larg'
+    },
+    huge: {
+        label: "tovu.size.values.huge",
+        key: 'huge'
+    },
+    garg: {
+        label: "tovu.size.values.garg",
+        key: 'garg'
+    }
+}

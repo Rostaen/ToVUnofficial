@@ -68,27 +68,27 @@ export class ToVUActor extends Actor {
         mapItems('ability', statMap, systemData.abilities);
 
         //Mapping Sizes
-        const sizeMap = {
-            'label': game.i18n.localize("tovu.size.label"),
-            "value": {
-                'tiny': {label: game.i18n.localize("tovu.size.values.tiny")},
-                'smal': {label: game.i18n.localize("tovu.size.values.smal")},
-                'medi': {label: game.i18n.localize("tovu.size.values.medi")},
-                'larg': {label: game.i18n.localize("tovu.size.values.larg")},
-                'huge': {label: game.i18n.localize("tovu.size.values.huge")},
-                'garg': {label: game.i18n.localize("tovu.size.values.garg")}
-            }
+        systemData.details.size = {
+            'tiny': {label: game.i18n.localize("tovu.size.values.tiny")},
+            'smal': {label: game.i18n.localize("tovu.size.values.smal")},
+            'medi': {label: game.i18n.localize("tovu.size.values.medi")},
+            'larg': {label: game.i18n.localize("tovu.size.values.larg")},
+            'huge': {label: game.i18n.localize("tovu.size.values.huge")},
+            'garg': {label: game.i18n.localize("tovu.size.values.garg")}
         };
-        mapItems('size', sizeMap, systemData.details.size);
 
         //Mapping Senses
-        systemData.senses = {
-            "blin": {label: game.i18n.localize("tovu.senses.values.blin")},
-            "dark": {label: game.i18n.localize("tovu.senses.values.dark")},
-            "supe": {label: game.i18n.localize("tovu.senses.values.supe")},
-            "trem": {label: game.i18n.localize("tovu.senses.values.trem")},
-            "true": {label: game.i18n.localize("tovu.senses.values.true")}
+        console.log("Checking Actor >>> ", actorData.system);
+        const senseMap = {
+            "values": {
+                "blin": {label: game.i18n.localize("tovu.senses.values.blin")},
+                "dark": {label: game.i18n.localize("tovu.senses.values.dark")},
+                "supe": {label: game.i18n.localize("tovu.senses.values.supe")},
+                "trem": {label: game.i18n.localize("tovu.senses.values.trem")},
+                "true": {label: game.i18n.localize("tovu.senses.values.true")}
+            }
         }
+        mapItems('senses', senseMap, systemData.senses);
 
         if(actorData.type !== 'character') return;
 

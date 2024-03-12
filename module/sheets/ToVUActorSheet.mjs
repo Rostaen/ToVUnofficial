@@ -1,5 +1,6 @@
 import ToolSkillsSheet from "./ToVUToolSheet.mjs";
 import SensesSheet from "./ToVUSensesSheet.mjs";
+import { tovu } from "../config.mjs";
 
 export default class ToVUActorSheet extends ActorSheet{
 
@@ -16,6 +17,7 @@ export default class ToVUActorSheet extends ActorSheet{
     getData(){
         const data = super.getData();
         data.config = CONFIG.tovu;
+        data.tovu = tovu;
         //data.weapons = data.items.filter(item => { return item.type == "weapon" });
         //console.log(data);
 
@@ -144,12 +146,14 @@ export default class ToVUActorSheet extends ActorSheet{
         event.preventDefault();
         const selectedValue = $(event.target).val();
         const sizeData = this.actor.system.details.size;
-        for(const key in sizeData.value)
-            if(sizeData.value[key].selected)
-                sizeData.value[key].selected = false;
-        sizeData.value[selectedValue].selected = true;
-        await this.actor.update(sizeData);
-        console.log(`Selected size updated to ${selectedValue}`, this.actor.system.details.size);
+        let updateData = {};
+
+        // itterating over each item and setting selected to true or false
+        for(let item in Object.keys(sizeData))
+            item.value ? item.value = false : null;
+        updateData[`${sizeData}[${selectedValue}].value`] = true;
+        await this.actor.update(updateData);
+        console.log(`Selected size updated to ${selectedValue}`, sizeData);
     }
 
     async _updateToolsList(event){
