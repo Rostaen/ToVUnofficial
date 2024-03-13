@@ -85,3 +85,49 @@
         }
     }
 }
+.main{
+    border: 1px solid rgb(16, 91, 149);
+    background-color: rgb(220, 221, 226);
+    border-radius: 3px;
+    padding: 5px;
+    div+div{
+        border-top: 1px solid rgb(16, 91, 149);
+        margin-top: 4px;
+        padding-top: 4px;
+    }
+    .sizeContainer{
+        display: flex;
+        justify-content: space-between;
+        span{
+            display: flex;
+            align-items: center;
+        }
+    }
+    .sensesContainer{
+        display: flex;
+        justify-content: space-between;
+        .header{
+            .senseItem{
+                font-size: 10px;
+                border: 1px solid #105b95;
+                background-color: #c8c8c8;
+                border-radius: 3px;
+                padding: 2px;
+                margin: 0px 2px 2px 0px;
+                display: inline-flex;
+            }
+        }
+        button.updateTools{
+            padding: 0;
+            margin: 3px 0 0;
+            width: 14px;
+            height: 14px;
+            position: relative;
+            i{
+                position: absolute;
+                top: -2px;
+                left: -1px;
+            }
+        }
+    }
+}

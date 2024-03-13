@@ -10,7 +10,7 @@ export default class SensesSheet extends FormApplication {
         return mergeObject(super.defaultOptions, {
             id: "senses-sheet",
             template: "systems/tovu/templates/sheets/partials/character/character-senses.hbs",
-            width: 400,
+            width: "auto",
             height: "auto",
             resizable: true,
             minimizable: true,
@@ -38,10 +38,12 @@ export default class SensesSheet extends FormApplication {
         event.preventDefault();
         const key = event.currentTarget.dataset.key;
         const value = parseInt(event.currentTarget.value);
-        const senseData = this.actor.system.senses.values;
-        console.log("Key >>> ", key);
-        console.log("Value >>> ", value);
-        await this.actor.update({ [`system.senses.${key}`]: value });
+        const label = event.currentTarget.dataset.label;
+        let data = {};
+        const systemPath = `system.senses.${key}`;
+        data[`${systemPath}.value`] = value;
+        data[`${systemPath}.label`] = label;
+        await this.actor.update(data);
         console.log(this.actor.system.senses);
     }
 }

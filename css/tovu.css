@@ -275,6 +275,50 @@
   margin: 0px 2px 2px 0px;
   display: inline-flex;
 }
+.main {
+  border: 1px solid #105b95;
+  background-color: #dcdde2;
+  border-radius: 3px;
+  padding: 5px;
+}
+.main div + div {
+  border-top: 1px solid #105b95;
+  margin-top: 4px;
+  padding-top: 4px;
+}
+.main .sizeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.main .sizeContainer span {
+  display: flex;
+  align-items: center;
+}
+.main .sensesContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.main .sensesContainer .header .senseItem {
+  font-size: 10px;
+  border: 1px solid #105b95;
+  background-color: #c8c8c8;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 0px 2px 2px 0px;
+  display: inline-flex;
+}
+.main .sensesContainer button.updateTools {
+  padding: 0;
+  margin: 3px 0 0;
+  width: 14px;
+  height: 14px;
+  position: relative;
+}
+.main .sensesContainer button.updateTools i {
+  position: absolute;
+  top: -2px;
+  left: -1px;
+}
 .toolsContainer h2 {
   font-size: 16px;
   border-bottom: 0;
@@ -304,6 +348,21 @@
 }
 .toolsContainer span.last {
   margin-bottom: 5px;
+}
+.sensesSheet {
+  border: 1px solid #105b95;
+  background-color: #dcdde2;
+  border-radius: 3px;
+  padding: 5px;
+}
+.sensesSheet h2 {
+  border-bottom: 1px solid #105b95;
+}
+.sensesSheet div .input {
+  margin: 5px;
+  font-size: 16px;
+  border: 1px solid #105b95;
+  width: 100px;
 }
 .characterSidebar input {
   text-align: center;

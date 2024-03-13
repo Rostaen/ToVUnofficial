@@ -118,13 +118,20 @@
 
     <section class="main grid-span-2">
 		<div class="sizeContainer">
-			{{localize "tovu.size.label"}}:
+			<span>{{localize "tovu.size.label"}}:</span>
 			<select class="sizeSelect">
 				{{selectOptions tovu.size selected=actor.system.details.size.choice nameAttr="key" labelAttr="label" localize=true}}
 			</select>
 		</div>
 		<div class="sensesContainer">
-			<span class="header">{{localize 'tovu.senses.label'}} <button class="updateTools" data-trait="senses"><i class="fa-regular fa-square-plus"></i></button></span>
+			<span class="header">{{localize 'tovu.senses.label'}}:
+				{{#each actor.system.senses as |sense key| }}
+					{{#if (gt sense.value 0)}}
+						<span class="senseItem">{{sense.label}} {{sense.value}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="senses"><i class="fa-regular fa-square-plus"></i></button>
 		</div>
     </section>
   </section>
