@@ -144,16 +144,9 @@ export default class ToVUActorSheet extends ActorSheet{
 
     async _onSizeEdit(event){
         event.preventDefault();
-        const selectedValue = $(event.target).val();
-        const sizeData = this.actor.system.details.size;
-        let updateData = {};
-
-        // itterating over each item and setting selected to true or false
-        for(let item in Object.keys(sizeData))
-            item.value ? item.value = false : null;
-        updateData[`${sizeData}[${selectedValue}].value`] = true;
-        await this.actor.update(updateData);
-        console.log(`Selected size updated to ${selectedValue}`, sizeData);
+        const selectedValue = $(event.currentTarget).val();
+        await this.actor.update({'system.details.size.choice': selectedValue});
+        console.log("Path to Size >>> ", this.actor.system.details.size);
     }
 
     async _updateToolsList(event){

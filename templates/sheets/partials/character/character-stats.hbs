@@ -120,12 +120,7 @@
 		<div class="sizeContainer">
 			{{localize "tovu.size.label"}}:
 			<select class="sizeSelect">
-				{{selectOptions tovu.size selected=value nameAttr="key" labelAttr="label" localize=true}}
-			</select>
-			<select class="sizeSelect">
-				{{#each actor.system.details.size as |size key|}}
-					<option value="{{size.value}}" name="system.details.size.{{key}}.selected" {{#if size.value}} selected {{/if}}>{{size.label}}</option>
-				{{/each}}
+				{{selectOptions tovu.size selected=actor.system.details.size.choice nameAttr="key" labelAttr="label" localize=true}}
 			</select>
 		</div>
 		<div class="sensesContainer">

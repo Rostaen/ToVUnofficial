@@ -67,18 +67,8 @@ export class ToVUActor extends Actor {
         };
         mapItems('ability', statMap, systemData.abilities);
 
-        //Mapping Sizes
-        systemData.details.size = {
-            'tiny': {label: game.i18n.localize("tovu.size.values.tiny")},
-            'smal': {label: game.i18n.localize("tovu.size.values.smal")},
-            'medi': {label: game.i18n.localize("tovu.size.values.medi")},
-            'larg': {label: game.i18n.localize("tovu.size.values.larg")},
-            'huge': {label: game.i18n.localize("tovu.size.values.huge")},
-            'garg': {label: game.i18n.localize("tovu.size.values.garg")}
-        };
-
         //Mapping Senses
-        console.log("Checking Actor >>> ", actorData.system);
+        // console.log("Checking Actor >>> ", actorData.system);
         const senseMap = {
             "values": {
                 "blin": {label: game.i18n.localize("tovu.senses.values.blin")},
