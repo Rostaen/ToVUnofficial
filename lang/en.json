@@ -166,7 +166,7 @@
         "dark": "Darkvision",
         "supe": "Superior Darkvision",
         "trem": "Tremorsense",
-        "true": "Truesight"
+        "tsig": "Truesight"
       }
     }
   }

@@ -64,3 +64,10 @@ tovu.size = {
         key: 'garg'
     }
 }
+tovu.senses = {
+    blin: "tovu.senses.values.blin",
+    dark: "tovu.senses.values.dark",
+    supe: "tovu.senses.values.supe",
+    trem: "tovu.senses.values.trem",
+    tsig: "tovu.senses.values.tsig"
+}

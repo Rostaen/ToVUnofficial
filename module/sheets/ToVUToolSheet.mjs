@@ -18,7 +18,7 @@ export default class ToolSkillsSheet extends FormApplication {
     }
 
     getData(){
-        console.log("GetData call: ", this.actor.system);
+        //console.log("GetData call: ", this.actor.system);
         return {
             artisanTools: this.actor.system.gear.tools.artisan,
             uniqueTools: this.actor.system.gear.tools,

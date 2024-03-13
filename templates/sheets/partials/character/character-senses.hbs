@@ -1,12 +1,13 @@
 <form class="{{cssClass}} flexcol" autocomplete="off">
-    <section class="sensesContainer grid grid-2col">
+    <section class="sensesContainer">
         <div>
             <span>{{localize "tovu.senses.label"}}: </span>
             <ul>
-                {{!-- TODO: Add input field for sense value range: EG Truesight 500 --}}
-                {{#each senseList as |sense key| }}
-                <li>{{sense.label}} <input type="text" class="" data-key="{{key}}" value="{{sense.value}}" name="system.gear.tools.artisan.{{key}}.label" /></li>
-                {{/each}}
+                <li class="grid grid-2col">{{localize configSenses.blin}} <input type="text" class="senseInput" data-key="blin" value="{{actorSenses.blin}}" name="system.senses.blin" /></li>
+                <li class="grid grid-2col">{{localize configSenses.dark}} <input type="text" class="senseInput" data-key="dark" value="{{actorSenses.dark}}" name="system.senses.dark" /></li>
+                <li class="grid grid-2col">{{localize configSenses.supe}} <input type="text" class="senseInput" data-key="supe" value="{{actorSenses.supe}}" name="system.senses.supe" /></li>
+                <li class="grid grid-2col">{{localize configSenses.trem}} <input type="text" class="senseInput" data-key="trem" value="{{actorSenses.trem}}" name="system.senses.trem" /></li>
+                <li class="grid grid-2col">{{localize configSenses.tsig}} <input type="text" class="senseInput" data-key="true" value="{{actorSenses.tsig}}" name="system.senses.true" /></li>
             </ul>
         </div>
     </section>

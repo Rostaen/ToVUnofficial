@@ -1,3 +1,5 @@
+import { tovu } from "../config.mjs";
+
 export default class SensesSheet extends FormApplication {
     constructor(actor, options={}){
         super(options);
@@ -18,8 +20,12 @@ export default class SensesSheet extends FormApplication {
     }
 
     getData(){
+        const actorSenses = this.actor.system.senses;
+        const configSenses = tovu.senses;
+
         return {
-            senseList: this.actor.system.senses.values
+            actorSenses,
+            configSenses
         }
     }
 
@@ -30,11 +36,12 @@ export default class SensesSheet extends FormApplication {
 
     async _onChangeInput(event){
         event.preventDefault();
-        const senseName = event.target.dataset.key;
-        const senseValue = event.target.value;
+        const key = event.currentTarget.dataset.key;
+        const value = parseInt(event.currentTarget.value);
         const senseData = this.actor.system.senses.values;
-        senseData[senseName].value = senseValue;
-        await this.actor.update(senseData);
+        console.log("Key >>> ", key);
+        console.log("Value >>> ", value);
+        await this.actor.update({ [`system.senses.${key}`]: value });
         console.log(this.actor.system.senses);
     }
 }

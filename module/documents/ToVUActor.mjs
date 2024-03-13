@@ -67,19 +67,6 @@ export class ToVUActor extends Actor {
         };
         mapItems('ability', statMap, systemData.abilities);
 
-        //Mapping Senses
-        // console.log("Checking Actor >>> ", actorData.system);
-        const senseMap = {
-            "values": {
-                "blin": {label: game.i18n.localize("tovu.senses.values.blin")},
-                "dark": {label: game.i18n.localize("tovu.senses.values.dark")},
-                "supe": {label: game.i18n.localize("tovu.senses.values.supe")},
-                "trem": {label: game.i18n.localize("tovu.senses.values.trem")},
-                "true": {label: game.i18n.localize("tovu.senses.values.true")}
-            }
-        }
-        mapItems('senses', senseMap, systemData.senses);
-
         if(actorData.type !== 'character') return;
 
         // Map skill keys to labels and core attributes

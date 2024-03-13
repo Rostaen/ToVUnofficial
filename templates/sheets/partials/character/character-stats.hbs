@@ -7,7 +7,7 @@
         data-roll="d20+@abilities.{{key}}.mod"
         data-label="{{ability.label}}"
         >
-			{{ability.label}}
+			{{localize (concat 'tovu.abilityShortHand.' key)}}
         </label>
         <input
             type="text"

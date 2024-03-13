@@ -48,4 +48,8 @@ Handlebars.registerHelper('times', (n, actor, block) => {
   return accum;
 });
 
+Handlebars.registerHelper('log', (item) => console.log("Helper Logging >>> ", item));
+
+Handlebars.registerHelper('getNestedValue', (object, key) => {return object[key];});
+
 // Define Extra Classes here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
