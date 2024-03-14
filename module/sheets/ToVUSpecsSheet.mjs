@@ -9,13 +9,13 @@ export default class SpecsSheet extends FormApplication {
 
     static get defaultOptions(){
         return mergeObject(super.defaultOptions, {
-            id: "senses-sheet",
+            id: "specs-sheet",
             template: "systems/tovu/templates/sheets/partials/character/character-specs.hbs",
             width: "auto",
             height: "auto",
             resizable: true,
             minimizable: true,
-            title: "Senses Sheet",
+            title: "Specs Sheet",
             closeOnSubmit: false
         });
     }

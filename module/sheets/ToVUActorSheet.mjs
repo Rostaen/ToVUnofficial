@@ -151,6 +151,8 @@ export default class ToVUActorSheet extends ActorSheet{
                 break;
             case 'senses':
             case 'immune':
+            case 'resist':
+            case 'vulnerable':
                 toolSheet = new SpecsSheet(this.actor, trait);
                 toolSheet.render(true);
                 break;

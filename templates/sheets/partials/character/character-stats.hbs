@@ -143,5 +143,25 @@
 			</span>
 			<button class="updateTools" data-trait="immune"><i class="fa-regular fa-square-plus"></i></button>
 		</div>
+		<div class="resistanceContainer sensesContainer">
+			<span class="header">{{localize 'tovu.resist'}}:
+				{{#each actor.system.resist as |resist key|}}
+					{{#if resist.value}}
+						<span class="senseItem resistItem">{{resist.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="resist"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
+		<div class="vulnerableContainer sensesContainer">
+			<span class="header">{{localize 'tovu.vulnerable'}}:
+				{{#each actor.system.vulnerable as |vulnerable key|}}
+					{{#if vulnerable.value}}
+						<span class="senseItem vulnerableItem">{{vulnerable.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="vulnerable"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
     </section>
   </section>

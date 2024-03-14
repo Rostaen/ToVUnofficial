@@ -364,11 +364,15 @@
   border: 1px solid #105b95;
   width: 100px;
 }
-.specsSheet .immune input[type='checkbox'] {
+.specsSheet .immune input[type='checkbox'],
+.specsSheet .resist input[type='checkbox'],
+.specsSheet .vulnerable input[type='checkbox'] {
   height: 10px;
   width: 10px;
 }
-.specsSheet .immune span.label {
+.specsSheet .immune span.label,
+.specsSheet .resist span.label,
+.specsSheet .vulnerable span.label {
   font-size: 12px;
 }
 .characterSidebar input {

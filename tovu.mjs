@@ -50,9 +50,4 @@ Handlebars.registerHelper('times', (n, actor, block) => {
 
 Handlebars.registerHelper('log', (item) => console.log("Helper Logging >>> ", item));
 
-Handlebars.registerHelper('getObjectValue', function(object, key) {
-  console.log("Helper >>> Object: ", object, " Key: ", key);
-  return object[key] && object[key].value;
-});
-
 // Define Extra Classes here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
