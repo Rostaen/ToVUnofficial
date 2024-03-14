@@ -33,7 +33,6 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
         html.find(".inline-edit").change(this._onSkillEdit.bind(this));
         html.find("button.updateTools").click(this._updateToolsList.bind(this));
-        html.find(".sizeSelect").change(this._onSizeEdit.bind(this));
         //console.log(this.actor);
 
         // possibly use this later
@@ -140,13 +139,6 @@ export default class ToVUActorSheet extends ActorSheet{
             console.log("Invalid icon class");
         }
         actor.update({ 'system.exhaustion.level': exhaustion });
-    }
-
-    async _onSizeEdit(event){
-        event.preventDefault();
-        const selectedValue = $(event.currentTarget).val();
-        await this.actor.update({'system.details.size.choice': selectedValue});
-        console.log("Path to Size >>> ", this.actor.system.details.size);
     }
 
     async _updateToolsList(event){
