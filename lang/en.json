@@ -71,18 +71,19 @@
       "type": "Type"
     },
     "damageType": {
-      "bludgeoning": "Bludgeoning",
-      "slashing": "Slashing",
-      "piercing": "Piercing",
+      "acid": "Acid",
+      "blud": "Bludgeoning",
       "cold": "Cold",
       "fire": "Fire",
-      "force": "Force",
-      "lightning": "Lightning",
-      "necrotic": "Necrotic",
-      "poison": "Poison",
-      "psychic": "Psychic",
-      "radiant": "Radiant",
-      "thunder": "Thunder"
+      "forc": "Force",
+      "ligh": "Lightning",
+      "necr": "Necrotic",
+      "pier": "Piercing",
+      "pois": "Poison",
+      "psyc": "Psychic",
+      "radi": "Radiant",
+      "slas": "Slashing",
+      "thun": "Thunder"
     },
     "armor": {
       "type": "Type",
@@ -161,13 +162,17 @@
     },
     "senses":{
       "label": "Senses",
-      "values":{
+      "values": {
         "blin": "Blindsight",
         "dark": "Darkvision",
         "supe": "Superior Darkvision",
         "trem": "Tremorsense",
-        "tsig": "Truesight"
+        "tsig": "Truesight",
+        "othe": "Other"
       }
-    }
+    },
+    "immune": "Immunities",
+    "resist": "Resistances",
+    "vulnerable": "Vulnerabilities"
   }
 }

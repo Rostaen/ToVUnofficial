@@ -22,18 +22,19 @@ tovu.weapon = {
     type: "tovu.weapon.type",
 }
 tovu.damageType = {
-    bludgeoning: "tovu.damageType.bludgeoning",
-    slashing: "tovu.damageType.slashing",
-    piercing: "tovu.damageType.piercing",
+    acid: "tovu.damageType.acid",
+    blud: "tovu.damageType.blud",
     cold: "tovu.damageType.cold",
     fire: "tovu.damageType.fire",
-    force: "tovu.damageType.force",
-    lightning: "tovu.damageType.lightning",
-    necrotic: "tovu.damageType.necrotic",
-    poison: "tovu.damageType.poison",
-    psychic: "tovu.damageType.psychic",
-    radiant: "tovu.damageType.radiant",
-    thunder: "tovu.damageType.thunder"
+    forc: "tovu.damageType.forc",
+    ligh: "tovu.damageType.ligh",
+    necr: "tovu.damageType.necr",
+    pier: "tovu.damageType.pier",
+    pois: "tovu.damageType.pois",
+    psyc: "tovu.damageType.psyc",
+    radi: "tovu.damageType.radi",
+    slas: "tovu.damageType.slas",
+    thun: "tovu.damageType.thun"
 }
 tovu.hp = {
     hitPoints: "tovu.hp,hitPoints"
@@ -69,5 +70,6 @@ tovu.senses = {
     dark: "tovu.senses.values.dark",
     supe: "tovu.senses.values.supe",
     trem: "tovu.senses.values.trem",
-    tsig: "tovu.senses.values.tsig"
+    tsig: "tovu.senses.values.tsig",
+    othe: "tovu.senses.values.othe"
 }

@@ -14,7 +14,7 @@ export const preloadHandlebarsTemplates = async function() {
       "systems/tovu/templates/sheets/partials/character/character-spells.hbs",
       "systems/tovu/templates/sheets/partials/character/character-stats.hbs",
       "systems/tovu/templates/sheets/partials/character/character-tools.hbs",
-      "systems/tovu/templates/sheets/partials/character/character-senses.hbs",
+      "systems/tovu/templates/sheets/partials/character/character-specs.hbs",
       // "systems/tovu/templates/sheets/partials/character/character-.hbs",
     ]);
 };

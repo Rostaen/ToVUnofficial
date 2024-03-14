@@ -1,5 +1,5 @@
 import ToolSkillsSheet from "./ToVUToolSheet.mjs";
-import SensesSheet from "./ToVUSensesSheet.mjs";
+import SpecsSheet from "./ToVUSpecsSheet.mjs";
 import { tovu } from "../config.mjs";
 
 export default class ToVUActorSheet extends ActorSheet{
@@ -31,7 +31,6 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find("button.statProficiency").click(this._cycleStatProficiency.bind(this));
         html.find("button.deathSave").click(this._cycleDeathSave.bind(this));
         html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
-        html.find(".inline-edit").change(this._onSkillEdit.bind(this));
         html.find("button.updateTools").click(this._updateToolsList.bind(this));
         //console.log(this.actor);
 
@@ -144,19 +143,20 @@ export default class ToVUActorSheet extends ActorSheet{
     async _updateToolsList(event){
         event.preventDefault();
         const trait = event.currentTarget.dataset.trait;
-        if(trait === 'tools'){
-            const toolSheet = new ToolSkillsSheet(this.actor);
-            toolSheet.render(true);
-        } else if(trait === 'senses'){
-            const toolSheet = new SensesSheet(this.actor);
-            toolSheet.render(true);
+        let toolSheet = null;
+        switch(trait){
+            case 'tools':
+                toolSheet = new ToolSkillsSheet(this.actor);
+                toolSheet.render(true);
+                break;
+            case 'senses':
+            case 'immune':
+                toolSheet = new SpecsSheet(this.actor, trait);
+                toolSheet.render(true);
+                break;
+            default:
+                console.error("Error in _updateToolsList switch statement");
         }
-    }
-
-    _onSkillEdit(event){
-        event.preventDefault();
-        let element = event.currentTarget;
-        //let item = this.actor;
     }
 
     _onItemCreate(event){

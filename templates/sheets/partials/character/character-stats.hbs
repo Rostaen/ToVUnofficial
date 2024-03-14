@@ -133,5 +133,15 @@
 			</span>
 			<button class="updateTools" data-trait="senses"><i class="fa-regular fa-square-plus"></i></button>
 		</div>
+		<div class="immunitiesContainer sensesContainer">
+			<span class="header">{{localize 'tovu.immune'}}:
+				{{#each actor.system.immune as |immune key|}}
+					{{#if immune.value}}
+						<span class="senseItem immuneItem">{{immune.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="immune"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
     </section>
   </section>
