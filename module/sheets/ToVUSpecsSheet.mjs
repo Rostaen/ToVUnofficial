@@ -53,6 +53,7 @@ export default class SpecsSheet extends FormApplication {
             case 'immune':
             case 'resist':
             case 'vulnerable':
+            case 'condition':
                 value = event.target.checked;
                 break;
             default:

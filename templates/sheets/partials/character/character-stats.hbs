@@ -163,5 +163,15 @@
 			</span>
 			<button class="updateTools" data-trait="vulnerable"><i class="fa-regular fa-square-plus"></i></button>
 		</div>
+		<div class="conditionContainer sensesContainer">
+			<span class="header">{{localize 'tovu.condition.label'}}:
+				{{#each actor.system.condition as |condition key|}}
+					{{#if condition.value}}
+						<span class="senseItem conditionItem">{{condition.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="condition"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
     </section>
   </section>

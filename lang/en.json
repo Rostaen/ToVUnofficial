@@ -160,7 +160,7 @@
         "garg": "Gargantuan"
       }
     },
-    "senses":{
+    "senses": {
       "label": "Senses",
       "values": {
         "blin": "Blindsight",
@@ -173,6 +173,27 @@
     },
     "immune": "Immunities",
     "resist": "Resistances",
-    "vulnerable": "Vulnerabilities"
+    "vulnerable": "Vulnerabilities",
+    "condition": {
+      "label": "Condition Immunities",
+      "values": {
+        "blin": "Blinded",
+        "char": "Charmed",
+        "deaf": "Deafened",
+        "dise": "Disease",
+        "exha": "Exhaustion",
+        "frig": "Frightened",
+        "grap": "Grappled",
+        "inca": "Incapacitated",
+        "invi": "Invisable",
+        "para": "Paralyzed",
+        "petr": "Petrified",
+        "pois": "Poisoned",
+        "pron": "Prone",
+        "rest": "Restrained",
+        "stun": "Stunned",
+        "unco": "Unconscious"
+      }
+    }
   }
 }

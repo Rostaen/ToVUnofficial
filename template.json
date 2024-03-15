@@ -59,6 +59,7 @@
         "vulnerable": [],
         "resist": [],
         "immune": [],
+        "condition": [],
         "languages": []
       }
     },

@@ -73,3 +73,21 @@ tovu.senses = {
     tsig: "tovu.senses.values.tsig",
     othe: "tovu.senses.values.othe"
 }
+tovu.condition = {
+    blin: "tovu.condition.values.blin",
+    char: "tovu.condition.values.char",
+    deaf: "tovu.condition.values.deaf",
+    dise: "tovu.condition.values.dise",
+    exha: "tovu.condition.values.exha",
+    frig: "tovu.condition.values.frig",
+    grap: "tovu.condition.values.grap",
+    inca: "tovu.condition.values.inca",
+    invi: "tovu.condition.values.invi",
+    para: "tovu.condition.values.para",
+    petr: "tovu.condition.values.petr",
+    pois: "tovu.condition.values.pois",
+    pron: "tovu.condition.values.pron",
+    rest: "tovu.condition.values.rest",
+    stun: "tovu.condition.values.stun",
+    unco: "tovu.condition.values.unco"
+}

@@ -32,6 +32,7 @@ export default class ToVUActorSheet extends ActorSheet{
         html.find("button.deathSave").click(this._cycleDeathSave.bind(this));
         html.find(".exhaustionMarker").click(this._cycleExhaustion.bind(this));
         html.find("button.updateTools").click(this._updateToolsList.bind(this));
+        html.find(".sizeSelect").change(this._onSizeEdit.bind(this));
         //console.log(this.actor);
 
         // possibly use this later
@@ -153,12 +154,20 @@ export default class ToVUActorSheet extends ActorSheet{
             case 'immune':
             case 'resist':
             case 'vulnerable':
+            case 'condition':
                 toolSheet = new SpecsSheet(this.actor, trait);
                 toolSheet.render(true);
                 break;
             default:
                 console.error("Error in _updateToolsList switch statement");
         }
+    }
+
+    async _onSizeEdit(event){
+        event.preventDefault();
+        const selectedValue = $(event.currentTarget).val();
+        await this.actor.update({'system.details.size.choice': selectedValue});
+        console.log("Path to Size >>> ", this.actor.system.details.size);
     }
 
     _onItemCreate(event){
