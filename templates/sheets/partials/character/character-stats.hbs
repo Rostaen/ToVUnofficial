@@ -173,5 +173,25 @@
 			</span>
 			<button class="updateTools" data-trait="condition"><i class="fa-regular fa-square-plus"></i></button>
 		</div>
+		<div class="weaponContainer sensesContainer">
+			<span class="header">{{localize 'tovu.condition.label'}}:
+				{{#each actor.system.gear.weapons as |weapon key|}}
+					{{#if weapon.value}}
+						<span class="senseItem conditionItem">{{weapon.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="condition"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
+		<div class="armorContainer sensesContainer">
+			<span class="header">{{localize 'tovu.condition.label'}}:
+				{{#each actor.system.condition as |condition key|}}
+					{{#if condition.value}}
+						<span class="senseItem conditionItem">{{condition.label}}</span>
+					{{/if}}
+				{{/each}}
+			</span>
+			<button class="updateTools" data-trait="condition"><i class="fa-regular fa-square-plus"></i></button>
+		</div>
     </section>
   </section>

@@ -2,9 +2,7 @@
     <div class="sidebar">
         {{#if (eq actor.type "character")}}
         <h1 class="class">
-            <div data-edit="actor.system.keyability.value" contenteditable>
-                {{actor.name}}
-            </div>
+            <input name="name" type="text" value="{{actor.name}}" />
         </h1>
         {{/if}}
         <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />

@@ -70,6 +70,63 @@
       "style": "Style",
       "type": "Type"
     },
+    "weaponList": {
+      "labels": {
+        "simp": "Simple",
+        "mart": "Martial",
+        "mele": "Melee",
+        "rang": "Range"
+      },
+      "simple": {
+        "melee": {
+          "club": "Club",
+          "dagg": "Dagger",
+          "gclu": "Greatclub",
+          "haxe": "Handaxe",
+          "jave": "Javelin",
+          "lham": "Light Hammer",
+          "mace": "Mace",
+          "qsta": "Quarterstaff",
+          "sick": "Sickle",
+          "spea": "Spear"
+        },
+        "range": {
+          "dart": "Dart",
+          "lcro": "Light Crossbow",
+          "sbow": "Shortbow",
+          "slin": "Sling"
+        }
+      },
+      "martial": {
+        "melee": {
+          "baxe": "Battleaxe",
+          "flai": "Flail",
+          "glai": "Glaive",
+          "gaxe": "Greataxe",
+          "gswo": "Greatsword",
+          "halb": "Halberd",
+          "lanc": "Lance",
+          "lswo": "Longsword",
+          "maul": "Maul",
+          "morn": "Morningstar",
+          "pike": "Pike",
+          "rapi": "Rapier",
+          "scim": "Scimitar",
+          "sswo": "Shortsword",
+          "trid": "Trident",
+          "warp": "War Pick",
+          "warh": "Warhammer",
+          "whip": "Whip"
+        },
+        "range": {
+          "blow": "Blowgun",
+          "hand": "Hand Crossbow",
+          "hcro": "Heavy Crossbow",
+          "lbow": "Longbow",
+          "net": "Net"
+        }
+      }
+    },
     "damageType": {
       "acid": "Acid",
       "blud": "Bludgeoning",

@@ -63,6 +63,6 @@ export default class SpecsSheet extends FormApplication {
         data[`${systemPath}.label`] = label;
 
         await this.actor.update(data);
-        console.log("On Change >>> ", this.actor.system);
+        console.log("On Change >>> ", this.actor);
     }
 }
