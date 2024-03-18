@@ -28,15 +28,6 @@ Hooks.once("init", () => {
 
   // Preload Handlebars templates.
   return preloadHandlebarsTemplates();
-
-  // Where and how to create custom handlebar helpers
-  // Handlebars.registerHelper("times", (n, content) => {
-  //   let result = "";
-  //   for (let i = 0; i < n; ++i){
-  //     result += content.fn(i);
-  //   }
-  //   return result;
-  // });
 });
 
 // Define Handlebars here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,5 +40,3 @@ Handlebars.registerHelper('times', (n, actor, block) => {
 });
 
 Handlebars.registerHelper('log', (item) => console.log("Helper Logging >>> ", item));
-
-// Define Extra Classes here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

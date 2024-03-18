@@ -1,0 +1,105 @@
+<form class="{{cssClass}} flexcol" autocomplete="off">
+    <section class="toolsContainer grid grid-2col">
+        {{#if (eq trait 'tools')}}
+            <div>
+                <h2>{{localize "tovu.tools.artisan.arti"}}</h2>
+                <ul>
+                    {{#each gear.tools.artisan as |tool key| }}
+                    <li><input type="checkbox" data-category="artisan" data-type="tools" data-key="{{key}}" name="system.gear.tools.artisan.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                    {{/each}}
+                </ul>
+                <span><input type="checkbox" data-category="unique" data-type="tools" data-key="disg" name="system.gear.tools.disg.label" {{#if gear.tools.disg.value}} checked {{/if}} > {{gear.tools.disg.label}}</span>
+                <span class="last"><input type="checkbox" data-category="unique" data-type="tools" data-key="forg" name="system.gear.tools.forg.label" {{#if gear.tools.forg.value}} checked {{/if}} > {{gear.tools.forg.label}}</span>
+                <h2>{{localize "tovu.tools.gaming.gami"}}</h2>
+                <ul>
+                    {{#each gear.tools.gaming as |tool key| }}
+                    <li><input type="checkbox" data-category="gaming" data-type="tools" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                    {{/each}}
+                </ul>
+                <span class="last"><input type="checkbox" data-category="unique" data-type="tools" data-key="herb" name="system.gear.tools.herb.label" {{#if gear.tools.herb.value}} checked {{/if}} > {{gear.tools.herb.label}}</span>
+            </div>
+            <div>
+                <h2>{{localize "tovu.tools.instruments.inst"}}</h2>
+                <ul>
+                    {{#each gear.tools.instruments as |tool key| }}
+                    <li><input type="checkbox" data-category="instruments" data-type="tools" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                    {{/each}}
+                </ul>
+                <span><input type="checkbox" data-category="unique" data-type="tools" data-key="navi" name="system.gear.tools.navi.label" {{#if gear.tools.navi.value}} checked {{/if}} > {{gear.tools.navi.label}}</span>
+                <span><input type="checkbox" data-category="unique" data-type="tools" data-key="pois" name="system.gear.tools.pois.label" {{#if gear.tools.pois.value}} checked {{/if}} > {{gear.tools.pois.label}}</span>
+                <span class="last"><input type="checkbox" data-category="unique" data-type="tools" data-key="thie" name="system.gear.tools.thie.label" {{#if gear.tools.thie.value}} checked {{/if}} > {{gear.tools.thie.label}}</span>
+                <h2>{{localize "tovu.tools.vehicle.vehi"}}</h2>
+                <ul>
+                    {{#each gear.tools.vehicles as |tool key| }}
+                    <li><input type="checkbox" data-category="vehicles" data-type="tools" data-key="{{key}}" name="system.gear.tools.{{key}}.label" {{#if tool.value }} checked {{/if}} > {{tool.label}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+        {{else}}
+            <div class="simple">
+                <div class="melee">
+                    <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="club" class="weaponInput" {{checked gear.weapons.club}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                    <h2>{{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
+                    <ul>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="club" class="weaponInput" {{checked gear.weapons.club}} > <span class="label">{{localize configObj.weaponList.simple.melee.club}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.dagg.label" data-label="{{localize configObj.weaponList.simple.melee.dagg}}" data-key="dagg" class="weaponInput" {{checked gear.weapons.dagg}} > <span class="label">{{localize configObj.weaponList.simple.melee.dagg}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.gclu.label" data-label="{{localize configObj.weaponList.simple.melee.gclu}}" data-key="gclu" class="weaponInput" {{checked gear.weapons.gclu}} > <span class="label">{{localize configObj.weaponList.simple.melee.gclu}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.haxe.label" data-label="{{localize configObj.weaponList.simple.melee.haxe}}" data-key="haxe" class="weaponInput" {{checked gear.weapons.haxe}} > <span class="label">{{localize configObj.weaponList.simple.melee.haxe}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.jave.label" data-label="{{localize configObj.weaponList.simple.melee.jave}}" data-key="jave" class="weaponInput" {{checked gear.weapons.jave}} > <span class="label">{{localize configObj.weaponList.simple.melee.jave}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.lham.label" data-label="{{localize configObj.weaponList.simple.melee.lham}}" data-key="lham" class="weaponInput" {{checked gear.weapons.lham}} > <span class="label">{{localize configObj.weaponList.simple.melee.lham}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.mace.label" data-label="{{localize configObj.weaponList.simple.melee.mace}}" data-key="mace" class="weaponInput" {{checked gear.weapons.mace}} > <span class="label">{{localize configObj.weaponList.simple.melee.mace}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.qsta.label" data-label="{{localize configObj.weaponList.simple.melee.qsta}}" data-key="qsta" class="weaponInput" {{checked gear.weapons.qsta}} > <span class="label">{{localize configObj.weaponList.simple.melee.qsta}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.sick.label" data-label="{{localize configObj.weaponList.simple.melee.sick}}" data-key="sick" class="weaponInput" {{checked gear.weapons.sick}} > <span class="label">{{localize configObj.weaponList.simple.melee.sick}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.spea.label" data-label="{{localize configObj.weaponList.simple.melee.spea}}" data-key="spea" class="weaponInput" {{checked gear.weapons.spea}} > <span class="label">{{localize configObj.weaponList.simple.melee.spea}}</span></li>
+                    </ul>
+                </div>
+                <div class="range">
+                    <h2>{{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.rang'}}</h2>
+                    <ul>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.dart.label" data-label="{{localize configObj.weaponList.simple.range.dart}}" data-key="dart" class="weaponInput" {{checked gear.weapons.dart}} > <span class="label">{{localize configObj.weaponList.simple.range.dart}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.lcro.label" data-label="{{localize configObj.weaponList.simple.range.lcro}}" data-key="lcro" class="weaponInput" {{checked gear.weapons.lcro}} > <span class="label">{{localize configObj.weaponList.simple.range.lcro}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.sbow.label" data-label="{{localize configObj.weaponList.simple.range.sbow}}" data-key="sbow" class="weaponInput" {{checked gear.weapons.sbow}} > <span class="label">{{localize configObj.weaponList.simple.range.sbow}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.slin.label" data-label="{{localize configObj.weaponList.simple.range.slin}}" data-key="slin" class="weaponInput" {{checked gear.weapons.slin}} > <span class="label">{{localize configObj.weaponList.simple.range.slin}}</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="martial">
+                <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="club" class="weaponInput" {{checked gear.weapons.club}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                <div class="melee">
+                    <h2>{{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
+                    <ul>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.baxe.label" data-label="{{localize configObj.weaponList.martial.melee.baxe}}" data-key="baxe" class="weaponInput" {{checked gear.weapons.baxe}} > <span class="label">{{localize configObj.weaponList.martial.melee.baxe}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.flai.label" data-label="{{localize configObj.weaponList.martial.melee.flai}}" data-key="flai" class="weaponInput" {{checked gear.weapons.flai}} > <span class="label">{{localize configObj.weaponList.martial.melee.flai}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.glai.label" data-label="{{localize configObj.weaponList.martial.melee.glai}}" data-key="glai" class="weaponInput" {{checked gear.weapons.glai}} > <span class="label">{{localize configObj.weaponList.martial.melee.glai}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.gaxe.label" data-label="{{localize configObj.weaponList.martial.melee.gaxe}}" data-key="gaxe" class="weaponInput" {{checked gear.weapons.gaxe}} > <span class="label">{{localize configObj.weaponList.martial.melee.gaxe}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.gswo.label" data-label="{{localize configObj.weaponList.martial.melee.gswo}}" data-key="gswo" class="weaponInput" {{checked gear.weapons.gswo}} > <span class="label">{{localize configObj.weaponList.martial.melee.gswo}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.halb.label" data-label="{{localize configObj.weaponList.martial.melee.halb}}" data-key="halb" class="weaponInput" {{checked gear.weapons.halb}} > <span class="label">{{localize configObj.weaponList.martial.melee.halb}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.lanc.label" data-label="{{localize configObj.weaponList.martial.melee.lanc}}" data-key="lanc" class="weaponInput" {{checked gear.weapons.lanc}} > <span class="label">{{localize configObj.weaponList.martial.melee.lanc}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.lswo.label" data-label="{{localize configObj.weaponList.martial.melee.lswo}}" data-key="lswo" class="weaponInput" {{checked gear.weapons.lswo}} > <span class="label">{{localize configObj.weaponList.martial.melee.lswo}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.maul.label" data-label="{{localize configObj.weaponList.martial.melee.maul}}" data-key="maul" class="weaponInput" {{checked gear.weapons.maul}} > <span class="label">{{localize configObj.weaponList.martial.melee.maul}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.morn.label" data-label="{{localize configObj.weaponList.martial.melee.morn}}" data-key="morn" class="weaponInput" {{checked gear.weapons.morn}} > <span class="label">{{localize configObj.weaponList.martial.melee.morn}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.pike.label" data-label="{{localize configObj.weaponList.martial.melee.pike}}" data-key="pike" class="weaponInput" {{checked gear.weapons.pike}} > <span class="label">{{localize configObj.weaponList.martial.melee.pike}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.rapi.label" data-label="{{localize configObj.weaponList.martial.melee.rapi}}" data-key="rapi" class="weaponInput" {{checked gear.weapons.rapi}} > <span class="label">{{localize configObj.weaponList.martial.melee.rapi}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.scim.label" data-label="{{localize configObj.weaponList.martial.melee.scim}}" data-key="scim" class="weaponInput" {{checked gear.weapons.scim}} > <span class="label">{{localize configObj.weaponList.martial.melee.scim}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.sswo.label" data-label="{{localize configObj.weaponList.martial.melee.sswo}}" data-key="sswo" class="weaponInput" {{checked gear.weapons.sswo}} > <span class="label">{{localize configObj.weaponList.martial.melee.sswo}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.trid.label" data-label="{{localize configObj.weaponList.martial.melee.trid}}" data-key="trid" class="weaponInput" {{checked gear.weapons.trid}} > <span class="label">{{localize configObj.weaponList.martial.melee.trid}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.warp.label" data-label="{{localize configObj.weaponList.martial.melee.warp}}" data-key="warp" class="weaponInput" {{checked gear.weapons.warp}} > <span class="label">{{localize configObj.weaponList.martial.melee.warp}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.warh.label" data-label="{{localize configObj.weaponList.martial.melee.warh}}" data-key="warh" class="weaponInput" {{checked gear.weapons.warh}} > <span class="label">{{localize configObj.weaponList.martial.melee.warh}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.whip.label" data-label="{{localize configObj.weaponList.martial.melee.whip}}" data-key="whip" class="weaponInput" {{checked gear.weapons.whip}} > <span class="label">{{localize configObj.weaponList.martial.melee.whip}}</span></li>
+                    </ul>
+                </div>
+                <div class="range">
+                    <h2>{{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.rang'}}</h2>
+                    <ul>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.blow.label" data-label="{{localize configObj.weaponList.martial.range.blow}}" data-key="blow" class="weaponInput" {{checked gear.weapons.blow}} > <span class="label">{{localize configObj.weaponList.martial.range.blow}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.hand.label" data-label="{{localize configObj.weaponList.martial.range.hand}}" data-key="hand" class="weaponInput" {{checked gear.weapons.hand}} > <span class="label">{{localize configObj.weaponList.martial.range.hand}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.hcro.label" data-label="{{localize configObj.weaponList.martial.range.hcro}}" data-key="hcro" class="weaponInput" {{checked gear.weapons.hcro}} > <span class="label">{{localize configObj.weaponList.martial.range.hcro}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.lbow.label" data-label="{{localize configObj.weaponList.martial.range.lbow}}" data-key="lbow" class="weaponInput" {{checked gear.weapons.lbow}} > <span class="label">{{localize configObj.weaponList.martial.range.lbow}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapon.net.label" data-label="{{localize configObj.weaponList.martial.range.net}}" data-key="net" class="weaponInput" {{checked gear.weapons.net}} > <span class="label">{{localize configObj.weaponList.martial.range.net}}</span></li>
+                    </ul>
+                </div>
+            </div>
+        {{/if}}
+
+    </section>
+</form>

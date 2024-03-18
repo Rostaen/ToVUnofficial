@@ -2,7 +2,6 @@
     <section class="specsSheet">
         {{#if (eq trait 'senses')}}
             <h2>{{localize "tovu.senses.label"}}: </h2>
-            {{log this.actor}}
             <div class="grid grid-2col">{{localize configObject.senses.blin}}: <input type="text" class="senseInput" data-key="blin" data-label="{{localize configObject.senses.blin}}" value="{{actorObject.senses.blin.value}}" name="system.senses.blin" /></div>
             <div class="grid grid-2col">{{localize configObject.senses.dark}}: <input type="text" class="senseInput" data-key="dark" data-label="{{localize configObject.senses.dark}}" value="{{actorObject.senses.dark.value}}" name="system.senses.dark" /></div>
             <div class="grid grid-2col">{{localize configObject.senses.supe}}: <input type="text" class="senseInput" data-key="supe" data-label="{{localize configObject.senses.supe}}" value="{{actorObject.senses.supe.value}}" name="system.senses.supe" /></div>

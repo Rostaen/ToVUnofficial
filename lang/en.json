@@ -72,10 +72,13 @@
     },
     "weaponList": {
       "labels": {
+        "all": "All",
         "simp": "Simple",
         "mart": "Martial",
         "mele": "Melee",
-        "rang": "Range"
+        "rang": "Range",
+        "weap": "Weapons",
+        "armo": "Armor"
       },
       "simple": {
         "melee": {

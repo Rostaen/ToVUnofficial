@@ -1,4 +1,4 @@
-import ToolSkillsSheet from "./ToVUToolSheet.mjs";
+import GearSkillsSheet from "./ToVUGearSheet.mjs";
 import SpecsSheet from "./ToVUSpecsSheet.mjs";
 import { tovu } from "../config.mjs";
 
@@ -41,54 +41,67 @@ export default class ToVUActorSheet extends ActorSheet{
         super.activateListeners(html);
     }
 
-    _cycleStatProficiency(event) {
+    // Helper methods for button icons
+    removeReg(icon){
+        icon.removeClass('fa-regular').addClass('fa-solid');
+    }
+    removeSolid1(icon){
+        icon.removeClass('fa-solid').addClass('fa-regular');
+    }
+    removeSolid2(icon){
+        icon.removeClass('fa-circle').addClass('fa-circle-check');
+    }
+    removeCheck(icon){
+        icon.removeClass('fa-circle-check').addClass('fa-circle-half-stroke');
+    }
+    removeHalf(icon){
+        icon.removeClass('fa-solid fa-circle-half-stroke').addClass('fa-regular fa-circle');
+    }
+
+    // Cycling proficiency buttons for Attributes and Skills
+    _cycleProficiency(event, dataPath, type){
         event.preventDefault();
         const target = $(event.currentTarget);
         const actor = this.actor;
-        const stat = target.attr("stats");
         const icon = target.find('i');
 
-        if (icon.hasClass('fa-regular fa-circle')) {
-            icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
-            return actor.update({ [`system.abilities.${stat}.proficient`]: 1 });
-        } else if (icon.hasClass('fa-solid fa-circle')) {
-            icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
-            return actor.update({ [`system.abilities.${stat}.proficient`]: 0 });
-        } else {
+        switch(icon.attr('class')){
+            case 'fa-regular fa-circle':
+            this.removeReg(icon);
+            actor.update({ [dataPath]: 1 });
+            break;
+        case 'fa-solid fa-circle':
+            if(type === 'stats'){
+                this.removeSolid1(icon);
+                actor.update({ [dataPath]: 0 });
+            }
+            else{
+                this.removeSolid2(icon);
+                actor.update({ [dataPath]: 2 });
+            }
+            break;
+        case 'fa-solid fa-circle-check':
+            this.removeCheck(icon);
+            actor.update({ [dataPath]: 0.5 });
+            break;
+        case 'fa-solid fa-circle-half-stroke':
+            this.removeHalf(icon);
+            actor.update({ [dataPath]: 0 });
+            break;
+        default:
             console.log("Invalid icon class");
+            break;
         }
-        //console.log(this.actor.system.abilities[stat]);
+    }
+
+    _cycleStatProficiency(event) {
+        const stat = $(event.currentTarget).attr("stats");
+        this._cycleProficiency(event, `system.abilities.${stat}.proficient`, 'stats');
     }
 
     _cycleSkillProficiency(event) {
-        event.preventDefault();
-        const target = $(event.currentTarget);
-        const actor = this.actor;
-        const skill = target.attr("skill");
-        const icon = target.find('i');
-
-        switch (icon.attr('class')) {
-            case 'fa-regular fa-circle':
-                icon.removeClass('fa-regular').addClass('fa-solid');
-                actor.update({ [`system.skills.${skill}.proficiency`]: 1 });
-                break;
-            case 'fa-solid fa-circle':
-                icon.removeClass('fa-circle').addClass('fa-circle-check');
-                actor.update({ [`system.skills.${skill}.proficiency`]: 2 });
-                break;
-            case 'fa-solid fa-circle-check':
-                icon.removeClass('fa-circle-check').addClass('fa-circle-half-stroke');
-                actor.update({ [`system.skills.${skill}.proficiency`]: 0.5 });
-                break;
-            case 'fa-solid fa-circle-half-stroke':
-                icon.removeClass('fa-solid fa-circle-half-stroke').addClass('fa-regular fa-circle');
-                actor.update({ [`system.skills.${skill}.proficiency`]: 0 });
-                break;
-            default:
-                console.log("Invalid icon class");
-                break;
-        }
-        //console.log(actor.system.deathSaves);
+        const skill = $(event.currentTarget).attr("skill");
+        this._cycleProficiency(event, `system.skills.${skill}.proficiency`, 'skills');
     }
 
     _cycleDeathSave(event){
@@ -100,13 +113,13 @@ export default class ToVUActorSheet extends ActorSheet{
         const index = target.attr('numId');
         const icon = target.find('i');
         let value = 0;
-        console.log("numId: ", index, " -- Actor Data Top Call: ", systemData.deathSaves);
+        //console.log("numId: ", index, " -- Actor Data Top Call: ", systemData.deathSaves);
 
         if (icon.hasClass('fa-regular fa-circle')) {
-            icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
+            this.removeReg(icon);
             value = 1;
         } else if (icon.hasClass('fa-solid fa-circle')) {
-            icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
+            this.removeSolid1(icon);
             value = 0;
         } else {
             console.log("Invalid icon class");
@@ -128,11 +141,11 @@ export default class ToVUActorSheet extends ActorSheet{
         let exhaustion = systemData.exhaustion.level;
 
         if (icon.hasClass('fa-regular fa-circle')) {
-            icon.removeClass('fa-regular fa-circle').addClass('fa-solid fa-circle');
+            this.removeReg(icon);
             if(exhaustion <= 6)
                 exhaustion += 1;
         } else if (icon.hasClass('fa-solid fa-circle')) {
-            icon.removeClass('fa-solid fa-circle').addClass('fa-regular fa-circle');
+            this.removeSolid1(icon);
             if(exhaustion >= 0)
                 exhaustion -= 1;
         } else {
@@ -147,7 +160,9 @@ export default class ToVUActorSheet extends ActorSheet{
         let toolSheet = null;
         switch(trait){
             case 'tools':
-                toolSheet = new ToolSkillsSheet(this.actor);
+            case 'weapons':
+            case 'armor':
+                toolSheet = new GearSkillsSheet(this.actor, trait);
                 toolSheet.render(true);
                 break;
             case 'senses':
@@ -167,7 +182,7 @@ export default class ToVUActorSheet extends ActorSheet{
         event.preventDefault();
         const selectedValue = $(event.currentTarget).val();
         await this.actor.update({'system.details.size.choice': selectedValue});
-        console.log("Path to Size >>> ", this.actor.system.details.size);
+        //console.log("Path to Size >>> ", this.actor.system.details.size);
     }
 
     _onItemCreate(event){
