@@ -156,9 +156,14 @@
       "hitPoints": "Hit Points"
     },
     "tools": {
-      "tools": "Tools",
-      "artisan": {
+      "labels": {
+        "tool": "Tools",
         "arti": "Artisan's Tools",
+        "gami": "Gaming sets",
+        "inst": "Musical instruments",
+        "vehi": "Vehicles"
+      },
+      "artisan": {
         "alch": "Alchemist's supplies",
         "brew": "Brewer's supplies",
         "call": "Calligrapher's tools",
@@ -180,15 +185,13 @@
       "disg": "Disguise Kit",
       "forg": "Forgery Kit",
       "gaming": {
-        "gami": "Gaming sets",
         "dice": "Dice set",
         "drag": "Dragonchess set",
         "play": "Playing card set",
-        "3dra": "Three-Dragon ante set"
+        "tdra": "Three-Dragon ante set"
       },
       "herb": "Herbalism Kit",
       "instruments": {
-        "inst": "Musical instruments",
         "bagp": "Bagpipes",
         "drum": "Drums",
         "dulc": "Dulcimer",
@@ -204,7 +207,6 @@
       "pois": "Poisoner's kit",
       "thie": "Thieves' tools",
       "vehicle": {
-        "vehi": "Vehicles",
         "land": "Land vehicles",
         "wate": "Water vehicles"
       }

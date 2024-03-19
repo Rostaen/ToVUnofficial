@@ -21,14 +21,41 @@ export default class SpecsSheet extends FormApplication {
     }
 
     getData(){
-        const actorObject = this.actor.system;
-        const configObject = tovu;
-        const trait = this.trait;
+        // Initializing labels for all gear
+        let itemSetup = this.actor.system;
+
+        // Setting Up: Senses
+        if(Object.keys(itemSetup.senses).length == 0){
+            for (const [key, label] of Object.entries(tovu.senses)){
+                const path = `senses.${key}`;
+                setProperty(itemSetup, path, {label: game.i18n.localize(label)});
+            }
+        }
+        // Setting Up: Vulnerable, Resist, Immune
+        if(Object.keys(itemSetup.vulnerable).length == 0 || Object.keys(itemSetup.resist).length == 0 || Object.keys(itemSetup.immune).length == 0){
+            for (const [key, label] of Object.entries(tovu.damageType)){
+                const path1 = `vulnerable.${key}`;
+                const path2 = `resist.${key}`;
+                const path3 = `immune.${key}`;
+                setProperty(itemSetup, path1, {label: game.i18n.localize(label)});
+                setProperty(itemSetup, path2, {label: game.i18n.localize(label)});
+                setProperty(itemSetup, path3, {label: game.i18n.localize(label)});
+            }
+        }
+        // Setting Up: Conditions
+        if(Object.keys(itemSetup.condition).length == 0){
+            for (const [key, label] of Object.entries(tovu.condition)){
+                const path = `condition.${key}`;
+                setProperty(itemSetup, path, {label: game.i18n.localize(label)});
+            }
+        }
+        this.actor.update({'system': itemSetup});
+
+        console.log(this.actor.system);
 
         return {
-            actorObject,
-            configObject,
-            trait
+            actorObj: this.actor.system,
+            trait: this.trait
         }
     }
 

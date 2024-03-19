@@ -85,7 +85,7 @@
         {{/each}}
       </div>
 	  <div class="toolsContainer">
-		<h2 class="header">{{localize 'tovu.tools.tools'}} <button class="updateTools" data-trait="tools"><i class="fa-regular fa-square-plus"></i></button></h2>
+		<h2 class="header">{{localize 'tovu.tools.labels.tool'}} <button class="updateTools" data-trait="tools"><i class="fa-regular fa-square-plus"></i></button></h2>
 		<div class="tools">
 			{{#each actor.system.gear.tools.artisan as |tool key|}}
 				{{#if tool.value }}
@@ -175,7 +175,22 @@
 		</div>
 		<div class="weaponContainer sensesContainer">
 			<span class="header">{{localize 'tovu.weaponList.labels.weap'}}:
-				{{#each actor.system.gear.weapons as |weapon key|}}
+				{{#each actor.system.gear.weapons.simple.melee as |weapon key|}}
+					{{#if weapon.value}}
+						<span class="senseItem conditionItem">{{weapon.label}}</span>
+					{{/if}}
+				{{/each}}
+				{{#each actor.system.gear.weapons.simple.range as |weapon key|}}
+					{{#if weapon.value}}
+						<span class="senseItem conditionItem">{{weapon.label}}</span>
+					{{/if}}
+				{{/each}}
+				{{#each actor.system.gear.weapons.martial.melee as |weapon key|}}
+					{{#if weapon.value}}
+						<span class="senseItem conditionItem">{{weapon.label}}</span>
+					{{/if}}
+				{{/each}}
+				{{#each actor.system.gear.weapons.martial.range as |weapon key|}}
 					{{#if weapon.value}}
 						<span class="senseItem conditionItem">{{weapon.label}}</span>
 					{{/if}}

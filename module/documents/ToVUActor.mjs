@@ -1,3 +1,5 @@
+import { tovu } from "../config.mjs";
+
 export class ToVUActor extends Actor {
 
     prepareData(){
@@ -91,62 +93,5 @@ export class ToVUActor extends Actor {
             'sur': { label: game.i18n.localize("tovu.skills.sur"), core: "wis" }
         };
         mapItems('skill', skillMap, systemData.skills);
-
-        // Setting up tools section
-        const artisanToolMap = {
-            "alch": {label: game.i18n.localize("tovu.tools.artisan.alch")},
-            "brew": {label: game.i18n.localize("tovu.tools.artisan.brew")},
-            "call": {label: game.i18n.localize("tovu.tools.artisan.call")},
-            "carp": {label: game.i18n.localize("tovu.tools.artisan.carp")},
-            "cart": {label: game.i18n.localize("tovu.tools.artisan.cart")},
-            "cobb": {label: game.i18n.localize("tovu.tools.artisan.cobb")},
-            "cook": {label: game.i18n.localize("tovu.tools.artisan.cook")},
-            "glas": {label: game.i18n.localize("tovu.tools.artisan.glas")},
-            "jewe": {label: game.i18n.localize("tovu.tools.artisan.jewe")},
-            "leat": {label: game.i18n.localize("tovu.tools.artisan.leat")},
-            "maso": {label: game.i18n.localize("tovu.tools.artisan.maso")},
-            "pain": {label: game.i18n.localize("tovu.tools.artisan.pain")},
-            "pott": {label: game.i18n.localize("tovu.tools.artisan.pott")},
-            "smit": {label: game.i18n.localize("tovu.tools.artisan.smit")},
-            "tink": {label: game.i18n.localize("tovu.tools.artisan.tink")},
-            "weav": {label: game.i18n.localize("tovu.tools.artisan.weav")},
-            "wood": {label: game.i18n.localize("tovu.tools.artisan.wood")}
-        }
-        const uniqueToolMap = {
-            "disg": {label: game.i18n.localize("tovu.tools.disg")},
-            "forg": {label: game.i18n.localize("tovu.tools.forg")},
-            "herb": {label: game.i18n.localize("tovu.tools.herb")},
-            "navi": {label: game.i18n.localize("tovu.tools.navi")},
-            "pois": {label: game.i18n.localize("tovu.tools.pois")},
-            "thie": {label: game.i18n.localize("tovu.tools.thie")}
-        }
-        const gamingMap = {
-            "dice": {label: game.i18n.localize("tovu.tools.gaming.dice")},
-            "drag": {label: game.i18n.localize("tovu.tools.gaming.drag")},
-            "play": {label: game.i18n.localize("tovu.tools.gaming.play")},
-            "3dra": {label: game.i18n.localize("tovu.tools.gaming.3dra")}
-        }
-        const instrumentMap = {
-            "bagp": {label: game.i18n.localize("tovu.tools.instruments.bagp")},
-            "drum": {label: game.i18n.localize("tovu.tools.instruments.drum")},
-            "dulc": {label: game.i18n.localize("tovu.tools.instruments.dulc")},
-            "flut": {label: game.i18n.localize("tovu.tools.instruments.flut")},
-            "lute": {label: game.i18n.localize("tovu.tools.instruments.lute")},
-            "lyre": {label: game.i18n.localize("tovu.tools.instruments.lyre")},
-            "horn": {label: game.i18n.localize("tovu.tools.instruments.horn")},
-            "panF": {label: game.i18n.localize("tovu.tools.instruments.panF")},
-            "shaw": {label: game.i18n.localize("tovu.tools.instruments.shaw")},
-            "viol": {label: game.i18n.localize("tovu.tools.instruments.viol")}
-        }
-        const vehicleMap = {
-            "land": {label: game.i18n.localize("tovu.tools.vehicle.land")},
-            "wate": {label: game.i18n.localize("tovu.tools.vehicle.wate")}
-        }
-        mapItems('tools', artisanToolMap, systemData.gear.tools.artisan);
-        mapItems('tools', uniqueToolMap, systemData.gear.tools);
-        mapItems('tools', gamingMap, systemData.gear.tools.gaming);
-        mapItems('tools', instrumentMap, systemData.gear.tools.instruments);
-        mapItems('tools', vehicleMap, systemData.gear.tools.vehicles);
-        // console.log(systemData);
     }
 }

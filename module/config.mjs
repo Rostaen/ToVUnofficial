@@ -21,6 +21,57 @@ tovu.weapon = {
     style: "tovu.weapon.style",
     type: "tovu.weapon.type",
 }
+tovu.tools = {
+    artisan: {
+        alch: "Alchemist's supplies",
+        brew: "Brewer's supplies",
+        call: "Calligrapher's tools",
+        carp: "Carpenter's tools",
+        cart: "Cartographer's tools",
+        cobb: "Cobbler's tools",
+        cook: "Cook's utensils",
+        glas: "Glassblower's tools",
+        jewe: "Jeweler's tools",
+        leat: "Leatherworker's tools",
+        maso: "Mason's tools",
+        pain: "Painter's supplies",
+        pott: "Potter's tools",
+        smit: "Smith's tools",
+        tink: "Tinker's tools",
+        weav: "Weaver's tools",
+        wood: "Woodcarver's tools"
+    },
+    "unique": {
+        disg: "Disguise Kit",
+        forg: "Forgery Kit",
+        herb: "Herbalism Kit",
+        navi: "Navigator's tools",
+        pois: "Poisoner's kit",
+        thie: "Thieves' tools"
+    },
+    "gaming": {
+        dice: "Dice set",
+        drag: "Dragonchess set",
+        play: "Playing card set",
+        tdra: "Three-Dragon ante set"
+    },
+    "instruments": {
+      bagp: "Bagpipes",
+      drum: "Drums",
+      dulc: "Dulcimer",
+      flut: "Flute",
+      lute: "Lute",
+      lyre: "Lyre",
+      horn: "Horn",
+      panF: "Pan Flute",
+      shaw: "Shawm",
+      viol: "Viol"
+    },
+    "vehicles": {
+      land: "Land vehicles",
+      wate: "Water vehicles"
+    }
+}
 tovu.weaponList = {
     simple: {
         melee: {

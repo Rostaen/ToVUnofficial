@@ -53,14 +53,12 @@
             "value": [5, 9, 13, 17, 21, 25, 29]
           }
         },
-        "senses": {
-          "values": {}
-        },
-        "vulnerable": [],
-        "resist": [],
-        "immune": [],
-        "condition": [],
-        "languages": []
+        "senses": {},
+        "vulnerable": {},
+        "resist": {},
+        "immune": {},
+        "condition": {},
+        "languages": {}
       }
     },
     "character": {
@@ -200,8 +198,8 @@
         "max": 6
       },
       "gear": {
-        "weapons": [],
-        "armor": [],
+        "weapons": {},
+        "armor": {},
         "tools": {
           "artisan": {
             "alch": {},
@@ -228,7 +226,7 @@
             "dice": {},
             "drag": {},
             "play": {},
-            "3dra": {}
+            "tdra": {}
           },
           "herb": {},
           "instruments": {
