@@ -24,6 +24,13 @@ export default class GearSkillsSheet extends FormApplication {
         // Initializing labels for all gear
         let gearSetup = this.actor.system.gear;
 
+        // Setting up All Simple/Martial variables
+        if(!gearSetup.weapons?.simple?.all){
+            const pathS = 'weapons.simple.all';
+            setProperty(gearSetup, pathS, false);
+            const pathM = 'weapons.martial.all';
+            setProperty(gearSetup, pathM, false);
+        }
         // Simple Melee
         if(!gearSetup.weapons?.simple?.melee){
             for (const [key, label] of Object.entries(tovu.weaponList.simple.melee)){
@@ -117,9 +124,19 @@ export default class GearSkillsSheet extends FormApplication {
 
         let updateData = {};
         let path = '';
-        path = `system.gear.${this.trait}.${toolCategory}.${toolName}`;
-        updateData[`${path}.label`] = label;
-        updateData[`${path}.value`] = isChecked;
+        if(toolName === 'simple.all' || toolName === 'martial.all'){
+            path = `system.gear.weapons.${toolName}`
+            updateData[`${path}`] = isChecked;
+            if(toolName === 'simple.all'){
+                // Make all simple weapons `checked disabled`
+            }else{
+                // Make all martial weapons `checked disabled`
+            }
+        }else{
+            path = `system.gear.${this.trait}.${toolCategory}.${toolName}`;
+            updateData[`${path}.label`] = label;
+            updateData[`${path}.value`] = isChecked;
+        }
         await this.actor.update(updateData);
         console.log(this.actor.system.gear);
     }

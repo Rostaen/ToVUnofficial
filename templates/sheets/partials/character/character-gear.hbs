@@ -37,7 +37,7 @@
             </div>
         {{else}}
             <div class="martial">
-                <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="club" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="martial.all" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
                 <div class="melee">
                     <h2>{{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
                     <ul>
@@ -57,7 +57,7 @@
             </div>
             <div class="simple">
                 <div class="melee">
-                    <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="club" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                    <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="simple.all" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
                     <h2>{{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
                     <ul>
                     {{#each gear.weapons.simple.melee as |item key|}}
