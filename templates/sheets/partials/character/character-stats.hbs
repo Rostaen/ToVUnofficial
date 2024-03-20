@@ -102,7 +102,7 @@
 				<span class="toolItem instrument">{{tool.label}}</span>
 				{{/if}}
 			{{/each}}
-			{{#each actor.system.gear.tools as |tool key|}}
+			{{#each actor.system.gear.tools.unique as |tool key|}}
 				{{#if tool.value }}
 				<span class="toolItem tools">{{tool.label}}</span>
 				{{/if}}

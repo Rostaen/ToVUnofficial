@@ -201,53 +201,11 @@
         "weapons": {},
         "armor": {},
         "tools": {
-          "artisan": {
-            "alch": {},
-            "brew": {},
-            "call": {},
-            "carp": {},
-            "cart": {},
-            "cobb": {},
-            "cook": {},
-            "glas": {},
-            "jewe": {},
-            "leat": {},
-            "maso": {},
-            "pain": {},
-            "pott": {},
-            "smit": {},
-            "tink": {},
-            "weav": {},
-            "wood": {}
-          },
-          "disg": {},
-          "forg": {},
-          "gaming": {
-            "dice": {},
-            "drag": {},
-            "play": {},
-            "tdra": {}
-          },
-          "herb": {},
-          "instruments": {
-            "bagp": {},
-            "drum": {},
-            "dulc": {},
-            "flut": {},
-            "lute": {},
-            "lyre": {},
-            "horn": {},
-            "panF": {},
-            "shaw": {},
-            "viol": {}
-          },
-          "navi": {},
-          "pois": {},
-          "thie": {},
-          "vehicles": {
-            "land": {},
-            "wate": {}
-          }
+          "artisan": {},
+          "gaming": {},
+          "instruments": {},
+          "vehicles": {},
+          "unique": {}
         }
       }
     }
