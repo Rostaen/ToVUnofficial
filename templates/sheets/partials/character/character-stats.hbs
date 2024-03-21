@@ -175,26 +175,34 @@
 		</div>
 		<div class="weaponContainer sensesContainer">
 			<span class="header">{{localize 'tovu.weaponList.labels.weap'}}:
-				{{#each actor.system.gear.weapons.simple.melee as |weapon key|}}
-					{{#if weapon.value}}
-						<span class="senseItem conditionItem">{{weapon.label}}</span>
-					{{/if}}
-				{{/each}}
-				{{#each actor.system.gear.weapons.simple.range as |weapon key|}}
-					{{#if weapon.value}}
-						<span class="senseItem conditionItem">{{weapon.label}}</span>
-					{{/if}}
-				{{/each}}
-				{{#each actor.system.gear.weapons.martial.melee as |weapon key|}}
-					{{#if weapon.value}}
-						<span class="senseItem conditionItem">{{weapon.label}}</span>
-					{{/if}}
-				{{/each}}
-				{{#each actor.system.gear.weapons.martial.range as |weapon key|}}
-					{{#if weapon.value}}
-						<span class="senseItem conditionItem">{{weapon.label}}</span>
-					{{/if}}
-				{{/each}}
+				{{#if actor.system.gear.weapons.martial.all}}
+					<span class="senseItem conditionItem">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span>
+				{{else if (eq actor.system.gear.weapons.martial.all false)}}
+					{{#each actor.system.gear.weapons.simple.melee as |weapon key|}}
+						{{#if weapon.value}}
+							<span class="senseItem conditionItem">{{weapon.label}}</span>
+						{{/if}}
+					{{/each}}
+					{{#each actor.system.gear.weapons.simple.range as |weapon key|}}
+						{{#if weapon.value}}
+							<span class="senseItem conditionItem">{{weapon.label}}</span>
+						{{/if}}
+					{{/each}}
+				{{/if}}
+				{{#if actor.system.gear.weapons.simple.all}}
+					<span class="senseItem conditionItem">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span>
+				{{else}}
+					{{#each actor.system.gear.weapons.martial.melee as |weapon key|}}
+						{{#if weapon.value}}
+							<span class="senseItem conditionItem">{{weapon.label}}</span>
+						{{/if}}
+					{{/each}}
+					{{#each actor.system.gear.weapons.martial.range as |weapon key|}}
+						{{#if weapon.value}}
+							<span class="senseItem conditionItem">{{weapon.label}}</span>
+						{{/if}}
+					{{/each}}
+				{{/if}}
 			</span>
 			<button class="updateTools" data-trait="weapons"><i class="fa-regular fa-square-plus"></i></button>
 		</div>

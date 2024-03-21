@@ -28,6 +28,8 @@ export default class GearSkillsSheet extends FormApplication {
         if(!gearSetup.weapons?.simple?.all){
             const pathS = 'weapons.simple.all';
             setProperty(gearSetup, pathS, false);
+        }
+        if(!gearSetup.weapons?.martial?.all){
             const pathM = 'weapons.martial.all';
             setProperty(gearSetup, pathM, false);
         }
@@ -117,6 +119,7 @@ export default class GearSkillsSheet extends FormApplication {
         const toolName = event.currentTarget.dataset.key;
         const isChecked = event.currentTarget.checked;
         const label = event.currentTarget.dataset.label;
+        const systemData = this.actor.system;
         console.log("Trait:",this.trait);
         console.log("Category:",toolCategory);
         console.log("Name:",toolName);
@@ -124,13 +127,42 @@ export default class GearSkillsSheet extends FormApplication {
 
         let updateData = {};
         let path = '';
+
         if(toolName === 'simple.all' || toolName === 'martial.all'){
-            path = `system.gear.weapons.${toolName}`
-            updateData[`${path}`] = isChecked;
+            const weaponPath = `system.gear.weapons.${toolName}`;
+            updateData[weaponPath] = isChecked;
+            const weaponTypes = ['melee', 'range'];
+
             if(toolName === 'simple.all'){
-                // Make all simple weapons `checked disabled`
+                // Toggle/diable all simple weapons
+                const simpleWeapons = systemData.gear.weapons.simple;
+                const allChecked = !simpleWeapons.all;
+                updateData['system.gear.weapons.simple.all'] = allChecked;
+
+                weaponTypes.forEach(weaponType => {
+                    const weapons = simpleWeapons[weaponType];
+                    for (const [key, _] of Object.entries(weapons)) {
+                        updateData[`system.gear.weapons.simple.${weaponType}.${key}.value`] = allChecked;
+                    }
+                });
+
+                // Disable or enable all simple weapons based on 'allChecked'
+                $('.simpleWeapon').prop({ disabled: allChecked, checked: allChecked });
             }else{
-                // Make all martial weapons `checked disabled`
+                // Toggle/disable all martial weapons
+                const martialWeapons = systemData.gear.weapons.martial;
+                const allChecked = !martialWeapons.all;
+                updateData['system.gear.weapons.martial.all'] = allChecked;
+
+                weaponTypes.forEach(weaponType => {
+                    const weapons = martialWeapons[weaponType];
+                    for (const [key, _] of Object.entries(weapons)) {
+                        updateData[`system.gear.weapons.martial.${weaponType}.${key}.value`] = allChecked;
+                    }
+                });
+
+                // Disable or enable all martial weapons based on 'allChecked'
+                $('.martialWeapon').prop({ disabled: allChecked, checked: allChecked });
             }
         }else{
             path = `system.gear.${this.trait}.${toolCategory}.${toolName}`;
@@ -138,6 +170,6 @@ export default class GearSkillsSheet extends FormApplication {
             updateData[`${path}.value`] = isChecked;
         }
         await this.actor.update(updateData);
-        console.log(this.actor.system.gear);
+        console.log("End of Logic >>>",systemData.gear);
     }
 }

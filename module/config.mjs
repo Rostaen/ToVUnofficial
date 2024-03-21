@@ -41,7 +41,7 @@ tovu.tools = {
         weav: "Weaver's tools",
         wood: "Woodcarver's tools"
     },
-    "unique": {
+    unique: {
         disg: "Disguise Kit",
         forg: "Forgery Kit",
         herb: "Herbalism Kit",
@@ -49,13 +49,13 @@ tovu.tools = {
         pois: "Poisoner's kit",
         thie: "Thieves' tools"
     },
-    "gaming": {
+    gaming: {
         dice: "Dice set",
         drag: "Dragonchess set",
         play: "Playing card set",
         tdra: "Three-Dragon ante set"
     },
-    "instruments": {
+    instruments: {
       bagp: "Bagpipes",
       drum: "Drums",
       dulc: "Dulcimer",
@@ -67,7 +67,7 @@ tovu.tools = {
       shaw: "Shawm",
       viol: "Viol"
     },
-    "vehicles": {
+    vehicles: {
       land: "Land vehicles",
       wate: "Water vehicles"
     }

@@ -37,12 +37,12 @@
             </div>
         {{else}}
             <div class="martial">
-                <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="martial.all" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                <span class="weapon"><input type="checkbox" name="system.gear.weapon.martial.all" data-label="martial" data-key="martial.all" class="weaponInput" {{checked gear.weapons.martial.all}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
                 <div class="melee">
                     <h2>{{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
                     <ul>
                     {{#each gear.weapons.martial.melee as |item key|}}
-                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.martial.melee.{{key}}.label" data-category="martial.melee" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.martial.melee.{{key}}.label" data-category="martial.melee" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput martialWeapon" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
                     {{/each}}
                     </ul>
                 </div>
@@ -50,18 +50,18 @@
                     <h2>{{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.rang'}}</h2>
                     <ul>
                     {{#each gear.weapons.martial.range as |item key|}}
-                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.martial.range.{{key}}.label" data-category="martial.range" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.martial.range.{{key}}.label" data-category="martial.range" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput martialWeapon" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
                     {{/each}}
                     </ul>
                 </div>
             </div>
             <div class="simple">
                 <div class="melee">
-                    <span class="weapon"><input type="checkbox" name="system.gear.weapon.club.label" data-label="{{localize configObj.weaponList.simple.melee.club}}" data-key="simple.all" class="weaponInput" {{checked gear.weapons.club.value}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
+                    <span class="weapon"><input type="checkbox" name="system.gear.weapon.simple.all" data-label="simple" data-key="simple.all" class="weaponInput" {{checked gear.weapons.simple.all}} > <span class="label">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span></span>
                     <h2>{{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.mele'}}</h2>
                     <ul>
                     {{#each gear.weapons.simple.melee as |item key|}}
-                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.simple.melee.{{key}}.label" data-category="simple.melee" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.simple.melee.{{key}}.label" data-category="simple.melee" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput simpleWeapon" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
                     {{/each}}
                     </ul>
                 </div>
@@ -69,7 +69,7 @@
                     <h2>{{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.rang'}}</h2>
                     <ul>
                     {{#each gear.weapons.simple.range as |item key|}}
-                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.simple.range.{{key}}.label" data-category="simple.range" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
+                        <li class="weapon"><input type="checkbox" name="system.gear.weapons.simple.range.{{key}}.label" data-category="simple.range" data-label="{{item.label}}" data-key="{{key}}" class="weaponInput simpleWeapon" {{checked item.value}} > <span class="label">{{item.label}}</span></li>
                     {{/each}}
                     </ul>
                 </div>
