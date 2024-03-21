@@ -23,6 +23,12 @@ export default class GearSkillsSheet extends FormApplication {
     getData(){
         // Initializing labels for all gear
         let gearSetup = this.actor.system.gear;
+        if(gearSetup.weapons.martial.all){
+            console.log("Martial all is true");
+            $('input.martialWeapon').prop({ disabled: true });
+        }
+        if(gearSetup.weapons.simple.all)
+            $('input.simpleWeapon').prop({ disabled: true });
 
         // Setting up All Simple/Martial variables
         if(!gearSetup.weapons?.simple?.all){
