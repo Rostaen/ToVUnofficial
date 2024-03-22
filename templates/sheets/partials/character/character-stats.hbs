@@ -178,12 +178,12 @@
 				{{#if actor.system.gear.weapons.martial.all}}
 					<span class="senseItem conditionItem">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.mart'}} {{localize 'tovu.weaponList.labels.weap'}}</span>
 				{{else}}
-					{{#each actor.system.gear.weapons.simple.melee as |weapon key|}}
+					{{#each actor.system.gear.weapons.martial.melee as |weapon key|}}
 						{{#if weapon.value}}
 							<span class="senseItem conditionItem">{{weapon.label}}</span>
 						{{/if}}
 					{{/each}}
-					{{#each actor.system.gear.weapons.simple.range as |weapon key|}}
+					{{#each actor.system.gear.weapons.martial.range as |weapon key|}}
 						{{#if weapon.value}}
 							<span class="senseItem conditionItem">{{weapon.label}}</span>
 						{{/if}}
@@ -192,12 +192,12 @@
 				{{#if actor.system.gear.weapons.simple.all}}
 					<span class="senseItem conditionItem">{{localize 'tovu.weaponList.labels.all'}} {{localize 'tovu.weaponList.labels.simp'}} {{localize 'tovu.weaponList.labels.weap'}}</span>
 				{{else}}
-					{{#each actor.system.gear.weapons.martial.melee as |weapon key|}}
+					{{#each actor.system.gear.weapons.simple.melee as |weapon key|}}
 						{{#if weapon.value}}
 							<span class="senseItem conditionItem">{{weapon.label}}</span>
 						{{/if}}
 					{{/each}}
-					{{#each actor.system.gear.weapons.martial.range as |weapon key|}}
+					{{#each actor.system.gear.weapons.simple.range as |weapon key|}}
 						{{#if weapon.value}}
 							<span class="senseItem conditionItem">{{weapon.label}}</span>
 						{{/if}}

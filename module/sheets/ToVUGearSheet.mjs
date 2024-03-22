@@ -29,8 +29,6 @@ export default class GearSkillsSheet extends FormApplication {
             if(!gearSetup.weapons?.[type]?.all){
                 const path = `weapons.${type}.all`;
                 setProperty(gearSetup, path, false);
-            }else{
-                $(`input.${type}Weapon`).prop({ disabled: true });
             }
 
             ['melee', 'range'].forEach(weaponType =>{
@@ -95,39 +93,24 @@ export default class GearSkillsSheet extends FormApplication {
         if(toolName === 'simple.all' || toolName === 'martial.all'){
             const weaponPath = `system.gear.weapons.${toolName}`;
             updateData[weaponPath] = isChecked;
-            const weaponTypes = ['melee', 'range'];
+            const weaponType = toolName === 'simple.all' ? 'simple' : 'martial';
 
-            if(toolName === 'simple.all'){
-                // Toggle/diable all simple weapons
-                const simpleWeapons = systemData.gear.weapons.simple;
-                const allChecked = !simpleWeapons.all;
-                updateData['system.gear.weapons.simple.all'] = allChecked;
+            // Toggle/disable all weapons of a given type
+            const weapons = systemData.gear.weapons[weaponType];
+            const allChecked = !weapons.all;
+            updateData[`system.gear.weapons.${weaponType}.all`] = allChecked;
 
-                weaponTypes.forEach(weaponType => {
-                    const weapons = simpleWeapons[weaponType];
-                    for (const [key, _] of Object.entries(weapons)) {
-                        updateData[`system.gear.weapons.simple.${weaponType}.${key}.value`] = allChecked;
-                    }
-                });
+            // Update each weapon type
+            ['melee', 'range'].forEach(attackType => {
+                const weaponList = weapons[attackType];
+                for (const [key, _] of Object.entries(weaponList)){
+                    updateData[`system.gear.weapons.${weaponType}.${attackType}.${key}.value`] = allChecked;
+                    updateData[`system.gear.weapons.${weaponType}.${attackType}.${key}.disabled`] = allChecked;
+                }
+            });
 
-                // Disable or enable all simple weapons based on 'allChecked'
-                $('.simpleWeapon').prop({ disabled: allChecked, checked: allChecked });
-            }else{
-                // Toggle/disable all martial weapons
-                const martialWeapons = systemData.gear.weapons.martial;
-                const allChecked = !martialWeapons.all;
-                updateData['system.gear.weapons.martial.all'] = allChecked;
-
-                weaponTypes.forEach(weaponType => {
-                    const weapons = martialWeapons[weaponType];
-                    for (const [key, _] of Object.entries(weapons)) {
-                        updateData[`system.gear.weapons.martial.${weaponType}.${key}.value`] = allChecked;
-                    }
-                });
-
-                // Disable or enable all martial weapons based on 'allChecked'
-                $('.martialWeapon').prop({ disabled: allChecked, checked: allChecked });
-            }
+            // Disable or enable all weapons based on 'allChecked'
+            $(`.${weaponType}Weapon`).prop({ disabled: allChecked, checked: allChecked });
         }else{
             path = `system.gear.${this.trait}.${toolCategory}.${toolName}`;
             updateData[`${path}.label`] = label;
