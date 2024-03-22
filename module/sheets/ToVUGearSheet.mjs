@@ -30,81 +30,43 @@ export default class GearSkillsSheet extends FormApplication {
         if(gearSetup.weapons.simple.all)
             $('input.simpleWeapon').prop({ disabled: true });
 
-        // Setting up All Simple/Martial variables
-        if(!gearSetup.weapons?.simple?.all){
-            const pathS = 'weapons.simple.all';
-            setProperty(gearSetup, pathS, false);
-        }
-        if(!gearSetup.weapons?.martial?.all){
-            const pathM = 'weapons.martial.all';
-            setProperty(gearSetup, pathM, false);
-        }
-        // Simple Melee
-        if(!gearSetup.weapons?.simple?.melee){
-            for (const [key, label] of Object.entries(tovu.weaponList.simple.melee)){
-                const path = `weapons.simple.melee.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
+        // Setting up All SimpleMartial variables
+        ['simple', 'martial'].forEach(type => {
+            if(!gearSetup.weapons?.[type]?.all){
+                const path = `weapons.${type}.all`;
+                setProperty(gearSetup, path, false);
             }
-        }
-        // Simple Range
-        if(!gearSetup.weapons?.simple?.range){
-            for (const [key, label] of Object.entries(tovu.weaponList.simple.range)){
-                const path = `weapons.simple.range.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
+
+            ['melee', 'range'].forEach(weaponType =>{
+                if (!gearSetup.weapons?.[type]?.[weaponType]){
+                    const weaponList = tovu.weaponList[type][weaponType];
+                    for (const [key, label] of Object.entries(weaponList)){
+                        const path = `weapons.${type}.${weaponType}.${key}`;
+                        setProperty(gearSetup, path, {label: game.i18n.localize(label)});
+                    }
+                }
+            });
+        });
+
+        // Setting up tools
+        const toolsData = {
+            artisan: tovu.tools.artisan,
+            unique: tovu.tools.unique,
+            gaming: tovu.tools.gaming,
+            instruments: tovu.tools.instruments,
+            vehicles: tovu.tools.vehicles
+        };
+
+        Object.entries(toolsData).forEach(([toolType, toolList]) => {
+            if (!Object.keys(gearSetup.tools[toolType]).length){
+                for (const [key, label] of Object.entries(toolList)){
+                    const path = `tools.${toolType}.${key}`;
+                    setProperty(gearSetup, path, {label: game.i18n.localize(label)});
+                }
             }
-        }
-        // Martial Melee
-        if(!gearSetup.weapons?.martial?.melee){
-            for (const [key, label] of Object.entries(tovu.weaponList.martial.melee)){
-                const path = `weapons.martial.melee.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Martial Range
-        if(!gearSetup.weapons?.martial?.range){
-            for (const [key, label] of Object.entries(tovu.weaponList.martial.range)){
-                const path = `weapons.martial.range.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Tools: Artisan
-        if(!Object.keys(gearSetup.tools.artisan).length){
-            console.log(">>> In if statement");
-            for (const [key, label] of Object.entries(tovu.tools.artisan)){
-                console.log(">> in for loop, key:", key, "label:", game.i18n.localize(label));
-                const path = `tools.artisan.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Tools: Unique
-        if(!Object.keys(gearSetup.tools.unique).length){
-            for (const [key, label] of Object.entries(tovu.tools.unique)){
-                const path = `tools.unique.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Tools: Gaming
-        if(!Object.keys(gearSetup.tools.gaming).length){
-            for (const [key, label] of Object.entries(tovu.tools.gaming)){
-                const path = `tools.gaming.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Tools: Instruments
-        if(!Object.keys(gearSetup.tools.instruments).length){
-            for (const [key, label] of Object.entries(tovu.tools.instruments)){
-                const path = `tools.instruments.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        // Tools: Vehicle
-        if(!Object.keys(gearSetup.tools.vehicles).length){
-            for (const [key, label] of Object.entries(tovu.tools.vehicles)){
-                const path = `tools.vehicles.${key}`;
-                setProperty(gearSetup, path, {label: game.i18n.localize(label)});
-            }
-        }
-        this.actor.update({'system.gear': gearSetup});
+        });
+
+        this.actor.update({ 'system.gear': gearSetup });
 
         console.log("GetData call: ", this.actor.system.gear);
         return {
