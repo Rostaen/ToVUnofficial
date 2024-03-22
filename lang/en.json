@@ -70,6 +70,14 @@
       "style": "Style",
       "type": "Type"
     },
+    "armorList": {
+      "all": "All",
+      "ligh": "Light",
+      "medi": "Medium",
+      "heav": "Heavy",
+      "armo": "Armor",
+      "shie": "Shields"
+    },
     "weaponList": {
       "labels": {
         "all": "All",
@@ -77,8 +85,7 @@
         "mart": "Martial",
         "mele": "Melee",
         "rang": "Range",
-        "weap": "Weapons",
-        "armo": "Armor"
+        "weap": "Weapons"
       },
       "simple": {
         "melee": {

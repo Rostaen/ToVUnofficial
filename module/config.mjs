@@ -72,6 +72,12 @@ tovu.tools = {
       wate: "Water vehicles"
     }
 }
+tovu.armor = {
+    ligh: "tovu.armorList.ligh",
+    medi: "tovu.armorList.medi",
+    heav: "tovu.armorList.heav",
+    shie: "tovu.armorList.shie"
+}
 tovu.weaponList = {
     simple: {
         melee: {

@@ -42,6 +42,22 @@ export default class GearSkillsSheet extends FormApplication {
             });
         });
 
+        // Setting up armor
+        ['all', 'type'].forEach(type =>{
+            if(!Object.keys(gearSetup.armor?.[type] ?? {}).length){
+                const path = `armor.${type}`;
+                if(type === 'all'){
+                    setProperty(gearSetup, path, false);
+                }else{
+                    const armorList = tovu.armor;
+                    for (const [key, label] of Object.entries(armorList)){
+                        const armorPath = `${path}.${key}`;
+                        setProperty(gearSetup, armorPath, {label: game.i18n.localize(label)});
+                    }
+                }
+            }
+        });
+
         // Setting up tools
         const toolsData = {
             artisan: tovu.tools.artisan,
