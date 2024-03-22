@@ -76,10 +76,10 @@
             </div>
         {{else}}
             <div class="armorContainer">
-                <span class="armorAll"><input type="checkbox" name="system.gear.armor.all" data-label="simple" data-key="simple.all" class="armorInput" {{checked gear.armor.all}} > <span class="label">{{localize 'tovu.armorList.all'}} {{localize 'tovu.armorList.armo'}}</span></span>
+                <span class="armorAll"><input type="checkbox" name="system.gear.armor.all" data-label="simple" data-key="armor.all" class="armorInput" {{checked gear.armor.all}} > <span class="label">{{localize 'tovu.armorList.all'}} {{localize 'tovu.armorList.armo'}}</span></span>
                 <h2>{{localize 'tovu.armorList.armo'}}</h2>
                 <ul>
-                    {{#each gear.armor.types as |item key|}}
+                    {{#each gear.armor.type as |item key|}}
                         <li class="weapon"><input type="checkbox" name="system.gear.armor.type.{{key}}.label" data-category="armor" data-label="{{item.label}}" data-key="{{key}}" class="armorInput" {{checked item.value}} {{disabled item.disabled}} > <span class="label">{{item.label}}</span></li>
                     {{/each}}
                 </ul>

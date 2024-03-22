@@ -106,7 +106,9 @@ export default class GearSkillsSheet extends FormApplication {
         let updateData = {};
         let path = '';
 
-        if(toolName === 'simple.all' || toolName === 'martial.all'){
+        if(toolName === 'simple.all' || toolName === 'martial.all' || toolName === 'armor.all'){
+            // TODO: Update code for armor functionality like weapons
+
             const weaponPath = `system.gear.weapons.${toolName}`;
             updateData[weaponPath] = isChecked;
             const weaponType = toolName === 'simple.all' ? 'simple' : 'martial';
@@ -128,7 +130,8 @@ export default class GearSkillsSheet extends FormApplication {
             // Disable or enable all weapons based on 'allChecked'
             $(`.${weaponType}Weapon`).prop({ disabled: allChecked, checked: allChecked });
         }else{
-            path = `system.gear.${this.trait}.${toolCategory}.${toolName}`;
+            path = `system.gear.${this.trait}`;
+            this.trait === 'armor' ? path += `.type.${toolName}` : path += `.${toolCategory}.${toolName}`;
             updateData[`${path}.label`] = label;
             updateData[`${path}.value`] = isChecked;
         }
